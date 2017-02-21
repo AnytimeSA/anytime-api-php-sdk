@@ -2,7 +2,6 @@
 
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
-use Anytime\ApiClient\Constant\Method;
 use Anytime\ApiClient\Model\Request\ModelRequest;
 
 class GetApiCheckRequestDirector extends RequestDirector
@@ -21,7 +20,6 @@ class GetApiCheckRequestDirector extends RequestDirector
      */
     public function buildRequest()
     {
-        $this->requestBuilder->setMethod(Method::GET);
         $this->requestBuilder->setUri('apicheck');
         return $this;
     }

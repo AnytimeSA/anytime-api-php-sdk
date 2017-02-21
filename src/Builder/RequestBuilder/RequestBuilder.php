@@ -59,14 +59,6 @@ abstract class RequestBuilder
     }
 
     /**
-     * @param $method
-     */
-    public function setMethod($method)
-    {
-        $this->preBuiltData['method'] = $method;
-    }
-
-    /**
      * @param $uri
      */
     public function setUri($uri)
