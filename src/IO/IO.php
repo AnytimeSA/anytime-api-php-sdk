@@ -3,6 +3,7 @@
 namespace Anytime\ApiClient\IO;
 
 use Anytime\ApiClient\ApiClientSetting;
+use Anytime\ApiClient\Authenticator\AuthenticatorInterface;
 use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
@@ -59,6 +60,11 @@ abstract class IO
     protected $responseParser;
 
     /**
+     * @var AuthenticatorInterface
+     */
+    protected $responseAuthenticator;
+
+    /**
      * IO constructor.
      *
      * @param Client $client
@@ -69,6 +75,7 @@ abstract class IO
      * @param ApiClientExceptionFactory $apiClientExceptionFactory
      * @param ModelResponsePopulatorInterface $modelResponsePopulator
      * @param ParserInterface $responseParser
+     * @param AuthenticatorInterface $responseAuthenticator
      */
     public function __construct(
         Client $client,
@@ -78,7 +85,8 @@ abstract class IO
         RequestDirectorFactory $requestDirectorFactory,
         ApiClientExceptionFactory $apiClientExceptionFactory,
         ModelResponsePopulatorInterface $modelResponsePopulator,
-        ParserInterface $responseParser
+        ParserInterface $responseParser,
+        AuthenticatorInterface $responseAuthenticator
     )
     {
         $this->client = $client;
@@ -89,6 +97,7 @@ abstract class IO
         $this->apiClientExceptionFactory = $apiClientExceptionFactory;
         $this->modelResponsePopulator = $modelResponsePopulator;
         $this->responseParser = $responseParser;
+        $this->responseAuthenticator = $responseAuthenticator;
     }
 
     /**
@@ -107,7 +116,17 @@ abstract class IO
      */
     public function sendRequest(ModelRequestInterface $modelRequest)
     {
-        return $this->send($modelRequest);
+        $modelResponse = $this->send($modelRequest);
+
+        $isResponseAuthenticated = $this->responseAuthenticator->authenticate([
+            'hash'          =>  $modelResponse->getHeader()->getHash(),
+            'username'      =>  $this->setting->getOAuth2Username(),
+            'timestamp'     =>  $modelResponse->getHeader()->getTimestamp()
+        ]);
+
+        $modelResponse->setAuthenticated($isResponseAuthenticated);
+
+        return $modelResponse;
     }
 
     /**

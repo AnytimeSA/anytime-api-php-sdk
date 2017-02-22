@@ -18,6 +18,11 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     protected $data = [];
 
     /**
+     * @var bool
+     */
+    protected $authenticated = false;
+
+    /**
      * ModelResponse constructor.
      *
      * @param TimezoneNormalizerInterface $timezoneNormalizer
@@ -55,6 +60,25 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
         return $this->header;
     }
 
+
+    /**
+     * @return boolean
+     */
+    public function isAuthenticated()
+    {
+        return $this->authenticated;
+    }
+
+    /**
+     * @param boolean $authenticated
+     * @return ModelResponse
+     */
+    public function setAuthenticated($authenticated)
+    {
+        $this->authenticated = $authenticated;
+        return $this;
+    }
+
     /**
      * @param string $key
      * @return string
@@ -66,4 +90,5 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
         }
         return null;
     }
+
 }

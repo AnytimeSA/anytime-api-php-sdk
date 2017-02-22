@@ -2,6 +2,7 @@
 
 namespace Anytime\ApiClient;
 
+use Anytime\ApiClient\Authenticator\ResponseAuthenticator;
 use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Constant\Environment;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
@@ -59,7 +60,8 @@ class ApiClientFactory
                     new RequestDirectorFactory($setting),
                     new ApiClientExceptionFactory(),
                     new ModelResponsePopulator(),
-                    new JsonResponseParser()
+                    new JsonResponseParser(),
+                    new ResponseAuthenticator($setting)
                 )
             )
         );

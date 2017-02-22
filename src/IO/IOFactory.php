@@ -3,6 +3,7 @@
 namespace Anytime\ApiClient\IO;
 
 use Anytime\ApiClient\ApiClientSetting;
+use Anytime\ApiClient\Authenticator\AuthenticatorInterface;
 use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
@@ -54,6 +55,11 @@ class IOFactory
     private $responseParser;
 
     /**
+     * @var AuthenticatorInterface
+     */
+    private $responseAuthenticator;
+
+    /**
      * IOFactory constructor.
      *
      * @param Client $client
@@ -64,6 +70,7 @@ class IOFactory
      * @param ApiClientExceptionFactory $apiClientExceptionFactory
      * @param ModelResponsePopulatorInterface $modelResponsePopulator
      * @param ParserInterface $responseParser
+     * @param AuthenticatorInterface $responseAuthenticator
      */
     public function __construct(
         Client $client,
@@ -73,7 +80,8 @@ class IOFactory
         RequestDirectorFactory $requestDirectorFactory,
         ApiClientExceptionFactory $apiClientExceptionFactory,
         ModelResponsePopulatorInterface $modelResponsePopulator,
-        ParserInterface $responseParser
+        ParserInterface $responseParser,
+        AuthenticatorInterface $responseAuthenticator
     )
     {
         $this->client = $client;
@@ -84,6 +92,7 @@ class IOFactory
         $this->apiClientExceptionFactory = $apiClientExceptionFactory;
         $this->modelResponsePopulator = $modelResponsePopulator;
         $this->responseParser = $responseParser;
+        $this->responseAuthenticator = $responseAuthenticator;
     }
 
     /**
@@ -103,7 +112,8 @@ class IOFactory
                 $this->requestDirectorFactory,
                 $this->apiClientExceptionFactory,
                 $this->modelResponsePopulator,
-                $this->responseParser
+                $this->responseParser,
+                $this->responseAuthenticator
             );
         }
 
