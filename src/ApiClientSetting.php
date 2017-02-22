@@ -64,6 +64,11 @@ class ApiClientSetting
     /**
      * @var string
      */
+    private $oAuth2AccessToken = '';
+
+    /**
+     * @var string
+     */
     private $privateRSAKey = '';
 
     /**
@@ -274,6 +279,24 @@ class ApiClientSetting
     public function setOAuth2Password($oAuth2Password)
     {
         $this->oAuth2Password = $oAuth2Password;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOAuth2AccessToken()
+    {
+        return $this->oAuth2AccessToken;
+    }
+
+    /**
+     * @param string $oAuth2AccessToken
+     * @return ApiClientSetting
+     */
+    public function setOAuth2AccessToken($oAuth2AccessToken)
+    {
+        $this->oAuth2AccessToken = $oAuth2AccessToken;
         return $this;
     }
 
