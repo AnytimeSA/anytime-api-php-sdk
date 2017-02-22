@@ -2,13 +2,15 @@
 
 namespace Anytime\ApiClient;
 
-use Anytime\ApiClient\ApiContainer\GetApiContainer;
-use Anytime\ApiClient\ApiContainer\PostApiContainer;
-use Anytime\ApiClient\ApiContainer\PutApiContainer;
 use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Constant\Environment;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
+use Anytime\ApiClient\IO\IOFactory;
+use Anytime\ApiClient\IO\IOList;
+use Anytime\ApiClient\Model\Populator\ModelResponsePopulator;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
+use Anytime\ApiClient\Model\Response\ModelResponseFactory;
+use Anytime\ApiClient\Parser\ResponseParser\JsonResponseParser;
 use GuzzleHttp\Client;
 
 class ApiClientFactory
@@ -37,7 +39,6 @@ class ApiClientFactory
         }
 
         $setting = $this->createSettingObject($environment, $params);
-        $modelRequestFactory = new ModelRequestFactory();
 
         foreach($this->allowedParams as $allowedParam => $setter) {
             if(array_key_exists($allowedParam, $params)) {
@@ -46,16 +47,21 @@ class ApiClientFactory
         }
 
         return new ApiClient(
-            new Client([
-                'timeout'   =>  0
-            ]),
             $setting,
-            $modelRequestFactory,
-            new RequestDirectorFactory($setting),
-            new ApiClientExceptionFactory(),
-            new GetApiContainer($modelRequestFactory),
-            new PostApiContainer($modelRequestFactory),
-            new PutApiContainer($modelRequestFactory)
+            new IOList(
+                new IOFactory(
+                    new Client([
+                        'timeout'   =>  0
+                    ]),
+                    $setting,
+                    new ModelRequestFactory(),
+                    new ModelResponseFactory(),
+                    new RequestDirectorFactory($setting),
+                    new ApiClientExceptionFactory(),
+                    new ModelResponsePopulator(),
+                    new JsonResponseParser()
+                )
+            )
         );
     }
 
