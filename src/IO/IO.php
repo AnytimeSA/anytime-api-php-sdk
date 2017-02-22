@@ -7,15 +7,16 @@ use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
-use Anytime\ApiClient\Model\Request\ModelRequest;
+use Anytime\ApiClient\Model\Request\Get\ModelRequestGetApiCheck;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
-use Anytime\ApiClient\Model\Response\ModelResponse;
+use Anytime\ApiClient\Model\Request\ModelRequestInterface;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
+use Anytime\ApiClient\Model\Response\ModelResponseInterface;
 use Anytime\ApiClient\Parser\ParserInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 
-abstract class IO implements IOInterface
+abstract class IO
 {
     /**
      * @var Client
@@ -91,11 +92,30 @@ abstract class IO implements IOInterface
     }
 
     /**
-     * @param ModelRequest $modelRequest
-     * @throws ApiClientException
-     * @return ModelResponse
+     * @param string $method
+     * @param string $apiName
+     * @return ModelRequestGetApiCheck
      */
-    protected function send(ModelRequest $modelRequest)
+    protected function createRequestByMethodAndApi($method, $apiName)
+    {
+        return $this->modelRequestFactory->create($method, $apiName);
+    }
+
+    /**
+     * @param ModelRequestInterface $modelRequest
+     * @return ModelResponseInterface
+     */
+    public function sendRequest(ModelRequestInterface $modelRequest)
+    {
+        return $this->send($modelRequest);
+    }
+
+    /**
+     * @param ModelRequestInterface $modelRequest
+     * @throws ApiClientException
+     * @return ModelResponseInterface
+     */
+    protected function send(ModelRequestInterface $modelRequest)
     {
         $request = $this->buildRequest($modelRequest);
         try {
@@ -117,10 +137,10 @@ abstract class IO implements IOInterface
     }
 
     /**
-     * @param ModelRequest $modelRequest
+     * @param ModelRequestInterface $modelRequest
      * @return Request
      */
-    protected function buildRequest(ModelRequest $modelRequest)
+    protected function buildRequest(ModelRequestInterface $modelRequest)
     {
         $director = $this->requestDirectorFactory->create(
             $modelRequest->getMethod(),

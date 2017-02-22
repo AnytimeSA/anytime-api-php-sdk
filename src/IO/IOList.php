@@ -22,7 +22,7 @@ class IOList
     }
 
     /**
-     * @return IOInterface
+     * @return ApiCheckIO
      */
     public function apicheck()
     {
