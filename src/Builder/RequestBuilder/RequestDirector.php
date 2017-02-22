@@ -2,7 +2,7 @@
 
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
-use Anytime\ApiClient\Model\Request\ModelRequest;
+use Anytime\ApiClient\Model\Request\ModelRequestInterface;
 use GuzzleHttp\Psr7\Request;
 
 abstract class RequestDirector
@@ -28,8 +28,8 @@ abstract class RequestDirector
     abstract public function buildRequest();
 
     /**
-     * @param ModelRequest $modelRequest
+     * @param ModelRequestInterface $modelRequest
      * @return Request
      */
-    abstract public function getRequest(ModelRequest $modelRequest);
+    abstract public function getRequest(ModelRequestInterface $modelRequest);
 }

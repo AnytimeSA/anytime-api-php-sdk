@@ -2,15 +2,15 @@
 
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
-use Anytime\ApiClient\Model\Request\ModelRequest;
+use Anytime\ApiClient\Model\Request\ModelRequestInterface;
 
 class GetApiCheckRequestDirector extends RequestDirector
 {
     /**
-     * @param ModelRequest $modelRequest
+     * @param ModelRequestInterface $modelRequest
      * @return \Anytime\ApiClient\RequestSigner\RequestSignerInterface
      */
-    public function getRequest(ModelRequest $modelRequest)
+    public function getRequest(ModelRequestInterface $modelRequest)
     {
         return $this->requestBuilder->getSignedRequest($modelRequest);
     }
