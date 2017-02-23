@@ -13,7 +13,7 @@ class GetApiCheckRequestBuilder extends RequestBuilder
      */
     public function getRequest(ModelRequest $modelRequest)
     {
-        return new Request(
+        return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri'])
         );

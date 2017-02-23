@@ -4,6 +4,7 @@ namespace Anytime\ApiClient\Builder\RequestBuilder;
 
 
 use Anytime\ApiClient\ApiClientSetting;
+use Anytime\ApiClient\Constant\Method;
 use Anytime\ApiClient\Model\Request\ModelRequest;
 use Anytime\ApiClient\RequestSigner\RequestSignerInterface;
 use GuzzleHttp\Psr7\Request;
@@ -46,6 +47,39 @@ abstract class RequestBuilder
      * @param ModelRequest $modelRequest
      */
     abstract public function getRequest(ModelRequest $modelRequest);
+
+    /**
+     * @param string $method
+     * @param $fullUrl
+     * @param array $formData
+     * @param array $headers
+     * @return Request
+     */
+    public function createRequestObject($method, $fullUrl, array $formData = [], array $headers = [])
+    {
+        if($method === Method::GET) {
+
+            return new Request(
+                $method,
+                $fullUrl,
+                $headers
+            );
+
+        } else {
+            if(count($headers) < 1) {
+                $headers = [
+                    'Content-type' => 'application/x-www-form-urlencoded'
+                ];
+            }
+
+            return new Request(
+                $method,
+                $fullUrl,
+                $headers,
+                http_build_query($formData, '', '&amp;')
+            );
+        }
+    }
 
     /**
      * @param ModelRequest $modelRequest

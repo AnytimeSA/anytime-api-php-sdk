@@ -13,17 +13,12 @@ class PostApiCheckPostRequestBuilder extends RequestBuilder
      */
     public function getRequest(ModelRequest $modelRequest)
     {
-        $params = [
-            'test_param'  =>  $modelRequest->getTestParam()
-        ];
-
-        return new Request(
+        return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             [
-                'Content-type' => 'application/x-www-form-urlencoded'
-            ],
-            http_build_query($params, '', '&amp;')
+                'test_param'  =>  $modelRequest->getTestParam()
+            ]
         );
     }
 }
