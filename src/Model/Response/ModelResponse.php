@@ -3,10 +3,16 @@
 namespace Anytime\ApiClient\Model\Response;
 
 use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizerInterface;
+use Anytime\ApiClient\Hydrator\HydratorInterface;
 use Anytime\ApiClient\Model\Model;
 
 abstract class ModelResponse extends Model implements ModelResponseInterface
 {
+    /**
+     * @var HydratorInterface
+     */
+    protected $hydrator;
+
     /**
      * @var ModelResponseHeader
      */
@@ -25,11 +31,13 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     /**
      * ModelResponse constructor.
      *
+     * @param HydratorInterface $hydrator
      * @param TimezoneNormalizerInterface $timezoneNormalizer
      * @param ModelResponseHeader $header
      */
-    public function __construct(TimezoneNormalizerInterface $timezoneNormalizer, ModelResponseHeader $header)
+    public function __construct(HydratorInterface $hydrator, TimezoneNormalizerInterface $timezoneNormalizer, ModelResponseHeader $header)
     {
+        $this->hydrator = $hydrator;
         $this->header = $header;
         parent::__construct($timezoneNormalizer);
     }

@@ -3,6 +3,7 @@
 namespace Anytime\ApiClient\Model\Factory;
 
 use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizer;
+use Anytime\ApiClient\Hydrator\FromSnakeCaseHydrator;
 use Anytime\ApiClient\Model\Model;
 
 abstract class ModelFactory
@@ -24,7 +25,7 @@ abstract class ModelFactory
 
         if(class_exists($class)) {
             if($modelType === 'ModelResponse') {
-                return new $class(new TimezoneNormalizer(), $this->createHeader());
+                return new $class(new FromSnakeCaseHydrator(), new TimezoneNormalizer(), $this->createHeader());
             } else {
                 return new $class(new TimezoneNormalizer());
             }
