@@ -37,5 +37,13 @@ class IOList
         return $this->IOFactory->create(API::APICHECK_POST);
     }
 
+    /**
+     * @return AccountListIO
+     */
+    public function apiAccountList()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_LIST);
+    }
+
 
 }
