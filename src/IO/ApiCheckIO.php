@@ -8,7 +8,7 @@ use Anytime\ApiClient\Model\Request\Get\ModelRequestGetApiCheck;
 use Anytime\ApiClient\Model\Response\Get\ModelResponseGetApiCheck;
 
 /**
- * @method ModelResponseGetApiCheck sendRequest(ModelRequestGetApi $modelRequest)
+ * @method ModelResponseGetApiCheck sendRequest(ModelRequestGetApiCheck $modelRequest)
  */
 class ApiCheckIO extends IO
 {
