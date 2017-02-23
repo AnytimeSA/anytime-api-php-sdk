@@ -19,9 +19,10 @@ class API
     const CARD_INFO = 'CardInfo';
     const CARD_ORDER = 'CardOrder';
     const CARD_UPDATE = 'CardUpdate';
-    const CARD_STATEMENT = 'CardStatement';
+    const CARD_TRANSACTION = 'CardTransaction';
     const CARD_CREDIT = 'CardCredit';
     const CARD_DEBIT = 'CardDebit';
     const CARD_SEND_PIN = 'CardSendPin';
+    const CARD_SEND_PAN = 'CardSendPan';
     const CARD_DETAILS_DISPLAY = 'CardDetailsDisplay';
 }
