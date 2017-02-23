@@ -53,5 +53,13 @@ class IOList
         return $this->IOFactory->create(API::ACCOUNT_INFO);
     }
 
+    /**
+     * @return AccountCardListIO
+     */
+    public function apiAccountCardList()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_CARD_LIST);
+    }
+
 
 }

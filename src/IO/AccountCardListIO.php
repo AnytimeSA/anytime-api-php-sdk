@@ -10,7 +10,7 @@ use Anytime\ApiClient\Model\Response\Get\ModelResponseGetAccountCardList;
 /**
  * @method ModelResponseGetAccountCardList sendRequest(ModelRequestGetAccountCardList $modelRequest)
  */
-class AccountCardList extends IO
+class AccountCardListIO extends IO
 {
     /**
      * @return ModelRequestGetAccountCardList
