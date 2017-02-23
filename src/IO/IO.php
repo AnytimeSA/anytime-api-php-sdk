@@ -165,7 +165,7 @@ abstract class IO
             $modelRequest->getMethod(),
             $modelRequest->getApiName()
         );
-        $request = $director->buildRequest()->getRequest($modelRequest);
+        $request = $director->buildRequest($modelRequest)->getRequest($modelRequest);
         $request = $request->withHeader('Authorization', 'Bearer ' . $this->setting->getOAuth2AccessToken());
         return $request;
     }

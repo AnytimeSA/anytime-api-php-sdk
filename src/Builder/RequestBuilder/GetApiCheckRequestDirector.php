@@ -16,9 +16,10 @@ class GetApiCheckRequestDirector extends RequestDirector
     }
 
     /**
+     * @param ModelRequestInterface $modelRequest
      * @return GetApiCheckRequestDirector
      */
-    public function buildRequest()
+    public function buildRequest(ModelRequestInterface $modelRequest)
     {
         $this->requestBuilder->setUri('apicheck');
         return $this;

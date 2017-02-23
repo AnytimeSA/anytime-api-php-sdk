@@ -16,9 +16,10 @@ class GetAccountListRequestDirector extends RequestDirector
     }
 
     /**
+     * @param ModelRequestInterface $modelRequest
      * @return GetAccountListRequestDirector
      */
-    public function buildRequest()
+    public function buildRequest(ModelRequestInterface $modelRequest)
     {
         $this->requestBuilder->setUri('accounts');
         return $this;

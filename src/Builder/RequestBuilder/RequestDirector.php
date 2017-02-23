@@ -23,9 +23,10 @@ abstract class RequestDirector
     }
 
     /**
+     * @param ModelRequestInterface $modelRequest
      * @return RequestDirector
      */
-    abstract public function buildRequest();
+    abstract public function buildRequest(ModelRequestInterface $modelRequest);
 
     /**
      * @param ModelRequestInterface $modelRequest
