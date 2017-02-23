@@ -24,8 +24,18 @@ class IOList
     /**
      * @return ApiCheckIO
      */
-    public function apicheck()
+    public function apiCheck()
     {
         return $this->IOFactory->create(API::APICHECK);
     }
+
+    /**
+     * @return ApiCheckPostIO
+     */
+    public function apiCheckPost()
+    {
+        return $this->IOFactory->create(API::APICHECK_POST);
+    }
+
+
 }
