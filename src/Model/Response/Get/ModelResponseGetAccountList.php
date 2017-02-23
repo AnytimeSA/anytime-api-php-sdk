@@ -11,11 +11,7 @@ class ModelResponseGetAccountList extends ModelResponseGet
     {
         $accounts = [];
         foreach($this->data['accounts'] as $elem) {
-            $account = (new ModelResponseGetAccountListAccount())
-                ->setAccId($elem['acc_id'])
-                ->setAccType($elem['acc_type'])
-            ;
-            $accounts[] = $account;
+            $accounts[] = $this->hydrator->hydrate(new ModelResponseGetAccountListAccount(), $elem);
         }
         return $accounts;
     }
