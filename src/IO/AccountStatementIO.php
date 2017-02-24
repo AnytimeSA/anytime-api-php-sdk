@@ -10,7 +10,7 @@ use Anytime\ApiClient\Model\Response\Get\ModelResponseGetAccountStatement;
 /**
  * @method ModelResponseGetAccountStatement sendRequest(ModelRequestGetAccountStatement $modelRequest)
  */
-class AccountStatement extends IO
+class AccountStatementIO extends IO
 {
     /**
      * @return ModelRequestGetAccountStatement

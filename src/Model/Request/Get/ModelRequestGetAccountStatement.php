@@ -7,6 +7,11 @@ use Anytime\ApiClient\Constant\API;
 class ModelRequestGetAccountStatement extends ModelRequestGet
 {
     /**
+     * @var integer
+     */
+    private $id;
+
+    /**
      * @var \DateTime
      */
     private $dateStart;
@@ -15,6 +20,24 @@ class ModelRequestGetAccountStatement extends ModelRequestGet
      * @var \DateTime
      */
     private $dateEnd;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return ModelRequestGetAccountStatement
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return string

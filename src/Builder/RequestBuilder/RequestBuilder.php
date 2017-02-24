@@ -102,6 +102,7 @@ abstract class RequestBuilder
 
     /**
      * @param string $uri
+     * @param bool $withVersion
      * @return string
      */
     public function getFullUrl($uri, $withVersion = true)
