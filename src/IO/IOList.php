@@ -40,7 +40,7 @@ class IOList
     /**
      * @return AccountListIO
      */
-    public function apiAccountList()
+    public function accountList()
     {
         return $this->IOFactory->create(API::ACCOUNT_LIST);
     }
@@ -48,7 +48,7 @@ class IOList
     /**
      * @return AccountInfoIO
      */
-    public function apiAccountInfo()
+    public function accountInfo()
     {
         return $this->IOFactory->create(API::ACCOUNT_INFO);
     }
@@ -56,7 +56,7 @@ class IOList
     /**
      * @return AccountCardListIO
      */
-    public function apiAccountCardList()
+    public function accountCardList()
     {
         return $this->IOFactory->create(API::ACCOUNT_CARD_LIST);
     }
@@ -64,10 +64,17 @@ class IOList
     /**
      * @return OAuth2TokenIO
      */
-    public function apiOAuth2Token()
+    public function oauth2Token()
     {
         return $this->IOFactory->create(API::OAUTH2_TOKEN);
     }
 
+    /**
+     * @return AccountStatementIO
+     */
+    public function accountStatement()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_STATEMENT);
+    }
 
 }
