@@ -4,7 +4,7 @@ namespace Anytime\ApiClient\Model\Request\Get;
 
 use Anytime\ApiClient\Constant\API;
 
-class ModelRequestGetAccountStatementList extends ModelRequestGet
+class ModelRequestGetAccountStatement extends ModelRequestGet
 {
     /**
      * @var \DateTime
@@ -34,7 +34,7 @@ class ModelRequestGetAccountStatementList extends ModelRequestGet
 
     /**
      * @param \DateTime|string $dateStart
-     * @return ModelRequestGetAccountStatementList
+     * @return ModelRequestGetAccountStatement
      */
     public function setDateStart($dateStart)
     {
@@ -52,7 +52,7 @@ class ModelRequestGetAccountStatementList extends ModelRequestGet
 
     /**
      * @param \DateTime|string $dateEnd
-     * @return ModelRequestGetAccountStatementList
+     * @return ModelRequestGetAccountStatement
      */
     public function setDateEnd($dateEnd)
     {
