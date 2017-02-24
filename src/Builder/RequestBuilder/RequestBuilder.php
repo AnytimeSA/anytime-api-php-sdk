@@ -76,7 +76,7 @@ abstract class RequestBuilder
                 $method,
                 $fullUrl,
                 $headers,
-                http_build_query($formData, '', '&amp;')
+                http_build_query($formData, '', '&')
             );
         }
     }
@@ -104,7 +104,7 @@ abstract class RequestBuilder
      * @param string $uri
      * @return string
      */
-    public function getFullUrl($uri)
+    public function getFullUrl($uri, $withVersion = true)
     {
         $userInfo = $this->setting->getUserInfo();
         $port = $this->setting->getPort();
@@ -114,7 +114,7 @@ abstract class RequestBuilder
             $this->setting->getDomain() .
             (empty($port) ? '' : ':' . $port) .
             $this->setting->getBasePath() .
-            $this->setting->getApiVersion() . '/' .
+            ($withVersion ? $this->setting->getApiVersion() . '/' : '') .
             $uri
         ;
     }
