@@ -136,9 +136,15 @@ abstract class IO
      */
     protected function send(ModelRequestInterface $modelRequest)
     {
-        $request = $this->buildRequest($modelRequest);
+        $IORequest = $this->buildRequest($modelRequest);
+
         try {
-            $response = $this->client->send($request);
+
+            $response = $this->client->request(
+                $IORequest->getMethod(),
+                $IORequest->getUrl(),
+                $IORequest->getRequestArrangedOptions()
+            );
 
             $modelResponse = $this->modelResponseFactory->create(
                 $modelRequest->getMethod(),
@@ -157,16 +163,16 @@ abstract class IO
 
     /**
      * @param ModelRequestInterface $modelRequest
-     * @return Request
+     * @return IORequest
      */
     protected function buildRequest(ModelRequestInterface $modelRequest)
     {
-        $director = $this->requestDirectorFactory->create(
-            $modelRequest->getMethod(),
-            $modelRequest->getApiName()
+        return $this
+            ->requestDirectorFactory
+            ->create($modelRequest->getMethod(), $modelRequest->getApiName())
+            ->buildRequest($modelRequest)
+            ->getRequest($modelRequest)
+            ->addHeader('Authorization', 'Bearer ' . $this->setting->getOAuth2AccessToken()
         );
-        $request = $director->buildRequest($modelRequest)->getRequest($modelRequest);
-        $request = $request->withHeader('Authorization', 'Bearer ' . $this->setting->getOAuth2AccessToken());
-        return $request;
     }
 }

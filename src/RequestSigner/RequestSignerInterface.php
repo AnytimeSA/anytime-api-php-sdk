@@ -2,14 +2,14 @@
 
 namespace Anytime\ApiClient\RequestSigner;
 
-use Psr\Http\Message\RequestInterface;
+use Anytime\ApiClient\IO\IORequest;
 
 interface RequestSignerInterface
 {
     /**
-     * @param RequestInterface $request
+     * @param IORequest $request
      * @param string $rsaKey
-     * @return RequestInterface
+     * @return IORequest
      */
-    public function sign(RequestInterface $request, $rsaKey);
+    public function sign(IORequest $request, $rsaKey);
 }

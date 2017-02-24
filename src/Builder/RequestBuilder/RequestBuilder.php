@@ -4,7 +4,7 @@ namespace Anytime\ApiClient\Builder\RequestBuilder;
 
 
 use Anytime\ApiClient\ApiClientSetting;
-use Anytime\ApiClient\Constant\Method;
+use Anytime\ApiClient\IO\IORequest;
 use Anytime\ApiClient\Model\Request\ModelRequest;
 use Anytime\ApiClient\RequestSigner\RequestSignerInterface;
 use GuzzleHttp\Psr7\Request;
@@ -53,43 +53,31 @@ abstract class RequestBuilder
      * @param $fullUrl
      * @param array $formData
      * @param array $headers
-     * @return Request
+     * @param array $files
+     * @return IORequest
      */
-    public function createRequestObject($method, $fullUrl, array $formData = [], array $headers = [])
+    public function createRequestObject($method, $fullUrl, array $formData = [], array $headers = [], array $files = [])
     {
-        if($method === Method::GET) {
-
-            return new Request(
-                $method,
-                $fullUrl,
-                $headers
-            );
-
-        } else {
-            if(count($headers) < 1) {
-                $headers = [
-                    'Content-type' => 'application/x-www-form-urlencoded'
-                ];
-            }
-
-            return new Request(
-                $method,
-                $fullUrl,
-                $headers,
-                http_build_query($formData, '', '&')
-            );
-        }
+        $request = (new IORequest())
+            ->setMethod($method)
+            ->setUrl($fullUrl)
+            ->setFormData($formData)
+            ->setHeaders($headers)
+            ->setFiles($files)
+        ;
+        return $request;
     }
 
     /**
      * @param ModelRequest $modelRequest
-     * @return RequestSignerInterface
+     * @return IORequest
      */
     public function getSignedRequest(ModelRequest $modelRequest)
     {
         return $this->requestSigner->sign(
             $this->getRequest($modelRequest),
-            $this->setting->getPrivateRSAKey());
+            $this->setting->getPrivateRSAKey()
+        );
     }
 
     /**

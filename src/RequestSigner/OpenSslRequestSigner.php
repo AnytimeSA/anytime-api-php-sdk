@@ -2,23 +2,23 @@
 
 namespace Anytime\ApiClient\RequestSigner;
 
-use Psr\Http\Message\RequestInterface;
+use Anytime\ApiClient\IO\IORequest;
 
 class OpenSslRequestSigner implements RequestSignerInterface
 {
     /**
-     * @param RequestInterface $request
+     * @param IORequest $request
      * @param $rsaKey
-     * @return array
+     * @return IORequest
      */
-    public function sign(RequestInterface $request, $rsaKey)
+    public function sign(IORequest $request, $rsaKey)
     {
         $signature = '';
         $data = sha1(microtime(true).rand(0, PHP_INT_MAX));
 
         if(@openssl_sign($data, $signature, $rsaKey)) {
-            $request = $request->withAddedHeader('X-Validation-Data', $data);
-            $request = $request->withAddedHeader('X-Signed-Request', base64_encode($signature));
+            $request->addHeader('X-Validation-Data', $data);
+            $request->addHeader('X-Signed-Request', base64_encode($signature));
         }
 
         return $request;
