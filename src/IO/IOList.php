@@ -77,4 +77,12 @@ class IOList
         return $this->IOFactory->create(API::ACCOUNT_STATEMENT);
     }
 
+    /**
+     * @return CardTransactionIO
+     */
+    public function cardTransaction()
+    {
+        return $this->IOFactory->create(API::CARD_TRANSACTION);
+    }
+
 }

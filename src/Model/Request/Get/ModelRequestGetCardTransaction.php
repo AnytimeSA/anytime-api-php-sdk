@@ -26,6 +26,10 @@ class ModelRequestGetCardTransaction extends ModelRequestGet
      */
     private $limitNumber;
 
+    /**
+     * @var string
+     */
+    private $cardRef;
 
     /**
      * @return string
@@ -33,6 +37,24 @@ class ModelRequestGetCardTransaction extends ModelRequestGet
     public function getApiName()
     {
         return API::CARD_TRANSACTION;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardRef()
+    {
+        return $this->cardRef;
+    }
+
+    /**
+     * @param string $cardRef
+     * @return ModelRequestGetCardTransaction
+     */
+    public function setCardRef($cardRef)
+    {
+        $this->cardRef = $cardRef;
+        return $this;
     }
 
     /**
