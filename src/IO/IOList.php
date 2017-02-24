@@ -61,5 +61,13 @@ class IOList
         return $this->IOFactory->create(API::ACCOUNT_CARD_LIST);
     }
 
+    /**
+     * @return OAuth2TokenIO
+     */
+    public function apiOAuth2Token()
+    {
+        return $this->IOFactory->create(API::OAUTH2_TOKEN);
+    }
+
 
 }
