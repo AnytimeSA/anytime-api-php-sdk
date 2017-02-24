@@ -8,15 +8,6 @@ use Anytime\ApiClient\Model\Request\Post\ModelRequestPostCardSendPin;
 class PostCardSendPinRequestDirector extends RequestDirector
 {
     /**
-     * @param ModelRequestInterface $modelRequest
-     * @return \Anytime\ApiClient\RequestSigner\RequestSignerInterface
-     */
-    public function getRequest(ModelRequestInterface $modelRequest)
-    {
-        return $this->requestBuilder->getSignedRequest($modelRequest);
-    }
-
-    /**
      * @param ModelRequestInterface|ModelRequestPostCardSendPin $modelRequest
      * @return PostCardSendPinRequestDirector
      */

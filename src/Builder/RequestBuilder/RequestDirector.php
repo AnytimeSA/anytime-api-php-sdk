@@ -3,6 +3,7 @@
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
 use Anytime\ApiClient\Model\Request\ModelRequestInterface;
+use Anytime\ApiClient\RequestSigner\RequestSignerInterface;
 use GuzzleHttp\Psr7\Request;
 
 abstract class RequestDirector
@@ -30,7 +31,10 @@ abstract class RequestDirector
 
     /**
      * @param ModelRequestInterface $modelRequest
-     * @return Request
+     * @return RequestSignerInterface
      */
-    abstract public function getRequest(ModelRequestInterface $modelRequest);
+    public function getRequest(ModelRequestInterface $modelRequest)
+    {
+        return $this->requestBuilder->getSignedRequest($modelRequest);
+    }
 }
