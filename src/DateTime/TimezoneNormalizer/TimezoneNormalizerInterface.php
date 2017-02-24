@@ -5,7 +5,7 @@ namespace Anytime\ApiClient\DateTime\TimezoneNormalizer;
 interface TimezoneNormalizerInterface
 {
     /**
-     * @param string $dateTime
+     * @param \DateTime|string $dateTime
      * @return \DateTime
      */
     public function normalize($dateTime);
