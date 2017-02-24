@@ -1,95 +1,61 @@
 <?php
 
-namespace Anytime\ApiClient\Model\Request\Post;
+namespace Anytime\ApiClient\Model\Response\Post;
 
-use Anytime\ApiClient\Constant\API;
-
-class ModelRequestPostAccountKyc extends ModelRequestPost
+class ModelResponsePostAccountKycFileStatus
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserSelfie
      */
     private $userSelfie;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserIdentity
      */
     private $userIdentity;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserIdentityBack
      */
     private $userIdentityBack;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserDom1
      */
     private $userDom1;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserIdentityHost
      */
     private $userIdentityHost;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserIdentityBackHost
      */
     private $userIdentityBackHost;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserDomHost
      */
     private $userDomHost;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusUserAffidavit
      */
     private $userAffidavit;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusCorpStatus
      */
     private $corpStatus;
 
     /**
-     * @var string
+     * @var ModelResponsePostAccountKycFileStatusCorpKbis
      */
     private $corpKbis;
 
-
     /**
-     * @return string
-     */
-    public function getApiName()
-    {
-        return API::ACCOUNT_KYC;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     * @return ModelRequestPostAccountKyc
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserSelfie
      */
     public function getUserSelfie()
     {
@@ -97,8 +63,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userSelfie
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserSelfie $userSelfie
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserSelfie($userSelfie)
     {
@@ -107,7 +73,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserIdentity
      */
     public function getUserIdentity()
     {
@@ -115,8 +81,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userIdentity
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserIdentity $userIdentity
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserIdentity($userIdentity)
     {
@@ -125,7 +91,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserIdentityBack
      */
     public function getUserIdentityBack()
     {
@@ -133,8 +99,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userIdentityBack
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserIdentityBack $userIdentityBack
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserIdentityBack($userIdentityBack)
     {
@@ -143,7 +109,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserDom1
      */
     public function getUserDom1()
     {
@@ -151,8 +117,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userDom1
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserDom1 $userDom1
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserDom1($userDom1)
     {
@@ -161,7 +127,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserIdentityHost
      */
     public function getUserIdentityHost()
     {
@@ -169,8 +135,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userIdentityHost
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserIdentityHost $userIdentityHost
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserIdentityHost($userIdentityHost)
     {
@@ -179,7 +145,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserIdentityBackHost
      */
     public function getUserIdentityBackHost()
     {
@@ -187,8 +153,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userIdentityBackHost
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserIdentityBackHost $userIdentityBackHost
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserIdentityBackHost($userIdentityBackHost)
     {
@@ -197,7 +163,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserDomHost
      */
     public function getUserDomHost()
     {
@@ -205,8 +171,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userDomHost
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserDomHost $userDomHost
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserDomHost($userDomHost)
     {
@@ -215,7 +181,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusUserAffidavit
      */
     public function getUserAffidavit()
     {
@@ -223,8 +189,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $userAffidavit
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusUserAffidavit $userAffidavit
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setUserAffidavit($userAffidavit)
     {
@@ -233,7 +199,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusCorpStatus
      */
     public function getCorpStatus()
     {
@@ -241,8 +207,8 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $corpStatus
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusCorpStatus $corpStatus
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setCorpStatus($corpStatus)
     {
@@ -251,7 +217,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @return string
+     * @return ModelResponsePostAccountKycFileStatusCorpKbis
      */
     public function getCorpKbis()
     {
@@ -259,16 +225,13 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param string $corpKbis
-     * @return ModelRequestPostAccountKyc
+     * @param ModelResponsePostAccountKycFileStatusCorpKbis $corpKbis
+     * @return ModelResponsePostAccountKycFileStatus
      */
     public function setCorpKbis($corpKbis)
     {
         $this->corpKbis = $corpKbis;
         return $this;
     }
-
-
-
 
 }
