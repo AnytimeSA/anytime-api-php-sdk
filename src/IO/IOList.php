@@ -22,6 +22,14 @@ class IOList
     }
 
     /**
+     * @return OAuth2TokenIO
+     */
+    public function oauth2Token()
+    {
+        return $this->IOFactory->create(API::OAUTH2_TOKEN);
+    }
+
+    /**
      * @return ApiCheckIO
      */
     public function apiCheck()
@@ -62,11 +70,43 @@ class IOList
     }
 
     /**
-     * @return OAuth2TokenIO
+     * @return AccountKycIO
      */
-    public function oauth2Token()
+    public function accountKyc()
     {
-        return $this->IOFactory->create(API::OAUTH2_TOKEN);
+        return $this->IOFactory->create(API::ACCOUNT_KYC);
+    }
+
+    /**
+     * @return AccountCreditTransferIO
+     */
+    public function accountCreditTransfer()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_CREDIT_TRANSFER);
+    }
+
+    /**
+     * @return AccountCreditTransferIO
+     */
+    public function accountBalance()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_BALANCE);
+    }
+
+    /**
+     * @return AccountUpdateIO
+     */
+    public function accountUpdate()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_UPDATE);
+    }
+
+    /**
+     * @return AccountCreationIO
+     */
+    public function accountCreation()
+    {
+        return $this->IOFactory->create(API::ACCOUNT_CREATION);
     }
 
     /**
@@ -84,5 +124,62 @@ class IOList
     {
         return $this->IOFactory->create(API::CARD_TRANSACTION);
     }
+
+    /**
+     * @return CardSendPinIO
+     */
+    public function cardSendPin()
+    {
+        return $this->IOFactory->create(API::CARD_SEND_PIN);
+    }
+
+    /**
+     * @return CardSendPanIO
+     */
+    public function cardSendPan()
+    {
+        return $this->IOFactory->create(API::CARD_SEND_PAN);
+    }
+
+    /**
+     * @return CardDetailsDisplayIO
+     */
+    public function cardDetailsDisplay()
+    {
+        return $this->IOFactory->create(API::CARD_DETAILS_DISPLAY);
+    }
+
+    /**
+     * @return CardCreditIO
+     */
+    public function cardCredit()
+    {
+        return $this->IOFactory->create(API::CARD_CREDIT);
+    }
+
+    /**
+     * @return CardDebitIO
+     */
+    public function cardDebit()
+    {
+        return $this->IOFactory->create(API::CARD_DEBIT);
+    }
+
+    /**
+     * @return CardUpdateIO
+     */
+    public function cardUpdate()
+    {
+        return $this->IOFactory->create(API::CARD_UPDATE);
+    }
+
+    /**
+     * @return CardOrderIO
+     */
+    public function cardOrder()
+    {
+        return $this->IOFactory->create(API::CARD_ORDER);
+    }
+
 
 }
