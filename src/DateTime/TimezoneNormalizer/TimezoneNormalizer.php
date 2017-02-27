@@ -21,6 +21,7 @@ class TimezoneNormalizer implements TimezoneNormalizerInterface
             $dateTime->setTimezone(new \DateTimeZone(
                 $this->forceTimezone
             ));
+            return $dateTime;
         }
 
         elseif(is_string($dateTime)) {
