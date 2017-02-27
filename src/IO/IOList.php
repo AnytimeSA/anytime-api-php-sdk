@@ -118,6 +118,14 @@ class IOList
     }
 
     /**
+     * @return CardInfoIO
+     */
+    public function cardInfo()
+    {
+        return $this->IOFactory->create(API::CARD_INFO);
+    }
+
+    /**
      * @return CardTransactionIO
      */
     public function cardTransaction()
