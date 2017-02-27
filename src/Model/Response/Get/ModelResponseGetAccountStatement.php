@@ -5,7 +5,7 @@ namespace Anytime\ApiClient\Model\Response\Get;
 class ModelResponseGetAccountStatement extends ModelResponseGet
 {
     /**
-     * @return string
+     * @return integer
      */
     public function getAccId()
     {
