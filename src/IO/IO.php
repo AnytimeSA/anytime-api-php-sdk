@@ -157,7 +157,7 @@ abstract class IO
             );
 
         } catch(BadResponseException $e) {
-            throw $this->apiClientExceptionFactory->create($e);
+            throw $this->apiClientExceptionFactory->createResponseException($e);
         }
     }
 

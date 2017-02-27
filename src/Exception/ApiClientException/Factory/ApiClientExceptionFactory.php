@@ -13,7 +13,7 @@ class ApiClientExceptionFactory
      * @return ApiClientException
      * @TODO refactor
      */
-    public function create(BadResponseException $badResponseException)
+    public function createResponseException(BadResponseException $badResponseException)
     {
         $contents = $badResponseException->getResponse()->getBody()->getContents();
         $contentsArray = json_decode($contents, true);
@@ -26,7 +26,7 @@ class ApiClientExceptionFactory
                 $message = (array_key_exists('message', $error) ? $error['message'] : 0);
                 $apiExceptionString = (array_key_exists('exception', $error) ? $error['exception'] : 0);
 
-                $exceptionClass = 'Anytime\\ApiClient\\Exception\\ApiClientException\\' . $apiExceptionString;
+                $exceptionClass = 'Anytime\\ApiClient\\Exception\\ApiClientException\\ResponseException\\' . $apiExceptionString;
 
                 if(class_exists($exceptionClass)) {
                     $exception = new $exceptionClass($message, $code, $badResponseException);
