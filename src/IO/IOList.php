@@ -12,6 +12,11 @@ class IOList
     protected $IOFactory;
 
     /**
+     * @var IO[]
+     */
+    private $IOCached = [];
+
+    /**
      * IOList constructor.
      *
      * @param IOFactory $IOFactory
@@ -26,7 +31,7 @@ class IOList
      */
     public function oauth2Token()
     {
-        return $this->IOFactory->create(API::OAUTH2_TOKEN);
+        return $this->getIOFromCache(API::OAUTH2_TOKEN);
     }
 
     /**
@@ -34,7 +39,7 @@ class IOList
      */
     public function apiCheck()
     {
-        return $this->IOFactory->create(API::APICHECK);
+        return $this->getIOFromCache(API::APICHECK);
     }
 
     /**
@@ -42,7 +47,7 @@ class IOList
      */
     public function apiCheckPost()
     {
-        return $this->IOFactory->create(API::APICHECK_POST);
+        return $this->getIOFromCache(API::APICHECK_POST);
     }
 
     /**
@@ -50,7 +55,7 @@ class IOList
      */
     public function accountList()
     {
-        return $this->IOFactory->create(API::ACCOUNT_LIST);
+        return $this->getIOFromCache(API::ACCOUNT_LIST);
     }
 
     /**
@@ -58,7 +63,7 @@ class IOList
      */
     public function accountInfo()
     {
-        return $this->IOFactory->create(API::ACCOUNT_INFO);
+        return $this->getIOFromCache(API::ACCOUNT_INFO);
     }
 
     /**
@@ -66,7 +71,7 @@ class IOList
      */
     public function accountCardList()
     {
-        return $this->IOFactory->create(API::ACCOUNT_CARD_LIST);
+        return $this->getIOFromCache(API::ACCOUNT_CARD_LIST);
     }
 
     /**
@@ -74,7 +79,7 @@ class IOList
      */
     public function accountKyc()
     {
-        return $this->IOFactory->create(API::ACCOUNT_KYC);
+        return $this->getIOFromCache(API::ACCOUNT_KYC);
     }
 
     /**
@@ -82,7 +87,7 @@ class IOList
      */
     public function accountCreditTransfer()
     {
-        return $this->IOFactory->create(API::ACCOUNT_CREDIT_TRANSFER);
+        return $this->getIOFromCache(API::ACCOUNT_CREDIT_TRANSFER);
     }
 
     /**
@@ -90,7 +95,7 @@ class IOList
      */
     public function accountBalance()
     {
-        return $this->IOFactory->create(API::ACCOUNT_BALANCE);
+        return $this->getIOFromCache(API::ACCOUNT_BALANCE);
     }
 
     /**
@@ -98,7 +103,7 @@ class IOList
      */
     public function accountUpdate()
     {
-        return $this->IOFactory->create(API::ACCOUNT_UPDATE);
+        return $this->getIOFromCache(API::ACCOUNT_UPDATE);
     }
 
     /**
@@ -106,7 +111,7 @@ class IOList
      */
     public function accountCreation()
     {
-        return $this->IOFactory->create(API::ACCOUNT_CREATION);
+        return $this->getIOFromCache(API::ACCOUNT_CREATION);
     }
 
     /**
@@ -114,7 +119,7 @@ class IOList
      */
     public function accountStatement()
     {
-        return $this->IOFactory->create(API::ACCOUNT_STATEMENT);
+        return $this->getIOFromCache(API::ACCOUNT_STATEMENT);
     }
 
     /**
@@ -122,7 +127,7 @@ class IOList
      */
     public function cardInfo()
     {
-        return $this->IOFactory->create(API::CARD_INFO);
+        return $this->getIOFromCache(API::CARD_INFO);
     }
 
     /**
@@ -130,7 +135,7 @@ class IOList
      */
     public function cardTransaction()
     {
-        return $this->IOFactory->create(API::CARD_TRANSACTION);
+        return $this->getIOFromCache(API::CARD_TRANSACTION);
     }
 
     /**
@@ -138,7 +143,7 @@ class IOList
      */
     public function cardSendPin()
     {
-        return $this->IOFactory->create(API::CARD_SEND_PIN);
+        return $this->getIOFromCache(API::CARD_SEND_PIN);
     }
 
     /**
@@ -146,7 +151,7 @@ class IOList
      */
     public function cardSendPan()
     {
-        return $this->IOFactory->create(API::CARD_SEND_PAN);
+        return $this->getIOFromCache(API::CARD_SEND_PAN);
     }
 
     /**
@@ -154,7 +159,7 @@ class IOList
      */
     public function cardDetailsDisplay()
     {
-        return $this->IOFactory->create(API::CARD_DETAILS_DISPLAY);
+        return $this->getIOFromCache(API::CARD_DETAILS_DISPLAY);
     }
 
     /**
@@ -162,7 +167,7 @@ class IOList
      */
     public function cardCredit()
     {
-        return $this->IOFactory->create(API::CARD_CREDIT);
+        return $this->getIOFromCache(API::CARD_CREDIT);
     }
 
     /**
@@ -170,7 +175,7 @@ class IOList
      */
     public function cardDebit()
     {
-        return $this->IOFactory->create(API::CARD_DEBIT);
+        return $this->getIOFromCache(API::CARD_DEBIT);
     }
 
     /**
@@ -178,7 +183,7 @@ class IOList
      */
     public function cardUpdate()
     {
-        return $this->IOFactory->create(API::CARD_UPDATE);
+        return $this->getIOFromCache(API::CARD_UPDATE);
     }
 
     /**
@@ -186,7 +191,19 @@ class IOList
      */
     public function cardOrder()
     {
-        return $this->IOFactory->create(API::CARD_ORDER);
+        return $this->getIOFromCache(API::CARD_ORDER);
+    }
+
+    /**
+     * @param string $apiName
+     * @return IO
+     */
+    private function getIOFromCache($apiName)
+    {
+        if(!array_key_exists($apiName, $this->IOCached)) {
+            $this->IOCached[$apiName] = $this->IOFactory->create($apiName);
+        }
+        return $this->IOCached[$apiName];
     }
 
 
