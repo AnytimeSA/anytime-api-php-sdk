@@ -158,7 +158,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setExpiryDate($expiryDate)
     {
-        $this->expiryDate = $expiryDate;
+        $this->expiryDate = $this->timezoneNormalizer->normalize($expiryDate);
         return $this;
     }
 
