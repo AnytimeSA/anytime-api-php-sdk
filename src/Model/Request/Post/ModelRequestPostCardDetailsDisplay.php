@@ -34,7 +34,7 @@ class ModelRequestPostCardDetailsDisplay extends ModelRequestPost
 
     /**
      * @param string $cardRef
-     * @return ModelRequestPostCardDebit
+     * @return ModelRequestPostCardDetailsDisplay
      */
     public function setCardRef($cardRef)
     {
@@ -52,7 +52,7 @@ class ModelRequestPostCardDetailsDisplay extends ModelRequestPost
 
     /**
      * @param string $ip
-     * @return ModelRequestPostCardDebit
+     * @return ModelRequestPostCardDetailsDisplay
      */
     public function setIp($ip)
     {
