@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
-use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 
-class CardMaxLoadPerMonthException extends ApiClientException
+class CardMaxLoadPerMonthException extends ResponseException
 {
 }

@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
-use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 
-class AccountIdPartnerNoRightsException extends ApiClientException
+class AccountIdPartnerNoRightsException extends ResponseException
 {
 }

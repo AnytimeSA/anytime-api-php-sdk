@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
-use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 
-class CardCancelledNoActionException extends ApiClientException
+class CardCancelledNoActionException extends ResponseException
 {
 }

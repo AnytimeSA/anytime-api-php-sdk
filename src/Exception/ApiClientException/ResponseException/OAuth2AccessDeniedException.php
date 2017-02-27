@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
-use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 
-class OAuth2AccessDeniedException extends ApiClientException
+class OAuth2AccessDeniedException extends ResponseException
 {
 }

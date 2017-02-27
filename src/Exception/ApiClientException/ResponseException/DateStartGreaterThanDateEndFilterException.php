@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
-use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 
-class DateStartGreaterThanDateEndFilterException extends ApiClientException
+class DateStartGreaterThanDateEndFilterException extends ResponseException
 {
 }
