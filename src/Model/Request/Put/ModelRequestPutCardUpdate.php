@@ -1,35 +1,35 @@
 <?php
 
-namespace Anytime\ApiClient\Model\Request\Post;
+namespace Anytime\ApiClient\Model\Request\Put;
 
 use Anytime\ApiClient\Constant\API;
 
-class ModelRequestPutCardUpdate extends ModelRequestPost
+class ModelRequestPutCardUpdate extends ModelRequestPut
 {
     /**
      * @var string
      */
-    private $card_ref;
+    private $cardRef;
 
     /**
      * @var string
      */
-    private $card_status;
+    private $cardStatus;
 
     /**
      * @var integer
      */
-    private $card_pos;
+    private $cardPos;
 
     /**
      * @var integer
      */
-    private $card_atm;
+    private $cardAtm;
 
     /**
      * @var integer
      */
-    private $card_renew;
+    private $cardRenew;
 
 
     /**
@@ -45,16 +45,16 @@ class ModelRequestPutCardUpdate extends ModelRequestPost
      */
     public function getCardRef()
     {
-        return $this->card_ref;
+        return $this->cardRef;
     }
 
     /**
-     * @param string $card_ref
+     * @param string $cardRef
      * @return ModelRequestPutCardUpdate
      */
-    public function setCardRef($card_ref)
+    public function setCardRef($cardRef)
     {
-        $this->card_ref = $card_ref;
+        $this->cardRef = $cardRef;
         return $this;
     }
 
@@ -63,16 +63,16 @@ class ModelRequestPutCardUpdate extends ModelRequestPost
      */
     public function getCardStatus()
     {
-        return $this->card_status;
+        return $this->cardStatus;
     }
 
     /**
-     * @param string $card_status
+     * @param string $cardStatus
      * @return ModelRequestPutCardUpdate
      */
-    public function setCardStatus($card_status)
+    public function setCardStatus($cardStatus)
     {
-        $this->card_status = $card_status;
+        $this->cardStatus = $cardStatus;
         return $this;
     }
 
@@ -81,16 +81,16 @@ class ModelRequestPutCardUpdate extends ModelRequestPost
      */
     public function getCardPos()
     {
-        return $this->card_pos;
+        return $this->cardPos;
     }
 
     /**
-     * @param int $card_pos
+     * @param int $cardPos
      * @return ModelRequestPutCardUpdate
      */
-    public function setCardPos($card_pos)
+    public function setCardPos($cardPos)
     {
-        $this->card_pos = $card_pos;
+        $this->cardPos = $cardPos;
         return $this;
     }
 
@@ -99,16 +99,16 @@ class ModelRequestPutCardUpdate extends ModelRequestPost
      */
     public function getCardAtm()
     {
-        return $this->card_atm;
+        return $this->cardAtm;
     }
 
     /**
-     * @param int $card_atm
+     * @param int $cardAtm
      * @return ModelRequestPutCardUpdate
      */
-    public function setCardAtm($card_atm)
+    public function setCardAtm($cardAtm)
     {
-        $this->card_atm = $card_atm;
+        $this->cardAtm = $cardAtm;
         return $this;
     }
 
@@ -117,17 +117,18 @@ class ModelRequestPutCardUpdate extends ModelRequestPost
      */
     public function getCardRenew()
     {
-        return $this->card_renew;
+        return $this->cardRenew;
     }
 
     /**
-     * @param int $card_renew
+     * @param int $cardRenew
      * @return ModelRequestPutCardUpdate
      */
-    public function setCardRenew($card_renew)
+    public function setCardRenew($cardRenew)
     {
-        $this->card_renew = $card_renew;
+        $this->cardRenew = $cardRenew;
         return $this;
     }
+
 
 }

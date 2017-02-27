@@ -1,10 +1,10 @@
 <?php
 
-namespace Anytime\ApiClient\Model\Request\Post;
+namespace Anytime\ApiClient\Model\Request\Put;
 
 use Anytime\ApiClient\Constant\API;
 
-class ModelRequestPutAccountUpdate extends ModelRequestPost
+class ModelRequestPutAccountUpdate extends ModelRequestPut
 {
     /**
      * @var integer
