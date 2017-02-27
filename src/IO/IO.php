@@ -16,6 +16,7 @@ use Anytime\ApiClient\Model\Response\ModelResponseInterface;
 use Anytime\ApiClient\Parser\ParserInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 
 abstract class IO
 {
@@ -158,6 +159,8 @@ abstract class IO
 
         } catch(BadResponseException $e) {
             throw $this->apiClientExceptionFactory->createResponseException($e);
+        } catch(ConnectException $e) {
+            throw $this->apiClientExceptionFactory->createConnectException($e);
         }
     }
 

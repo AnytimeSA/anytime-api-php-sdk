@@ -3,8 +3,10 @@
 namespace Anytime\ApiClient\Exception\ApiClientException\Factory;
 
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
+use Anytime\ApiClient\Exception\ApiClientException\ConnectException\ConnectionTimeoutException;
 use Anytime\ApiClient\Exception\ApiClientException\UnhandledException;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ConnectException;
 
 class ApiClientExceptionFactory
 {
@@ -40,6 +42,20 @@ class ApiClientExceptionFactory
 
         $exception->setResponseContent($contents);
 
+        return $exception;
+    }
+
+    /**
+     * @param ConnectException $connectException
+     * @return \Anytime\ApiClient\Exception\ApiClientException\ConnectException\ConnectException
+     */
+    public function createConnectException(ConnectException $connectException)
+    {
+        $exception = new \Anytime\ApiClient\Exception\ApiClientException\ConnectException\ConnectException(
+            $connectException->getMessage(),
+            $connectException->getCode(),
+            $connectException
+        );
         return $exception;
     }
 }
