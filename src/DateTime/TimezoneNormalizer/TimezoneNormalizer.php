@@ -25,10 +25,14 @@ class TimezoneNormalizer implements TimezoneNormalizerInterface
         }
 
         elseif(is_string($dateTime)) {
-            return new \DateTime(
-                $dateTime,
-                new \DateTimeZone($this->forceTimezone)
-            );
+            try {
+                return new \DateTime(
+                    $dateTime,
+                    new \DateTimeZone($this->forceTimezone)
+                );
+            } catch(\Exception $e) {
+                // Do nothing
+            }
         }
 
         throw new \RuntimeException('Bad date/time passed to the normalizer.');
