@@ -43,14 +43,14 @@ class ApiClient
      */
     public function generateToken()
     {
-        $request = $this->api()->apiOAuth2Token()->createRequest()
+        $request = $this->api()->oauth2Token()->createRequest()
             ->setGrantType($this->setting->getOAuth2GrantType())
             ->setClientId($this->setting->getOAuth2ClientId())
             ->setClientSecret($this->setting->getOAuth2ClientSecret())
             ->setUsername($this->setting->getOAuth2Username())
             ->setPassword($this->setting->getOAuth2Password())
         ;
-        return $this->api()->apiOAuth2Token()->sendRequest($request)->getAccessToken();
+        return $this->api()->oauth2Token()->sendRequest($request)->getAccessToken();
     }
 
     /**
