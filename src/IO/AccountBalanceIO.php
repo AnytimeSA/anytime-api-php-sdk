@@ -10,7 +10,7 @@ use Anytime\ApiClient\Model\Response\Get\ModelResponseGetAccountBalance;
 /**
  * @method ModelResponseGetAccountBalance sendRequest(ModelRequestGetAccountBalance $modelRequest)
  */
-class AccountBalance extends IO
+class AccountBalanceIO extends IO
 {
     /**
      * @return ModelRequestGetAccountBalance

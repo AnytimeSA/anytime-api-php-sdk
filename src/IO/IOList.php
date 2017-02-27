@@ -86,7 +86,7 @@ class IOList
     }
 
     /**
-     * @return AccountCreditTransferIO
+     * @return AccountBalanceIO
      */
     public function accountBalance()
     {
