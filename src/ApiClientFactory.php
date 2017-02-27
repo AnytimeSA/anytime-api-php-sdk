@@ -61,7 +61,7 @@ class ApiClientFactory
                     new ApiClientExceptionFactory(),
                     new ModelResponsePopulator(),
                     new JsonResponseParser(),
-                    new ResponseAuthenticator($setting)
+                    new ResponseAuthenticator()
                 )
             )
         );

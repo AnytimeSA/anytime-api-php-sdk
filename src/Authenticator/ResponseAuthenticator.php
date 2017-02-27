@@ -2,29 +2,12 @@
 
 namespace Anytime\ApiClient\Authenticator;
 
-use Anytime\ApiClient\ApiClientSetting;
-
 class ResponseAuthenticator implements AuthenticatorInterface
 {
-    /**
-     * @var ApiClientSetting
-     */
-    private $setting;
-
     /**
      * @var string
      */
     private $hashAlgorithm = 'sha256';
-
-    /**
-     * ResponseAuthenticator constructor.
-     *
-     * @param ApiClientSetting $setting
-     */
-    public function __construct(ApiClientSetting $setting)
-    {
-        $this->setting = $setting;
-    }
 
     /**
      * @param array $data
