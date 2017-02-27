@@ -2,15 +2,15 @@
 
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
+use Anytime\ApiClient\IO\IORequest;
 use Anytime\ApiClient\Model\Request\ModelRequest;
 use Anytime\ApiClient\Model\Request\Post\ModelRequestPostAccountKyc;
-use GuzzleHttp\Psr7\Request;
 
 class PostAccountKycRequestBuilder extends RequestBuilder
 {
     /**
      * @param ModelRequest|ModelRequestPostAccountKyc $modelRequest
-     * @return Request
+     * @return IORequest
      */
     public function getRequest(ModelRequest $modelRequest)
     {
