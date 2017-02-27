@@ -74,7 +74,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @var string
      */
-    private $userAddrCountryCode;
+    private $userAddrCc;
 
     /**
      * @var string
@@ -119,17 +119,17 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @var string
      */
-    private $corpZip;
+    private $corpAddrZip;
 
     /**
      * @var string
      */
-    private $corpCity;
+    private $corpAddrCity;
 
     /**
      * @var string
      */
-    private $corpCountryCode;
+    private $corpAddrCc;
 
     /**
      * @return string
@@ -243,7 +243,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserDob($userDob)
     {
-        $this->userDob = $userDob;
+        $this->userDob = $this->timezoneNormalizer->normalize($userDob);
         return $this;
     }
 
@@ -376,18 +376,18 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @return string
      */
-    public function getUserAddrCountryCode()
+    public function getUserAddrCc()
     {
-        return $this->userAddrCountryCode;
+        return $this->userAddrCc;
     }
 
     /**
-     * @param string $userAddrCountryCode
+     * @param string $userAddrCc
      * @return ModelRequestPostAccountCreation
      */
-    public function setUserAddrCountryCode($userAddrCountryCode)
+    public function setUserAddrCc($userAddrCc)
     {
-        $this->userAddrCountryCode = $userAddrCountryCode;
+        $this->userAddrCc = $userAddrCc;
         return $this;
     }
 
@@ -538,54 +538,54 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @return string
      */
-    public function getCorpZip()
+    public function getcorpAddrZip()
     {
-        return $this->corpZip;
+        return $this->corpAddrZip;
     }
 
     /**
-     * @param string $corpZip
+     * @param string $corpAddrZip
      * @return ModelRequestPostAccountCreation
      */
-    public function setCorpZip($corpZip)
+    public function setcorpAddrZip($corpAddrZip)
     {
-        $this->corpZip = $corpZip;
+        $this->corpAddrZip = $corpAddrZip;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getCorpCity()
+    public function getcorpAddrCity()
     {
-        return $this->corpCity;
+        return $this->corpAddrCity;
     }
 
     /**
-     * @param string $corpCity
+     * @param string $corpAddrCity
      * @return ModelRequestPostAccountCreation
      */
-    public function setCorpCity($corpCity)
+    public function setcorpAddrCity($corpAddrCity)
     {
-        $this->corpCity = $corpCity;
+        $this->corpAddrCity = $corpAddrCity;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getCorpCountryCode()
+    public function getcorpAddrCc()
     {
-        return $this->corpCountryCode;
+        return $this->corpAddrCc;
     }
 
     /**
-     * @param string $corpCountryCode
+     * @param string $corpAddrCc
      * @return ModelRequestPostAccountCreation
      */
-    public function setCorpCountryCode($corpCountryCode)
+    public function setcorpAddrCc($corpAddrCc)
     {
-        $this->corpCountryCode = $corpCountryCode;
+        $this->corpAddrCc = $corpAddrCc;
         return $this;
     }
 }
