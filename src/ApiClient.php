@@ -50,7 +50,11 @@ class ApiClient
             ->setUsername($this->setting->getOAuth2Username())
             ->setPassword($this->setting->getOAuth2Password())
         ;
-        return $this->api()->oauth2Token()->sendRequest($request)->getAccessToken();
+        $token = $this->api()->oauth2Token()->sendRequest($request)->getAccessToken();
+
+        $this->initToken($token);
+
+        return $token;
     }
 
     /**
