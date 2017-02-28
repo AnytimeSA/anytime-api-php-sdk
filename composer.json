@@ -1,6 +1,6 @@
 {
-    "name": "lecompteanytime/api-php-client",
-    "description": "API PHP Client to use the Anytime API",
+    "name": "lecompteanytime/api-php-sdk",
+    "description": "PHP SDK to use the Anytime API",
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "^6.2"
