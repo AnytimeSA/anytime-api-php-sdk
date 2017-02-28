@@ -25,17 +25,22 @@ class ModelResponseGetAccountStatement extends ModelResponseGet
      */
     public function getTransactions()
     {
-        $transactions = [];
-        foreach($this->data['transactions'] as $elem) {
-            $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
+        if(!$this->isGetterCached(__METHOD__)) {
+            $transactions = [];
+            foreach ($this->data['transactions'] as $elem) {
+                $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
 
 
-            $transactions[] = $this->hydrator->hydrate(
-                new ModelResponseGetAccountStatementTransaction(),
-                $elem
-            );
+                $transactions[] = $this->hydrator->hydrate(
+                    new ModelResponseGetAccountStatementTransaction(),
+                    $elem
+                );
+            }
+
+            $this->setGetterCache(__METHOD__, $transactions);
         }
-        return $transactions;
+
+        return $this->getGetterCache(__METHOD__);
     }
 
 }

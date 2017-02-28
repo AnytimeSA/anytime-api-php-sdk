@@ -9,22 +9,25 @@ class ModelResponsePostAccountKyc extends ModelResponsePost
      */
     public function getFileStatus()
     {
-        $modelResponsePostAccountKycFileStatus = (new ModelResponsePostAccountKycFileStatus())
-            ->setUserSelfie(new ModelResponsePostAccountKycFileStatusUserSelfie())
-            ->setUserIdentity(new ModelResponsePostAccountKycFileStatusUserIdentity())
-            ->setUserIdentityHost(new ModelResponsePostAccountKycFileStatusUserIdentityHost())
-            ->setUserIdentityBackHost(new ModelResponsePostAccountKycFileStatusUserIdentityBackHost())
-            ->setUserIdentityBack(new ModelResponsePostAccountKycFileStatusUserIdentityBack())
-            ->setUserDom1(new ModelResponsePostAccountKycFileStatusUserDom1())
-            ->setUserDomHost(new ModelResponsePostAccountKycFileStatusUserDomHost())
-            ->setUserAffidavit(new ModelResponsePostAccountKycFileStatusUserAffidavit())
-            ->setCorpStatus(new ModelResponsePostAccountKycFileStatusCorpStatus())
-            ->setCorpKbis(new ModelResponsePostAccountKycFileStatusCorpKbis())
-        ;
+        if(!$this->isGetterCached(__METHOD__)) {
+            $modelResponsePostAccountKycFileStatus = (new ModelResponsePostAccountKycFileStatus())
+                ->setUserSelfie(new ModelResponsePostAccountKycFileStatusUserSelfie())
+                ->setUserIdentity(new ModelResponsePostAccountKycFileStatusUserIdentity())
+                ->setUserIdentityHost(new ModelResponsePostAccountKycFileStatusUserIdentityHost())
+                ->setUserIdentityBackHost(new ModelResponsePostAccountKycFileStatusUserIdentityBackHost())
+                ->setUserIdentityBack(new ModelResponsePostAccountKycFileStatusUserIdentityBack())
+                ->setUserDom1(new ModelResponsePostAccountKycFileStatusUserDom1())
+                ->setUserDomHost(new ModelResponsePostAccountKycFileStatusUserDomHost())
+                ->setUserAffidavit(new ModelResponsePostAccountKycFileStatusUserAffidavit())
+                ->setCorpStatus(new ModelResponsePostAccountKycFileStatusCorpStatus())
+                ->setCorpKbis(new ModelResponsePostAccountKycFileStatusCorpKbis());
 
-        $this->hydrateFileStatus($modelResponsePostAccountKycFileStatus);
+            $this->hydrateFileStatus($modelResponsePostAccountKycFileStatus);
 
-        return $modelResponsePostAccountKycFileStatus;
+            $this->setGetterCache(__METHOD__, $modelResponsePostAccountKycFileStatus);
+        }
+
+        return $this->getGetterCache(__METHOD__);
     }
 
     /**

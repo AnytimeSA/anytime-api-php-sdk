@@ -17,21 +17,25 @@ class ModelResponseGetAccountCardList extends ModelResponseGet
      */
     public function getCards()
     {
-        $cards = [];
-        foreach($this->data['cards'] as $elem) {
-            $elem['expiry_date'] = $this->timezoneNormalizer->normalize($elem['expiry_date']);
-            $elem['activation_date'] = $this->timezoneNormalizer->normalize($elem['activation_date']);
-            $elem['card_holder'] = $this->hydrator->hydrate(
-                new ModelResponseGetAccountCardListCardCardHolder(),
-                $elem['card_holder']
-            );
+        if(!$this->isGetterCached(__METHOD__)) {
+            $cards = [];
+            foreach ($this->data['cards'] as $elem) {
+                $elem['expiry_date'] = $this->timezoneNormalizer->normalize($elem['expiry_date']);
+                $elem['activation_date'] = $this->timezoneNormalizer->normalize($elem['activation_date']);
+                $elem['card_holder'] = $this->hydrator->hydrate(
+                    new ModelResponseGetAccountCardListCardCardHolder(),
+                    $elem['card_holder']
+                );
 
-            $cards[] = $this->hydrator->hydrate(
-                new ModelResponseGetAccountCardListCard(),
-                $elem
-            );
+                $cards[] = $this->hydrator->hydrate(
+                    new ModelResponseGetAccountCardListCard(),
+                    $elem
+                );
+            }
+            $this->setGetterCache(__METHOD__, $cards);
         }
-        return $cards;
+
+        return $this->getGetterCache(__METHOD__);
     }
 
 }

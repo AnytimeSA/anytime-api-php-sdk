@@ -9,10 +9,14 @@ class ModelResponseGetAccountList extends ModelResponseGet
      */
     public function getAccounts()
     {
-        $accounts = [];
-        foreach($this->data['accounts'] as $elem) {
-            $accounts[] = $this->hydrator->hydrate(new ModelResponseGetAccountListAccount(), $elem);
+        if(!$this->isGetterCached(__METHOD__)) {
+            $accounts = [];
+            foreach ($this->data['accounts'] as $elem) {
+                $accounts[] = $this->hydrator->hydrate(new ModelResponseGetAccountListAccount(), $elem);
+            }
+            $this->setGetterCache(__METHOD__, $accounts);
         }
-        return $accounts;
+
+        return $this->getGetterCache(__METHOD__);
     }
 }
