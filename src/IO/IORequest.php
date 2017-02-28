@@ -152,10 +152,13 @@ class IORequest
             }
         }
 
+        // Currently we don't need to handle nested request data as no APIs required this.
+        // But if for some reason we need it in the future, we will have to refactor this and make a recursive method to handle this.
+        // I encode the array in a json anyway if the developer put nested data by mistake to avoid a fatal error.
         foreach($this->formData as $fieldName => $value) {
             $multipart[] = [
                 'name'     => $fieldName,
-                'contents' => (is_array($value) ? json_encode($value) : $value)  // @TODO Ne va pas fonctionner correctement avec des champs array et sous champs ... etc.. il faut refactorer. En attendant pour eviter des fatal on encode en json si c'est un array
+                'contents' => (is_array($value) ? json_encode($value) : $value)
             ];
         }
 
