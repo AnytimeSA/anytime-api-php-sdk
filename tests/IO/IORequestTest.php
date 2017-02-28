@@ -8,6 +8,7 @@ use Xpmock\TestCase;
 class IORequestTest extends TestCase
 {
     /**
+     * @group IO
      * @group IORequest
      */
     public function testGetMultipartOption()
@@ -50,6 +51,7 @@ class IORequestTest extends TestCase
     }
 
     /**
+     * @group IO
      * @group IORequest
      */
     public function testGetRequestArrangedOptionsHasCorrectKeysDependingOfTheStructureOfData()
