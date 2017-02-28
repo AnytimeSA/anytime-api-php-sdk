@@ -2,14 +2,16 @@
 
 namespace Anytime\ApiClient\Model\Response;
 
+use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizer;
+use Anytime\ApiClient\Hydrator\FromSnakeCaseHydrator;
 use Anytime\ApiClient\Model\Factory\ModelFactory;
 use Anytime\ApiClient\Model\Model;
 
 class ModelResponseFactory extends ModelFactory
 {
     /**
-     * @param $method
-     * @param $apiName
+     * @param string $method
+     * @param string $apiName
      * @return Model
      */
     public function create($method, $apiName)
@@ -23,5 +25,17 @@ class ModelResponseFactory extends ModelFactory
     public function createHeader()
     {
         return new ModelResponseHeader();
+    }
+
+    /**
+     * @return ModelResponseError
+     */
+    public function createError()
+    {
+        return new ModelResponseError(
+            new FromSnakeCaseHydrator(),
+            new TimezoneNormalizer(),
+            $this->createHeader()
+        );
     }
 }

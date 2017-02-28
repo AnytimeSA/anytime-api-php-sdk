@@ -47,6 +47,10 @@ class ApiClientFactory
             }
         }
 
+        $modelResponsePopulator = new ModelResponsePopulator();
+        $modelResponseFactory = new ModelResponseFactory();
+        $jsonResponseParser = new JsonResponseParser();
+
         return new ApiClient(
             $setting,
             new IOList(
@@ -56,11 +60,15 @@ class ApiClientFactory
                     ]),
                     $setting,
                     new ModelRequestFactory(),
-                    new ModelResponseFactory(),
+                    $modelResponseFactory,
                     new RequestDirectorFactory($setting),
-                    new ApiClientExceptionFactory(),
-                    new ModelResponsePopulator(),
-                    new JsonResponseParser(),
+                    new ApiClientExceptionFactory(
+                        $modelResponsePopulator,
+                        $modelResponseFactory,
+                        $jsonResponseParser
+                    ),
+                    $modelResponsePopulator,
+                    $jsonResponseParser,
                     new ResponseAuthenticator()
                 )
             )

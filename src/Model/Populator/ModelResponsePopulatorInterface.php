@@ -9,7 +9,7 @@ interface ModelResponsePopulatorInterface
     /**
      * @param ModelResponse $modelObject
      * @param array $data
-     * @return
+     * @return ModelResponse
      */
     public function populate(ModelResponse $modelObject, $data);
 }

@@ -3,13 +3,44 @@
 namespace Anytime\ApiClient\Exception\ApiClientException\Factory;
 
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
-use Anytime\ApiClient\Exception\ApiClientException\ConnectException\ConnectionTimeoutException;
 use Anytime\ApiClient\Exception\ApiClientException\UnhandledException;
+use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
+use Anytime\ApiClient\Model\Response\ModelResponseFactory;
+use Anytime\ApiClient\Parser\ParserInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ConnectException;
 
 class ApiClientExceptionFactory
 {
+    /**
+     * @var ModelResponsePopulatorInterface
+     */
+    private $modelResponsePopulator;
+
+    /**
+     * @var ModelResponseFactory
+     */
+    private $modelResponseFactory;
+
+    /**
+     * @var ParserInterface
+     */
+    private $jsonResponseParser;
+
+    /**
+     * ApiClientExceptionFactory constructor.
+     *
+     * @param ModelResponsePopulatorInterface $modelResponsePopulator
+     * @param ModelResponseFactory $modelResponseFactory
+     * @param ParserInterface $jsonResponseParser
+     */
+    public function __construct(ModelResponsePopulatorInterface $modelResponsePopulator, ModelResponseFactory $modelResponseFactory, ParserInterface $jsonResponseParser)
+    {
+        $this->modelResponsePopulator = $modelResponsePopulator;
+        $this->modelResponseFactory = $modelResponseFactory;
+        $this->jsonResponseParser = $jsonResponseParser;
+    }
+
     /**
      * @param BadResponseException $badResponseException
      * @return ApiClientException
@@ -31,7 +62,7 @@ class ApiClientExceptionFactory
                 $exceptionClass = 'Anytime\\ApiClient\\Exception\\ApiClientException\\ResponseException\\' . $apiExceptionString;
 
                 if(class_exists($exceptionClass)) {
-                    $exception = new $exceptionClass($message, $code, $badResponseException);
+                    $exception = new $exceptionClass($message, $code, $badResponseException, $this->modelResponseFactory);
                 }
             }
         }
@@ -40,7 +71,12 @@ class ApiClientExceptionFactory
             $exception = new UnhandledException('The exception returned by the API is not handled by this client', 0, $badResponseException);
         }
 
-        $exception->setResponseContent($contents);
+        $exception->setResponseContent(
+            $this->modelResponsePopulator->populate(
+                $this->modelResponseFactory->createError(),
+                $this->jsonResponseParser->parse($contents)
+            )
+        );
 
         return $exception;
     }

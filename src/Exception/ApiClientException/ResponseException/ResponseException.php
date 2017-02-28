@@ -3,28 +3,55 @@
 namespace Anytime\ApiClient\Exception\ApiClientException\ResponseException;
 
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
+use Anytime\ApiClient\Model\Response\ModelResponseError;
+use Anytime\ApiClient\Model\Response\ModelResponseFactory;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
 abstract class ResponseException extends ApiClientException
 {
-    protected $badResponseException;
-    protected $responseContent = '';
+    /**
+     * @var ModelResponseFactory
+     */
+    protected $modelResponseFactory;
 
-    public function __construct($message, $code, BadResponseException $badResponseException)
+    /**
+     * @var BadResponseException
+     */
+    protected $badResponseException;
+
+    /**
+     * @var ModelResponseError
+     */
+    protected $responseContent;
+
+    /**
+     * ResponseException constructor.
+     * @param string $message
+     * @param int $code
+     * @param BadResponseException $badResponseException
+     * @param ModelResponseFactory $modelResponseFactory
+     */
+    public function __construct(
+        $message,
+        $code,
+        BadResponseException $badResponseException,
+        ModelResponseFactory $modelResponseFactory
+    )
     {
+        $this->modelResponseFactory = $modelResponseFactory;
         $this->badResponseException = $badResponseException;
         parent::__construct($message, $code, $badResponseException);
     }
 
     /**
-     * @param string $responseContent
+     * @param  ModelResponseError $modelResponseError
      * @return ApiClientException
      */
-    public function setResponseContent($responseContent)
+    public function setResponseContent($modelResponseError)
     {
-        $this->responseContent = $responseContent;
+        $this->responseContent = $modelResponseError;
         return $this;
     }
 
@@ -45,11 +72,18 @@ abstract class ResponseException extends ApiClientException
     }
 
     /**
-     * @return string
-     * @TODO return ResponseModel
+     * @return ModelResponseError
      */
     public function getResponseContent()
     {
         return $this->responseContent;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getHttpStatusCode()
+    {
+        return$this->getResponse()->getStatusCode();
     }
 }
