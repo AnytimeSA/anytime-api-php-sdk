@@ -9,6 +9,6 @@ class ModelResponsePostCardSendPan extends ModelResponsePost
      */
     public function getState()
     {
-        return $this->getDataValue('state');
+        return (string)$this->getDataValue('state');
     }
 }

@@ -28,7 +28,7 @@ class ModelResponsePostAccountKycFileStatusUserIdentityBackHost
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        $this->status = (int)$status;
         return $this;
     }
 
@@ -46,7 +46,7 @@ class ModelResponsePostAccountKycFileStatusUserIdentityBackHost
      */
     public function setError($error)
     {
-        $this->error = $error;
+        $this->error = (string)$error;
         return $this;
     }
 

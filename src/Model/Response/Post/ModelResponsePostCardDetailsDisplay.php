@@ -9,6 +9,6 @@ class ModelResponsePostCardDetailsDisplay extends ModelResponsePost
      */
     public function getTempLink()
     {
-        return $this->getDataValue('temp_link');
+        return (string)$this->getDataValue('temp_link');
     }
 }

@@ -9,7 +9,7 @@ class ModelResponsePostCardCredit extends ModelResponsePost
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePostCardCredit extends ModelResponsePost
      */
     public function getCardBalanceAfter()
     {
-        return $this->getDataValue('card_balance_after');
+        return (float)$this->getDataValue('card_balance_after');
     }
 
     /**
@@ -25,7 +25,7 @@ class ModelResponsePostCardCredit extends ModelResponsePost
      */
     public function getCardAccId()
     {
-        return $this->getDataValue('card_acc_id');
+        return (int)$this->getDataValue('card_acc_id');
     }
 
     /**
@@ -33,7 +33,7 @@ class ModelResponsePostCardCredit extends ModelResponsePost
      */
     public function getAccBalanceAfter()
     {
-        return $this->getDataValue('acc_balance_after');
+        return (float)$this->getDataValue('acc_balance_after');
     }
 
     /**
@@ -41,7 +41,7 @@ class ModelResponsePostCardCredit extends ModelResponsePost
      */
     public function getTransactionId()
     {
-        return $this->getDataValue('transaction_id');
+        return (int)$this->getDataValue('transaction_id');
     }
 
 }

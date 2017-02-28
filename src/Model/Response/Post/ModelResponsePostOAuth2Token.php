@@ -9,7 +9,7 @@ class ModelResponsePostOAuth2Token extends ModelResponsePost
      */
     public function getAccessToken()
     {
-        return $this->getDataValue('access_token');
+        return (string)$this->getDataValue('access_token');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePostOAuth2Token extends ModelResponsePost
      */
     public function getRefreshToken()
     {
-        return $this->getDataValue('refresh_token');
+        return (string)$this->getDataValue('refresh_token');
     }
 
     /**
@@ -25,6 +25,6 @@ class ModelResponsePostOAuth2Token extends ModelResponsePost
      */
     public function getTokenType()
     {
-        return $this->getDataValue('token_type');
+        return (string)$this->getDataValue('token_type');
     }
 }

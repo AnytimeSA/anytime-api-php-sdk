@@ -9,6 +9,6 @@ class ModelResponsePostApiCheckPost extends ModelResponsePost
      */
     public function getTestParam()
     {
-        return $this->getDataValue('test_param');
+        return (string)$this->getDataValue('test_param');
     }
 }

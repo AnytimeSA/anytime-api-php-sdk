@@ -59,7 +59,7 @@ class ModelResponseGetAccountCardListCard
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -77,7 +77,7 @@ class ModelResponseGetAccountCardListCard
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        $this->status = (string)$status;
         return $this;
     }
 
@@ -113,7 +113,7 @@ class ModelResponseGetAccountCardListCard
      */
     public function setBalance($balance)
     {
-        $this->balance = $balance;
+        $this->balance = (float)$balance;
         return $this;
     }
 
@@ -149,7 +149,7 @@ class ModelResponseGetAccountCardListCard
      */
     public function setAtm($atm)
     {
-        $this->atm = $atm;
+        $this->atm = (int)$atm;
         return $this;
     }
 
@@ -167,7 +167,7 @@ class ModelResponseGetAccountCardListCard
      */
     public function setPos($pos)
     {
-        $this->pos = $pos;
+        $this->pos = (int)$pos;
         return $this;
     }
 
@@ -188,7 +188,4 @@ class ModelResponseGetAccountCardListCard
         $this->cardHolder = $cardHolder;
         return $this;
     }
-
-
-
 }

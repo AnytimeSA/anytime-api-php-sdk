@@ -9,7 +9,7 @@ class ModelResponsePostAccountCreation extends ModelResponsePost
      */
     public function getAccType()
     {
-        return $this->getDataValue('acc_type');
+        return (string)$this->getDataValue('acc_type');
     }
 
     /**
@@ -17,6 +17,6 @@ class ModelResponsePostAccountCreation extends ModelResponsePost
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 }

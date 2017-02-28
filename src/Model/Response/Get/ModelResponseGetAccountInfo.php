@@ -9,7 +9,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getAccType()
     {
-        return $this->getDataValue('acc_type');
+        return (string)$this->getDataValue('acc_type');
     }
 
     /**
@@ -25,7 +25,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getAccCurrency()
     {
-        return $this->getDataValue('acc_currency');
+        return (string)$this->getDataValue('acc_currency');
     }
 
     /**
@@ -33,7 +33,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpName()
     {
-        return $this->getDataValue('corp_name');
+        return (string)$this->getDataValue('corp_name');
     }
 
     /**
@@ -41,7 +41,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpRegnum()
     {
-        return $this->getDataValue('corp_regnum');
+        return (string)$this->getDataValue('corp_regnum');
     }
 
     /**
@@ -49,7 +49,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpType()
     {
-        return $this->getDataValue('corp_type');
+        return (string)$this->getDataValue('corp_type');
     }
 
     /**
@@ -57,7 +57,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpActivity()
     {
-        return $this->getDataValue('corp_activity');
+        return (string)$this->getDataValue('corp_activity');
     }
 
     /**
@@ -65,7 +65,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpTva()
     {
-        return $this->getDataValue('corp_tva');
+        return (string)$this->getDataValue('corp_tva');
     }
 
     /**
@@ -73,7 +73,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrLine1()
     {
-        return $this->getDataValue('corp_addr_line1');
+        return (string)$this->getDataValue('corp_addr_line1');
     }
 
     /**
@@ -81,7 +81,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrLine2()
     {
-        return $this->getDataValue('corp_addr_line2');
+        return (string)$this->getDataValue('corp_addr_line2');
     }
 
     /**
@@ -89,7 +89,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrZip()
     {
-        return $this->getDataValue('corp_addr_zip');
+        return (string)$this->getDataValue('corp_addr_zip');
     }
 
     /**
@@ -97,7 +97,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrCity()
     {
-        return $this->getDataValue('corp_addr_city');
+        return (string)$this->getDataValue('corp_addr_city');
     }
 
     /**
@@ -105,7 +105,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrCc()
     {
-        return $this->getDataValue('corp_addr_cc');
+        return (string)$this->getDataValue('corp_addr_cc');
     }
 
     /**
@@ -113,7 +113,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserGender()
     {
-        return $this->getDataValue('user_gender');
+        return (string)$this->getDataValue('user_gender');
     }
 
     /**
@@ -121,7 +121,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserFirstName()
     {
-        return $this->getDataValue('user_first_name');
+        return (string)$this->getDataValue('user_first_name');
     }
 
     /**
@@ -129,7 +129,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserLastName()
     {
-        return $this->getDataValue('user_last_name');
+        return (string)$this->getDataValue('user_last_name');
     }
 
     /**
@@ -145,7 +145,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserPob()
     {
-        return $this->getDataValue('user_pob');
+        return (string)$this->getDataValue('user_pob');
     }
 
     /**
@@ -153,7 +153,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserEmail()
     {
-        return $this->getDataValue('user_email');
+        return (string)$this->getDataValue('user_email');
     }
 
     /**
@@ -161,7 +161,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserMobileNumber()
     {
-        return $this->getDataValue('user_mobile_number');
+        return (string)$this->getDataValue('user_mobile_number');
     }
 
     /**
@@ -169,7 +169,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserAddrLine1()
     {
-        return $this->getDataValue('user_addr_line1');
+        return (string)$this->getDataValue('user_addr_line1');
     }
 
     /**
@@ -177,7 +177,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserAddrLine2()
     {
-        return $this->getDataValue('user_addr_line2');
+        return (string)$this->getDataValue('user_addr_line2');
     }
 
     /**
@@ -185,7 +185,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserAddrZip()
     {
-        return $this->getDataValue('user_addr_zip');
+        return (string)$this->getDataValue('user_addr_zip');
     }
 
     /**
@@ -193,7 +193,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserAddrCity()
     {
-        return $this->getDataValue('user_addr_city');
+        return (string)$this->getDataValue('user_addr_city');
     }
 
     /**
@@ -201,7 +201,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserAddrCc()
     {
-        return $this->getDataValue('user_addr_cc');
+        return (string)$this->getDataValue('user_addr_cc');
     }
 
     /**
@@ -209,7 +209,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getUserNationality()
     {
-        return $this->getDataValue('user_nationality');
+        return (string)$this->getDataValue('user_nationality');
     }
 
 }

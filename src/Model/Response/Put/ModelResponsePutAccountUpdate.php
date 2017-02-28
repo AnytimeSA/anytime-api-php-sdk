@@ -9,7 +9,7 @@ class ModelResponsePutAccountUpdate extends ModelResponsePut
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePutAccountUpdate extends ModelResponsePut
      */
     public function getAccType()
     {
-        return $this->getDataValue('acc_type');
+        return (string)$this->getDataValue('acc_type');
     }
 
 

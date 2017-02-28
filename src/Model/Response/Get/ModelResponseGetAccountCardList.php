@@ -5,11 +5,11 @@ namespace Anytime\ApiClient\Model\Response\Get;
 class ModelResponseGetAccountCardList extends ModelResponseGet
 {
     /**
-     * @return string
+     * @return integer
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**

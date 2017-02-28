@@ -78,7 +78,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setTxid($txid)
     {
-        $this->txid = $txid;
+        $this->txid = (int)$txid;
         return $this;
     }
 
@@ -96,7 +96,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setMcc($mcc)
     {
-        $this->mcc = $mcc;
+        $this->mcc = (int)$mcc;
         return $this;
     }
 
@@ -114,7 +114,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
         return $this;
     }
 
@@ -132,7 +132,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setAmountFx($amountFx)
     {
-        $this->amountFx = $amountFx;
+        $this->amountFx = (float)$amountFx;
         return $this;
     }
 
@@ -150,7 +150,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setCurrency($currency)
     {
-        $this->currency = $currency;
+        $this->currency = (string)$currency;
         return $this;
     }
 
@@ -168,7 +168,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setFx($fx)
     {
-        $this->fx = $fx;
+        $this->fx = (float)$fx;
         return $this;
     }
 
@@ -186,7 +186,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setFxFee($fxFee)
     {
-        $this->fxFee = $fxFee;
+        $this->fxFee = (float)$fxFee;
         return $this;
     }
 
@@ -204,7 +204,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        $this->status = (string)$status;
         return $this;
     }
 
@@ -222,7 +222,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = (string)$type;
         return $this;
     }
 
@@ -240,7 +240,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setBalanceAfter($balanceAfter)
     {
-        $this->balanceAfter = $balanceAfter;
+        $this->balanceAfter = (float)$balanceAfter;
         return $this;
     }
 
@@ -276,7 +276,7 @@ class ModelResponseGetCardTransactionTransaction
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = (string)$description;
         return $this;
     }
 

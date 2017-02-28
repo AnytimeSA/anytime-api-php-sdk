@@ -9,7 +9,7 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**

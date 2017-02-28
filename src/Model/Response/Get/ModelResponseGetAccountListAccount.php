@@ -28,7 +28,7 @@ class ModelResponseGetAccountListAccount
      */
     public function setAccId($accId)
     {
-        $this->accId = $accId;
+        $this->accId = (int)$accId;
         return $this;
     }
 
@@ -46,7 +46,7 @@ class ModelResponseGetAccountListAccount
      */
     public function setAccType($accType)
     {
-        $this->accType = $accType;
+        $this->accType = (string)$accType;
         return $this;
     }
 

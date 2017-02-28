@@ -33,7 +33,7 @@ class ModelResponseGetAccountCardListCardCardHolder
      */
     public function setGender($gender)
     {
-        $this->gender = $gender;
+        $this->gender = (string)$gender;
         return $this;
     }
 
@@ -51,7 +51,7 @@ class ModelResponseGetAccountCardListCardCardHolder
      */
     public function setFirstName($firstName)
     {
-        $this->firstName = $firstName;
+        $this->firstName = (string)$firstName;
         return $this;
     }
 
@@ -69,10 +69,7 @@ class ModelResponseGetAccountCardListCardCardHolder
      */
     public function setLastName($lastName)
     {
-        $this->lastName = $lastName;
+        $this->lastName = (string)$lastName;
         return $this;
     }
-
-
-
 }

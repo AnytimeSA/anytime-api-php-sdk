@@ -9,7 +9,7 @@ class ModelResponsePostCardOrder extends ModelResponsePost
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePostCardOrder extends ModelResponsePost
      */
     public function getOrderId()
     {
-        return $this->getDataValue('order_id');
+        return (int)$this->getDataValue('order_id');
     }
 
     /**
@@ -25,6 +25,6 @@ class ModelResponsePostCardOrder extends ModelResponsePost
      */
     public function getOrderStatus()
     {
-        return $this->getDataValue('order_status');
+        return (int)$this->getDataValue('order_status');
     }
 }

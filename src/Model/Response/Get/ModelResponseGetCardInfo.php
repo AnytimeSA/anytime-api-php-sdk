@@ -9,7 +9,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 
     /**
@@ -33,7 +33,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getBalance()
     {
-        return $this->getDataValue('balance');
+        return (float)$this->getDataValue('balance');
     }
 
     /**
@@ -57,7 +57,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getStatus()
     {
-        return $this->getDataValue('status');
+        return (string)$this->getDataValue('status');
     }
 
     /**
@@ -65,7 +65,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getPos()
     {
-        return $this->getDataValue('pos');
+        return (int)$this->getDataValue('pos');
     }
 
     /**
@@ -73,7 +73,7 @@ class ModelResponseGetCardInfo extends ModelResponseGet
      */
     public function getAtm()
     {
-        return $this->getDataValue('atm');
+        return (int)$this->getDataValue('atm');
     }
 
 }

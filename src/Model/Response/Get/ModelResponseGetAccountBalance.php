@@ -9,7 +9,7 @@ class ModelResponseGetAccountBalance extends ModelResponseGet
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**
@@ -17,6 +17,6 @@ class ModelResponseGetAccountBalance extends ModelResponseGet
      */
     public function getBalance()
     {
-        return $this->getDataValue('balance');
+        return (float)$this->getDataValue('balance');
     }
 }

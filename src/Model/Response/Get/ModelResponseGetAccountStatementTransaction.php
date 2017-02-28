@@ -48,7 +48,7 @@ class ModelResponseGetAccountStatementTransaction
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = (string)$description;
         return $this;
     }
 
@@ -84,7 +84,7 @@ class ModelResponseGetAccountStatementTransaction
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
         return $this;
     }
 
@@ -102,7 +102,7 @@ class ModelResponseGetAccountStatementTransaction
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = (string)$type;
         return $this;
     }
 
@@ -120,7 +120,7 @@ class ModelResponseGetAccountStatementTransaction
      */
     public function setBalance($balance)
     {
-        $this->balance = $balance;
+        $this->balance = (float)$balance;
         return $this;
     }
 
@@ -133,12 +133,12 @@ class ModelResponseGetAccountStatementTransaction
     }
 
     /**
-     * @param float $currency
+     * @param string $currency
      * @return ModelResponseGetAccountStatementTransaction
      */
     public function setCurrency($currency)
     {
-        $this->currency = $currency;
+        $this->currency = (string)$currency;
         return $this;
     }
 

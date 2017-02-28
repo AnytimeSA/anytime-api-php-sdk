@@ -9,7 +9,7 @@ class ModelResponsePostCardSendPin extends ModelResponsePost
      */
     public function getAccId()
     {
-        return $this->getDataValue('acc_id');
+        return (int)$this->getDataValue('acc_id');
     }
 
     /**
@@ -17,6 +17,6 @@ class ModelResponsePostCardSendPin extends ModelResponsePost
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 }

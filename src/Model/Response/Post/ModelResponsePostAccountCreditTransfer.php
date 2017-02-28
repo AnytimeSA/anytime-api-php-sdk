@@ -9,7 +9,7 @@ class ModelResponsePostAccountCreditTransfer extends ModelResponsePost
      */
     public function getSrcBalanceAfter()
     {
-        return $this->getDataValue('src_balance_after');
+        return (float)$this->getDataValue('src_balance_after');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePostAccountCreditTransfer extends ModelResponsePost
      */
     public function getDstBalanceAfter()
     {
-        return $this->getDataValue('dst_balance_after');
+        return (float)$this->getDataValue('dst_balance_after');
     }
 
 }

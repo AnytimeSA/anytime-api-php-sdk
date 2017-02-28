@@ -9,7 +9,7 @@ class ModelResponsePutCardUpdate extends ModelResponsePut
      */
     public function getCardRef()
     {
-        return $this->getDataValue('card_ref');
+        return (string)$this->getDataValue('card_ref');
     }
 
     /**
@@ -17,7 +17,7 @@ class ModelResponsePutCardUpdate extends ModelResponsePut
      */
     public function getStatus()
     {
-        return $this->getDataValue('status');
+        return (string)$this->getDataValue('status');
     }
 
     /**
@@ -25,7 +25,7 @@ class ModelResponsePutCardUpdate extends ModelResponsePut
      */
     public function getPos()
     {
-        return $this->getDataValue('pos');
+        return (int)$this->getDataValue('pos');
     }
 
     /**
@@ -33,7 +33,7 @@ class ModelResponsePutCardUpdate extends ModelResponsePut
      */
     public function getAtm()
     {
-        return $this->getDataValue('atm');
+        return (int)$this->getDataValue('atm');
     }
 
     /**
@@ -41,7 +41,7 @@ class ModelResponsePutCardUpdate extends ModelResponsePut
      */
     public function getRenew()
     {
-        return $this->getDataValue('renew');
+        return (int)$this->getDataValue('renew');
     }
 
 }
