@@ -23,7 +23,7 @@ class ModelResponseGetAccountListAccount
     }
 
     /**
-     * @param int $accId
+     * @param integer $accId
      * @return ModelResponseGetAccountListAccount
      */
     public function setAccId($accId)

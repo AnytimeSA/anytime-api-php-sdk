@@ -23,7 +23,7 @@ class ModelResponsePostAccountKycFileStatusUserSelfie
     }
 
     /**
-     * @param int $status
+     * @param integer $status
      * @return ModelResponsePostAccountKycFileStatusUserSelfie
      */
     public function setStatus($status)

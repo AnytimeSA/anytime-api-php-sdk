@@ -144,7 +144,7 @@ class ModelResponseGetAccountCardListCard
     }
 
     /**
-     * @param int $atm
+     * @param integer $atm
      * @return ModelResponseGetAccountCardListCard
      */
     public function setAtm($atm)

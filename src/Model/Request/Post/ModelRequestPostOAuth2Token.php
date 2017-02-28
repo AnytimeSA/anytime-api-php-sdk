@@ -55,7 +55,7 @@ class ModelRequestPostOAuth2Token extends ModelRequestPost
      */
     public function setGrantType($grantType)
     {
-        $this->grantType = $grantType;
+        $this->grantType = (string)$grantType;
         return $this;
     }
 
@@ -73,7 +73,7 @@ class ModelRequestPostOAuth2Token extends ModelRequestPost
      */
     public function setClientId($clientId)
     {
-        $this->clientId = $clientId;
+        $this->clientId = (string)$clientId;
         return $this;
     }
 
@@ -91,7 +91,7 @@ class ModelRequestPostOAuth2Token extends ModelRequestPost
      */
     public function setClientSecret($clientSecret)
     {
-        $this->clientSecret = $clientSecret;
+        $this->clientSecret = (string)$clientSecret;
         return $this;
     }
 
@@ -109,7 +109,7 @@ class ModelRequestPostOAuth2Token extends ModelRequestPost
      */
     public function setUsername($username)
     {
-        $this->username = $username;
+        $this->username = (string)$username;
         return $this;
     }
 
@@ -127,9 +127,7 @@ class ModelRequestPostOAuth2Token extends ModelRequestPost
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = (string)$password;
         return $this;
     }
-
-
 }

@@ -54,7 +54,7 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -72,7 +72,7 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
      */
     public function setCardStatus($cardStatus)
     {
-        $this->cardStatus = $cardStatus;
+        $this->cardStatus = (string)$cardStatus;
         return $this;
     }
 
@@ -85,12 +85,12 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @param int $cardPos
+     * @param integer $cardPos
      * @return ModelRequestPutCardUpdate
      */
     public function setCardPos($cardPos)
     {
-        $this->cardPos = $cardPos;
+        $this->cardPos = (int)$cardPos;
         return $this;
     }
 
@@ -103,12 +103,12 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @param int $cardAtm
+     * @param integer $cardAtm
      * @return ModelRequestPutCardUpdate
      */
     public function setCardAtm($cardAtm)
     {
-        $this->cardAtm = $cardAtm;
+        $this->cardAtm = (int)$cardAtm;
         return $this;
     }
 
@@ -121,12 +121,12 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @param int $cardRenew
+     * @param integer $cardRenew
      * @return ModelRequestPutCardUpdate
      */
     public function setCardRenew($cardRenew)
     {
-        $this->cardRenew = $cardRenew;
+        $this->cardRenew = (int)$cardRenew;
         return $this;
     }
 

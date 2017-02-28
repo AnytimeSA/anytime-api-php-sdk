@@ -53,7 +53,7 @@ class ModelRequestGetCardTransaction extends ModelRequestGet
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -107,7 +107,7 @@ class ModelRequestGetCardTransaction extends ModelRequestGet
      */
     public function setLimitStart($limitStart)
     {
-        $this->limitStart = $limitStart;
+        $this->limitStart = (int)$limitStart;
         return $this;
     }
 
@@ -125,7 +125,7 @@ class ModelRequestGetCardTransaction extends ModelRequestGet
      */
     public function setLimitNumber($limitNumber)
     {
-        $this->limitNumber = $limitNumber;
+        $this->limitNumber = (int)$limitNumber;
         return $this;
     }
 }

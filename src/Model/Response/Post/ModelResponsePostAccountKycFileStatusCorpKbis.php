@@ -23,7 +23,7 @@ class ModelResponsePostAccountKycFileStatusCorpKbis
     }
 
     /**
-     * @param int $status
+     * @param integer $status
      * @return ModelResponsePostAccountKycFileStatusCorpKbis
      */
     public function setStatus($status)

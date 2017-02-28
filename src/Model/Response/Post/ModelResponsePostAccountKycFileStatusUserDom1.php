@@ -23,7 +23,7 @@ class ModelResponsePostAccountKycFileStatusUserDom1
     }
 
     /**
-     * @param int $status
+     * @param integer $status
      * @return ModelResponsePostAccountKycFileStatusUserDom1
      */
     public function setStatus($status)

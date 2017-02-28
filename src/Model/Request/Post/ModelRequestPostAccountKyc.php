@@ -79,12 +79,12 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     }
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return ModelRequestPostAccountKyc
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         return $this;
     }
 
@@ -102,7 +102,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserSelfie($userSelfie)
     {
-        $this->userSelfie = $userSelfie;
+        $this->userSelfie = (string)$userSelfie;
         return $this;
     }
 
@@ -120,7 +120,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserIdentity($userIdentity)
     {
-        $this->userIdentity = $userIdentity;
+        $this->userIdentity =(string)$userIdentity;
         return $this;
     }
 
@@ -138,7 +138,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserIdentityBack($userIdentityBack)
     {
-        $this->userIdentityBack = $userIdentityBack;
+        $this->userIdentityBack = (string)$userIdentityBack;
         return $this;
     }
 
@@ -156,7 +156,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserDom1($userDom1)
     {
-        $this->userDom1 = $userDom1;
+        $this->userDom1 = (string)$userDom1;
         return $this;
     }
 
@@ -174,7 +174,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserIdentityHost($userIdentityHost)
     {
-        $this->userIdentityHost = $userIdentityHost;
+        $this->userIdentityHost = (string)$userIdentityHost;
         return $this;
     }
 
@@ -192,7 +192,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserIdentityBackHost($userIdentityBackHost)
     {
-        $this->userIdentityBackHost = $userIdentityBackHost;
+        $this->userIdentityBackHost = (string)$userIdentityBackHost;
         return $this;
     }
 
@@ -210,7 +210,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserDomHost($userDomHost)
     {
-        $this->userDomHost = $userDomHost;
+        $this->userDomHost = (string)$userDomHost;
         return $this;
     }
 
@@ -228,7 +228,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setUserAffidavit($userAffidavit)
     {
-        $this->userAffidavit = $userAffidavit;
+        $this->userAffidavit = (string)$userAffidavit;
         return $this;
     }
 
@@ -246,7 +246,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setCorpStatus($corpStatus)
     {
-        $this->corpStatus = $corpStatus;
+        $this->corpStatus = (string)$corpStatus;
         return $this;
     }
 
@@ -264,11 +264,7 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
      */
     public function setCorpKbis($corpKbis)
     {
-        $this->corpKbis = $corpKbis;
+        $this->corpKbis = (string)$corpKbis;
         return $this;
     }
-
-
-
-
 }

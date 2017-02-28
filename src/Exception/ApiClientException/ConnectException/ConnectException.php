@@ -18,7 +18,7 @@ class ConnectException extends ApiClientException
     /**
      * ConnectException constructor.
      * @param string $message
-     * @param int $code
+     * @param integer $code
      * @param \GuzzleHttp\Exception\ConnectException $connectException
      */
     public function __construct($message, $code, \GuzzleHttp\Exception\ConnectException $connectException)

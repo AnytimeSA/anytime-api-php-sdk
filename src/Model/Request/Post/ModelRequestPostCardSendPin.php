@@ -33,7 +33,7 @@ class ModelRequestPostCardSendPin extends ModelRequestPost
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 

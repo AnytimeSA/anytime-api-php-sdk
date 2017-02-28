@@ -73,7 +73,7 @@ class ModelResponseGetCardTransactionTransaction
     }
 
     /**
-     * @param int $txid
+     * @param integer $txid
      * @return ModelResponseGetCardTransactionTransaction
      */
     public function setTxid($txid)
@@ -91,7 +91,7 @@ class ModelResponseGetCardTransactionTransaction
     }
 
     /**
-     * @param int $mcc
+     * @param integer $mcc
      * @return ModelResponseGetCardTransactionTransaction
      */
     public function setMcc($mcc)

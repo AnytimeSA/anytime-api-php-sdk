@@ -153,7 +153,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setAccType($accType)
     {
-        $this->accType = $accType;
+        $this->accType = (string)$accType;
         return $this;
     }
 
@@ -171,7 +171,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setAccCurrency($accCurrency)
     {
-        $this->accCurrency = $accCurrency;
+        $this->accCurrency = (string)$accCurrency;
         return $this;
     }
 
@@ -189,7 +189,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserGender($userGender)
     {
-        $this->userGender = $userGender;
+        $this->userGender = (string)$userGender;
         return $this;
     }
 
@@ -207,7 +207,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserFirstName($userFirstName)
     {
-        $this->userFirstName = $userFirstName;
+        $this->userFirstName = (string)$userFirstName;
         return $this;
     }
 
@@ -225,7 +225,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserLastName($userLastName)
     {
-        $this->userLastName = $userLastName;
+        $this->userLastName = (string)$userLastName;
         return $this;
     }
 
@@ -261,7 +261,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserPob($userPob)
     {
-        $this->userPob = $userPob;
+        $this->userPob = (string)$userPob;
         return $this;
     }
 
@@ -279,7 +279,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserEmail($userEmail)
     {
-        $this->userEmail = $userEmail;
+        $this->userEmail = (string)$userEmail;
         return $this;
     }
 
@@ -297,7 +297,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserMobileNumber($userMobileNumber)
     {
-        $this->userMobileNumber = $userMobileNumber;
+        $this->userMobileNumber = (string)$userMobileNumber;
         return $this;
     }
 
@@ -315,7 +315,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserAddrLine1($userAddrLine1)
     {
-        $this->userAddrLine1 = $userAddrLine1;
+        $this->userAddrLine1 = (string)$userAddrLine1;
         return $this;
     }
 
@@ -333,7 +333,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserAddrLine2($userAddrLine2)
     {
-        $this->userAddrLine2 = $userAddrLine2;
+        $this->userAddrLine2 = (string)$userAddrLine2;
         return $this;
     }
 
@@ -351,7 +351,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserAddrZip($userAddrZip)
     {
-        $this->userAddrZip = $userAddrZip;
+        $this->userAddrZip = (string)$userAddrZip;
         return $this;
     }
 
@@ -369,7 +369,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserAddrCity($userAddrCity)
     {
-        $this->userAddrCity = $userAddrCity;
+        $this->userAddrCity = (string)$userAddrCity;
         return $this;
     }
 
@@ -387,7 +387,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserAddrCc($userAddrCc)
     {
-        $this->userAddrCc = $userAddrCc;
+        $this->userAddrCc = (string)$userAddrCc;
         return $this;
     }
 
@@ -405,7 +405,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setUserNationality($userNationality)
     {
-        $this->userNationality = $userNationality;
+        $this->userNationality = (string)$userNationality;
         return $this;
     }
 
@@ -423,7 +423,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpName($corpName)
     {
-        $this->corpName = $corpName;
+        $this->corpName = (string)$corpName;
         return $this;
     }
 
@@ -441,7 +441,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpRegNum($corpRegNum)
     {
-        $this->corpRegNum = $corpRegNum;
+        $this->corpRegNum = (string)$corpRegNum;
         return $this;
     }
 
@@ -459,7 +459,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpType($corpType)
     {
-        $this->corpType = $corpType;
+        $this->corpType = (string)$corpType;
         return $this;
     }
 
@@ -477,7 +477,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpActivity($corpActivity)
     {
-        $this->corpActivity = $corpActivity;
+        $this->corpActivity = (string)$corpActivity;
         return $this;
     }
 
@@ -495,7 +495,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpTva($corpTva)
     {
-        $this->corpTva = $corpTva;
+        $this->corpTva = (string)$corpTva;
         return $this;
     }
 
@@ -513,7 +513,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpAddrLine1($corpAddrLine1)
     {
-        $this->corpAddrLine1 = $corpAddrLine1;
+        $this->corpAddrLine1 = (string)$corpAddrLine1;
         return $this;
     }
 
@@ -531,7 +531,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setCorpAddrLine2($corpAddrLine2)
     {
-        $this->corpAddrLine2 = $corpAddrLine2;
+        $this->corpAddrLine2 = (string)$corpAddrLine2;
         return $this;
     }
 
@@ -549,7 +549,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setcorpAddrZip($corpAddrZip)
     {
-        $this->corpAddrZip = $corpAddrZip;
+        $this->corpAddrZip = (string)$corpAddrZip;
         return $this;
     }
 
@@ -567,7 +567,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setcorpAddrCity($corpAddrCity)
     {
-        $this->corpAddrCity = $corpAddrCity;
+        $this->corpAddrCity =(string)$corpAddrCity;
         return $this;
     }
 
@@ -585,7 +585,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      */
     public function setcorpAddrCc($corpAddrCc)
     {
-        $this->corpAddrCc = $corpAddrCc;
+        $this->corpAddrCc = (string)$corpAddrCc;
         return $this;
     }
 }

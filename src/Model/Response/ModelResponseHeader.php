@@ -33,7 +33,7 @@ class ModelResponseHeader
     }
 
     /**
-     * @param int $requestId
+     * @param integer $requestId
      * @return ModelResponseHeader
      */
     public function setRequestId($requestId)

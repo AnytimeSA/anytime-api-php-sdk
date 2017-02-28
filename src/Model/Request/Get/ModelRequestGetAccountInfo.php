@@ -29,12 +29,12 @@ class ModelRequestGetAccountInfo extends ModelRequestGet
     }
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return ModelRequestGetAccountInfo
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         return $this;
     }
 

@@ -49,7 +49,7 @@ class ModelRequestPostCardDebit extends ModelRequestPost
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -67,7 +67,7 @@ class ModelRequestPostCardDebit extends ModelRequestPost
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
         return $this;
     }
 
@@ -85,7 +85,7 @@ class ModelRequestPostCardDebit extends ModelRequestPost
      */
     public function setAccComment($accComment)
     {
-        $this->accComment = $accComment;
+        $this->accComment = (string)$accComment;
         return $this;
     }
 
@@ -103,7 +103,7 @@ class ModelRequestPostCardDebit extends ModelRequestPost
      */
     public function setCardComment($cardComment)
     {
-        $this->cardComment = $cardComment;
+        $this->cardComment = (string)$cardComment;
         return $this;
     }
 

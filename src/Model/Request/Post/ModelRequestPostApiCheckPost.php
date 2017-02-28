@@ -33,7 +33,7 @@ class ModelRequestPostApiCheckPost extends ModelRequestPost
      */
     public function setTestParam($testParam)
     {
-        $this->testParam = $testParam;
+        $this->testParam = (string)$testParam;
         return $this;
     }
 

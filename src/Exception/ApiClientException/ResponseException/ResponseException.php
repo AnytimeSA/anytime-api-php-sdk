@@ -29,7 +29,7 @@ abstract class ResponseException extends ApiClientException
     /**
      * ResponseException constructor.
      * @param string $message
-     * @param int $code
+     * @param integer $code
      * @param BadResponseException $badResponseException
      * @param ModelResponseFactory $modelResponseFactory
      */

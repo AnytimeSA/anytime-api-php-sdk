@@ -38,7 +38,7 @@ class ModelRequestPostCardDetailsDisplay extends ModelRequestPost
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -56,7 +56,7 @@ class ModelRequestPostCardDetailsDisplay extends ModelRequestPost
      */
     public function setIp($ip)
     {
-        $this->ip = $ip;
+        $this->ip = (string)$ip;
         return $this;
     }
 

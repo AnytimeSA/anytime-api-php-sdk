@@ -30,12 +30,12 @@ class ModelRequestGetAccountStatement extends ModelRequestGet
     }
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return ModelRequestGetAccountStatement
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         return $this;
     }
 

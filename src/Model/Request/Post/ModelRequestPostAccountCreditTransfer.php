@@ -69,12 +69,12 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     }
 
     /**
-     * @param int $id
+     * @param integer $id
      * @return ModelRequestPostAccountCreditTransfer
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = (int)$id;
         return $this;
     }
 
@@ -87,12 +87,12 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     }
 
     /**
-     * @param int $dstAccId
+     * @param integer $dstAccId
      * @return ModelRequestPostAccountCreditTransfer
      */
     public function setDstAccId($dstAccId)
     {
-        $this->dstAccId = $dstAccId;
+        $this->dstAccId = (int)$dstAccId;
         return $this;
     }
 
@@ -110,7 +110,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setSrcComment($srcComment)
     {
-        $this->srcComment = $srcComment;
+        $this->srcComment = (string)$srcComment;
         return $this;
     }
 
@@ -128,7 +128,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setDstComment($dstComment)
     {
-        $this->dstComment = $dstComment;
+        $this->dstComment = (string)$dstComment;
         return $this;
     }
 
@@ -146,7 +146,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setDstName($dstName)
     {
-        $this->dstName = $dstName;
+        $this->dstName = (string)$dstName;
         return $this;
     }
 
@@ -164,7 +164,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setDstType($dstType)
     {
-        $this->dstType = $dstType;
+        $this->dstType = (string)$dstType;
         return $this;
     }
 
@@ -182,7 +182,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setDstIban($dstIban)
     {
-        $this->dstIban = $dstIban;
+        $this->dstIban = (string)$dstIban;
         return $this;
     }
 
@@ -200,7 +200,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setDstSwift($dstSwift)
     {
-        $this->dstSwift = $dstSwift;
+        $this->dstSwift = (string)$dstSwift;
         return $this;
     }
 
@@ -218,7 +218,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
         return $this;
     }
 

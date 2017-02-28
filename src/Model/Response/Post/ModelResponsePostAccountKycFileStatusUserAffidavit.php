@@ -23,7 +23,7 @@ class ModelResponsePostAccountKycFileStatusUserAffidavit
     }
 
     /**
-     * @param int $status
+     * @param integer $status
      * @return ModelResponsePostAccountKycFileStatusUserAffidavit
      */
     public function setStatus($status)

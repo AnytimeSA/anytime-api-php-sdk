@@ -99,12 +99,12 @@ class ModelRequestPostCardOrder extends ModelRequestPost
     }
 
     /**
-     * @param int $accId
+     * @param integer $accId
      * @return ModelRequestPostCardOrder
      */
     public function setAccId($accId)
     {
-        $this->accId = $accId;
+        $this->accId = (int)$accId;
         return $this;
     }
 
@@ -122,7 +122,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setCardName($cardName)
     {
-        $this->cardName = $cardName;
+        $this->cardName = (string)$cardName;
         return $this;
     }
 
@@ -140,7 +140,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setCardType($cardType)
     {
-        $this->cardType = $cardType;
+        $this->cardType = (string)$cardType;
         return $this;
     }
 
@@ -176,7 +176,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = (float)$amount;
         return $this;
     }
 
@@ -194,7 +194,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setLanguage($language)
     {
-        $this->language = $language;
+        $this->language = (string)$language;
         return $this;
     }
 
@@ -212,7 +212,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryCompanyName($deliveryCompanyName)
     {
-        $this->deliveryCompanyName = $deliveryCompanyName;
+        $this->deliveryCompanyName = (string)$deliveryCompanyName;
         return $this;
     }
 
@@ -230,7 +230,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryGender($deliveryGender)
     {
-        $this->deliveryGender = $deliveryGender;
+        $this->deliveryGender = (string)$deliveryGender;
         return $this;
     }
 
@@ -248,7 +248,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryFirstName($deliveryFirstName)
     {
-        $this->deliveryFirstName = $deliveryFirstName;
+        $this->deliveryFirstName = (string)$deliveryFirstName;
         return $this;
     }
 
@@ -266,7 +266,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryLastName($deliveryLastName)
     {
-        $this->deliveryLastName = $deliveryLastName;
+        $this->deliveryLastName = (string)$deliveryLastName;
         return $this;
     }
 
@@ -284,7 +284,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryAddr1($deliveryAddr1)
     {
-        $this->deliveryAddr1 = $deliveryAddr1;
+        $this->deliveryAddr1 = (string)$deliveryAddr1;
         return $this;
     }
 
@@ -302,7 +302,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryAddr2($deliveryAddr2)
     {
-        $this->deliveryAddr2 = $deliveryAddr2;
+        $this->deliveryAddr2 = (string)$deliveryAddr2;
         return $this;
     }
 
@@ -320,7 +320,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryZip($deliveryZip)
     {
-        $this->deliveryZip = $deliveryZip;
+        $this->deliveryZip = (string)$deliveryZip;
         return $this;
     }
 
@@ -338,7 +338,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryCity($deliveryCity)
     {
-        $this->deliveryCity = $deliveryCity;
+        $this->deliveryCity = (string)$deliveryCity;
         return $this;
     }
 
@@ -356,7 +356,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
      */
     public function setDeliveryCc($deliveryCc)
     {
-        $this->deliveryCc = $deliveryCc;
+        $this->deliveryCc = (string)$deliveryCc;
         return $this;
     }
 

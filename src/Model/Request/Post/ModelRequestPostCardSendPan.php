@@ -44,7 +44,7 @@ class ModelRequestPostCardSendPan extends ModelRequestPost
      */
     public function setCardRef($cardRef)
     {
-        $this->cardRef = $cardRef;
+        $this->cardRef = (string)$cardRef;
         return $this;
     }
 
@@ -62,7 +62,7 @@ class ModelRequestPostCardSendPan extends ModelRequestPost
      */
     public function setDestMethod($destMethod)
     {
-        $this->destMethod = $destMethod;
+        $this->destMethod = (string)$destMethod;
         return $this;
     }
 
@@ -80,7 +80,7 @@ class ModelRequestPostCardSendPan extends ModelRequestPost
      */
     public function setDestValue($destValue)
     {
-        $this->destValue = $destValue;
+        $this->destValue = (string)$destValue;
         return $this;
     }
 

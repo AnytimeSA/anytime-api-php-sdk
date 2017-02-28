@@ -165,7 +165,7 @@ class ApiClientSetting
     }
 
     /**
-     * @param int $port
+     * @param integer $port
      * @return ApiClientSetting
      */
     public function setPort($port)
