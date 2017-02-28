@@ -138,7 +138,7 @@ class IORequest
     /**
      * @return array
      */
-    protected function getMultipartOption()
+    public function getMultipartOption()
     {
         $multipart = [];
 
