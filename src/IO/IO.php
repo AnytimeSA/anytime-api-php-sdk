@@ -102,16 +102,6 @@ abstract class IO
     }
 
     /**
-     * @param string $method
-     * @param string $apiName
-     * @return ModelRequestGetApiCheck
-     */
-    protected function createRequestByMethodAndApi($method, $apiName)
-    {
-        return $this->modelRequestFactory->create($method, $apiName);
-    }
-
-    /**
      * @param ModelRequestInterface $modelRequest
      * @return ModelResponseInterface
      */
@@ -177,5 +167,15 @@ abstract class IO
             ->getRequest($modelRequest)
             ->addHeader('Authorization', 'Bearer ' . $this->setting->getOAuth2AccessToken()
         );
+    }
+
+    /**
+     * @param string $method
+     * @param string $apiName
+     * @return ModelRequestGetApiCheck
+     */
+    protected function createRequestByMethodAndApi($method, $apiName)
+    {
+        return $this->modelRequestFactory->create($method, $apiName);
     }
 }
