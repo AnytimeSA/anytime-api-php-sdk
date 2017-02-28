@@ -17,10 +17,10 @@ class PostCardSendPanRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'dest_method'   =>  $modelRequest->getDestMethod(),
                 'dest_value'    =>  $modelRequest->getDestValue()
-            ]
+            ])
         );
     }
 }

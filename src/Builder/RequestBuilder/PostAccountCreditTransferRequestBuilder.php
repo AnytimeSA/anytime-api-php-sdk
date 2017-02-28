@@ -17,7 +17,7 @@ class PostAccountCreditTransferRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'dst_acc_id'        =>  $modelRequest->getDstAccId(),
                 'src_comment'       =>  $modelRequest->getSrcComment(),
                 'dst_comment'       =>  $modelRequest->getDstComment(),
@@ -26,7 +26,7 @@ class PostAccountCreditTransferRequestBuilder extends RequestBuilder
                 'dst_iban'          =>  $modelRequest->getDstIban(),
                 'dst_swift'         =>  $modelRequest->getDstSwift(),
                 'amount'            =>  $modelRequest->getAmount()
-            ]
+            ])
         );
     }
 }

@@ -17,13 +17,13 @@ class PostOAuth2TokenRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri'], false),
-            [
+            $this->filterNullParams([
                 'grant_type'    =>  $modelRequest->getGrantType(),
                 'client_id'      =>  $modelRequest->getClientId(),
                 'client_secret'  =>  $modelRequest->getClientSecret(),
                 'username'      =>  $modelRequest->getUsername(),
                 'password'      =>  $modelRequest->getPassword()
-            ]
+            ])
         );
     }
 }

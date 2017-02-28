@@ -17,11 +17,11 @@ class PostCardOrderRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'acc_id'                =>  $modelRequest->getAccId(),
                 'card_name'             =>  $modelRequest->getCardName(),
                 'card_type'             =>  $modelRequest->getCardType(),
-                'expiry_date'           =>  $modelRequest->getExpiryDate()->format('Y-m-d'),
+                'expiry_date'           =>  ($modelRequest->getExpiryDate() ? $modelRequest->getExpiryDate()->format('Y-m-d') : null),
                 'amount'                =>  $modelRequest->getAmount(),
                 'language'              =>  $modelRequest->getLanguage(),
                 'delivery_company_name' =>  $modelRequest->getDeliveryCompanyName(),
@@ -33,7 +33,7 @@ class PostCardOrderRequestBuilder extends RequestBuilder
                 'delivery_zip'          =>  $modelRequest->getDeliveryZip(),
                 'delivery_city'         =>  $modelRequest->getDeliveryCity(),
                 'delivery_cc'           =>  $modelRequest->getDeliveryCc()
-            ]
+            ])
         );
     }
 }

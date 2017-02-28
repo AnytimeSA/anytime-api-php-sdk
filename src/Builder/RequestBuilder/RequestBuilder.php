@@ -116,5 +116,18 @@ abstract class RequestBuilder
         ;
     }
 
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function filterNullParams(array $data)
+    {
+        return array_filter(
+            $data,
+            function($var) {
+                return !is_null($var);
+            }
+        );
+    }
 
 }

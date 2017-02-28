@@ -21,7 +21,7 @@ class PostAccountCreationRequestBuilder extends RequestBuilder
             'user_gender'           =>  $modelRequest->getUserGender(),
             'user_first_name'       =>  $modelRequest->getUserFirstName(),
             'user_last_name'        =>  $modelRequest->getUserLastName(),
-            'user_dob'              =>  $modelRequest->getUserDob()->format('Y-m-d'),
+            'user_dob'              =>  ($modelRequest->getUserDob() ? $modelRequest->getUserDob()->format('Y-m-d') : null),
             'user_pob'              =>  $modelRequest->getUserPob(),
             'user_email'            =>  $modelRequest->getUserEmail(),
             'user_mobile_number'    =>  $modelRequest->getUserMobileNumber(),
@@ -52,7 +52,7 @@ class PostAccountCreationRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            $data
+            $this->filterNullParams($data)
         );
     }
 }

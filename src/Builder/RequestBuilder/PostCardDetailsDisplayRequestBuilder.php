@@ -17,9 +17,9 @@ class PostCardDetailsDisplayRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'ip'   =>  $modelRequest->getIp()
-            ]
+            ])
         );
     }
 }

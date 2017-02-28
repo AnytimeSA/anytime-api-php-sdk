@@ -17,12 +17,12 @@ class PostCardCreditRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'card_ref'      =>  $modelRequest->getCardRef(),
                 'amount'        =>  $modelRequest->getAmount(),
                 'acc_comment'   =>  $modelRequest->getAccComment(),
                 'card_comment'  =>  $modelRequest->getCardComment()
-            ]
+            ])
         );
     }
 }

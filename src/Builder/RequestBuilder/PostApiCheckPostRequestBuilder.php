@@ -16,9 +16,9 @@ class PostApiCheckPostRequestBuilder extends RequestBuilder
         return $this->createRequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
-            [
+            $this->filterNullParams([
                 'test_param'  =>  $modelRequest->getTestParam()
-            ]
+            ])
         );
     }
 }
