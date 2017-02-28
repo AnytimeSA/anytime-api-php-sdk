@@ -19,12 +19,4 @@ abstract class Model
     {
         $this->timezoneNormalizer = $timezoneNormalizer;
     }
-
-    /**
-     * @return array
-     */
-    public function toArray()
-    {
-        return [];
-    }
 }
