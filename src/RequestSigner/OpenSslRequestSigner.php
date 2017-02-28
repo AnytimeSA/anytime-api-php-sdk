@@ -16,9 +16,13 @@ class OpenSslRequestSigner implements RequestSignerInterface
         $signature = '';
         $data = sha1(microtime(true).rand(0, PHP_INT_MAX));
 
-        if(@openssl_sign($data, $signature, $rsaKey)) {
-            $request->addHeader('X-Validation-Data', $data);
-            $request->addHeader('X-Signed-Request', base64_encode($signature));
+        try {
+            if(openssl_sign($data, $signature, $rsaKey)) {
+                $request->addHeader('X-Validation-Data', $data);
+                $request->addHeader('X-Signed-Request', base64_encode($signature));
+            }
+        } catch(\Exception $e) {
+            throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
         }
 
         return $request;
