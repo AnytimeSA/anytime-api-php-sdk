@@ -6,6 +6,8 @@ use Anytime\ApiClient\Authenticator\ResponseAuthenticator;
 use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Constant\Environment;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
+use Anytime\ApiClient\IO\FileReader\DiskFileReader;
+use Anytime\ApiClient\IO\FileReader\FileReaderInterface;
 use Anytime\ApiClient\IO\IOFactory;
 use Anytime\ApiClient\IO\IOList;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulator;
@@ -16,6 +18,24 @@ use GuzzleHttp\Client;
 
 class ApiClientFactory
 {
+    /**
+     * @var FileReaderInterface
+     */
+    private $fileReader;
+
+    /**
+     * ApiClientFactory constructor.
+     *
+     * @param FileReaderInterface|null $fileReader Specific file reader implementing FileReaderInterface. Default is DiskFileReader.
+     */
+    public function __construct(FileReaderInterface $fileReader = null)
+    {
+        if(!$fileReader) {
+            $fileReader = new DiskFileReader();
+        }
+        $this->fileReader = $fileReader;
+    }
+
     /**
      * @var array
      */
@@ -61,7 +81,7 @@ class ApiClientFactory
                     $setting,
                     new ModelRequestFactory(),
                     $modelResponseFactory,
-                    new RequestDirectorFactory($setting),
+                    new RequestDirectorFactory($setting, $this->fileReader),
                     new ApiClientExceptionFactory(
                         $modelResponsePopulator,
                         $modelResponseFactory,

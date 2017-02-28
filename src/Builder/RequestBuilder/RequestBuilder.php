@@ -4,6 +4,7 @@ namespace Anytime\ApiClient\Builder\RequestBuilder;
 
 
 use Anytime\ApiClient\ApiClientSetting;
+use Anytime\ApiClient\IO\FileReader\FileReaderInterface;
 use Anytime\ApiClient\IO\IORequest;
 use Anytime\ApiClient\Model\Request\ModelRequest;
 use Anytime\ApiClient\RequestSigner\RequestSignerInterface;
@@ -22,6 +23,11 @@ abstract class RequestBuilder
     private $requestSigner;
 
     /**
+     * @var FileReaderInterface
+     */
+    private $fileReader;
+
+    /**
      * @var Request
      */
     protected $request;
@@ -35,12 +41,14 @@ abstract class RequestBuilder
      * RequestBuilder constructor.
      *
      * @param ApiClientSetting $setting
+     * @param FileReaderInterface $fileReader
      * @param RequestSignerInterface $requestSigner
      */
-    public function __construct(ApiClientSetting $setting, RequestSignerInterface $requestSigner)
+    public function __construct(ApiClientSetting $setting, FileReaderInterface $fileReader, RequestSignerInterface $requestSigner)
     {
         $this->setting = $setting;
         $this->requestSigner = $requestSigner;
+        $this->fileReader = $fileReader;
     }
 
     /**
@@ -58,7 +66,7 @@ abstract class RequestBuilder
      */
     public function createRequestObject($method, $fullUrl, array $formData = [], array $headers = [], array $files = [])
     {
-        $request = (new IORequest())
+        $request = (new IORequest($this->fileReader))
             ->setMethod($method)
             ->setUrl($fullUrl)
             ->setFormData($formData)

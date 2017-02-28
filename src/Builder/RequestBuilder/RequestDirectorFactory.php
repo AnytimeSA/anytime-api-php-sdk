@@ -3,6 +3,7 @@
 namespace Anytime\ApiClient\Builder\RequestBuilder;
 
 use Anytime\ApiClient\ApiClientSetting;
+use Anytime\ApiClient\IO\FileReader\FileReaderInterface;
 use Anytime\ApiClient\RequestSigner\OpenSslRequestSigner;
 
 class RequestDirectorFactory
@@ -13,19 +14,26 @@ class RequestDirectorFactory
     private $setting;
 
     /**
+     * @var FileReaderInterface
+     */
+    private $fileReader;
+
+    /**
      * RequestDirectorFactory constructor.
      *
      * @param ApiClientSetting $setting
+     * @param FileReaderInterface $fileReader
      */
-    public function __construct(ApiClientSetting $setting)
+    public function __construct(ApiClientSetting $setting, FileReaderInterface $fileReader)
     {
         $this->setting = $setting;
+        $this->fileReader = $fileReader;
     }
 
     /**
      * @param string $method
      * @param string $apiName
-     * @return GetApiCheckRequestDirector
+     * @return RequestDirector
      */
     public function create($method, $apiName)
     {
@@ -49,6 +57,6 @@ class RequestDirectorFactory
             throw new \RuntimeException('Class "' . $builderClass. '" does not exists');
         }
 
-        return new $directorClass(new $builderClass($this->setting, new OpenSslRequestSigner()));
+        return new $directorClass(new $builderClass($this->setting, $this->fileReader, new OpenSslRequestSigner()));
     }
 }

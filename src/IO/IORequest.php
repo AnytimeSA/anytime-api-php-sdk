@@ -3,9 +3,25 @@
 namespace Anytime\ApiClient\IO;
 
 use Anytime\ApiClient\Constant\Method;
+use Anytime\ApiClient\IO\FileReader\FileReaderInterface;
 
 class IORequest
 {
+    /**
+     * @var FileReaderInterface
+     */
+    private $fileReader;
+
+    /**
+     * RequestDirectorFactory constructor.
+     *
+     * @param FileReaderInterface $fileReader
+     */
+    public function __construct(FileReaderInterface $fileReader)
+    {
+        $this->fileReader = $fileReader;
+    }
+
     /**
      * @var string
      */
@@ -143,13 +159,11 @@ class IORequest
         $multipart = [];
 
         foreach($this->files as $fieldName => $fileName) {
-            if(file_exists($fileName) && is_readable($fileName)) {
-                $multipart[] = [
-                    'name'     => $fieldName,
-                    'contents' => file_get_contents($fileName),
-                    'filename' => $fieldName . '.jpg'
-                ];
-            }
+            $multipart[] = [
+                'name'     => $fieldName,
+                'contents' => $this->fileReader->getContents($fileName),
+                'filename' => $fieldName . '.jpg'
+            ];
         }
 
         // Currently we don't need to handle nested request data as no APIs required this.
