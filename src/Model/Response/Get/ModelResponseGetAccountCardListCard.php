@@ -136,7 +136,7 @@ class ModelResponseGetAccountCardListCard
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAtm()
     {
@@ -154,7 +154,7 @@ class ModelResponseGetAccountCardListCard
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPos()
     {

@@ -145,7 +145,7 @@ class ModelRequestPutAccountUpdate extends ModelRequestPut
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

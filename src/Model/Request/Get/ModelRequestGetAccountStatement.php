@@ -22,7 +22,7 @@ class ModelRequestGetAccountStatement extends ModelRequestGet
     private $dateEnd;
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

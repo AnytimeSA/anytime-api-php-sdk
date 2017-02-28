@@ -5,7 +5,7 @@ namespace Anytime\ApiClient\Model\Response;
 class ModelResponseHeader
 {
     /**
-     * @var int
+     * @var integer
      */
     private $requestId;
 
@@ -25,7 +25,7 @@ class ModelResponseHeader
     private $hash;
 
     /**
-     * @return int
+     * @return integer
      */
     public function getRequestId()
     {

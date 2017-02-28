@@ -21,7 +21,7 @@ class ModelResponsePostCardDebit extends ModelResponsePost
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCardAccId()
     {
@@ -37,7 +37,7 @@ class ModelResponsePostCardDebit extends ModelResponsePost
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTransactionId()
     {

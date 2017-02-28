@@ -20,7 +20,7 @@ class ModelRequestGetAccountBalance extends ModelRequestGet
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

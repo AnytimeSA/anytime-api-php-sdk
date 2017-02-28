@@ -13,7 +13,7 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAccId()
     {

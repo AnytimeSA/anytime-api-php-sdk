@@ -65,7 +65,7 @@ class ModelResponseGetCardTransactionTransaction
     private $description;
 
     /**
-     * @return int
+     * @return integer
      */
     public function getTxid()
     {
@@ -83,7 +83,7 @@ class ModelResponseGetCardTransactionTransaction
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getMcc()
     {

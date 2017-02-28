@@ -61,7 +61,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -79,7 +79,7 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getDstAccId()
     {

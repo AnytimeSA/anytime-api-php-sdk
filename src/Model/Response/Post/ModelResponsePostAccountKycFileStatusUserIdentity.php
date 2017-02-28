@@ -15,7 +15,7 @@ class ModelResponsePostAccountKycFileStatusUserIdentity
     private $error;
 
     /**
-     * @return int
+     * @return integer
      */
     public function getStatus()
     {

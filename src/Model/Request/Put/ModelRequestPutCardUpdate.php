@@ -77,7 +77,7 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCardPos()
     {
@@ -95,7 +95,7 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCardAtm()
     {
@@ -113,7 +113,7 @@ class ModelRequestPutCardUpdate extends ModelRequestPut
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getCardRenew()
     {

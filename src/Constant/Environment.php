@@ -26,7 +26,7 @@ class Environment
 
     /**
      * @param string $environment
-     * @return bool
+     * @return boolean
      */
     public static function isValidEnvironment($environment)
     {

@@ -6,7 +6,7 @@ interface AuthenticatorInterface
 {
     /**
      * @param array $data
-     * @return bool
+     * @return boolean
      */
     public function authenticate($data = []);
 }

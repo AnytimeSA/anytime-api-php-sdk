@@ -21,7 +21,7 @@ class ModelRequestGetAccountInfo extends ModelRequestGet
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

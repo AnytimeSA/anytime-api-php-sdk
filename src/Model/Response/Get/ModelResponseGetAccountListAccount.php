@@ -15,7 +15,7 @@ class ModelResponseGetAccountListAccount
     private $accType;
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAccId()
     {

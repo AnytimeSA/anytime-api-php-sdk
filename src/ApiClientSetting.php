@@ -27,7 +27,7 @@ class ApiClientSetting
     private $basePath = '/';
 
     /**
-     * @var int
+     * @var integer
      */
     private $port = 80;
 
@@ -157,7 +157,7 @@ class ApiClientSetting
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getPort()
     {

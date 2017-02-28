@@ -20,7 +20,7 @@ class ModelRequestGetAccountCardList extends ModelRequestGet
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getId()
     {

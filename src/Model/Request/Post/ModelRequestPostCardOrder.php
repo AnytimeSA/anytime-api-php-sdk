@@ -91,7 +91,7 @@ class ModelRequestPostCardOrder extends ModelRequestPost
     }
 
     /**
-     * @return int
+     * @return integer
      */
     public function getAccId()
     {
