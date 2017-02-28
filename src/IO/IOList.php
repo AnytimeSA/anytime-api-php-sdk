@@ -198,7 +198,7 @@ class IOList
      * @param string $apiName
      * @return IO
      */
-    private function getIOFromCache($apiName)
+    public function getIOFromCache($apiName)
     {
         if(!array_key_exists($apiName, $this->IOCached)) {
             $this->IOCached[$apiName] = $this->IOFactory->create($apiName);
