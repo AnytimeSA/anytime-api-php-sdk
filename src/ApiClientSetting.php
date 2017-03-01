@@ -29,7 +29,7 @@ class ApiClientSetting
     /**
      * @var integer
      */
-    private $port = 80;
+    private $port = 443;
 
     /**
      * @var string
