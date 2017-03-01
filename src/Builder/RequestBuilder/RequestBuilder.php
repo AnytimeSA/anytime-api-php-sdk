@@ -105,12 +105,17 @@ abstract class RequestBuilder
     {
         $userInfo = $this->setting->getUserInfo();
         $port = $this->setting->getPort();
+        $basePath = ($this->setting->getBasePath() ? $this->setting->getBasePath() : '/');
+        if(($this->setting->getScheme() === 'https' && $port === 443) || ($this->setting->getScheme() === 'http' && $port === 80)) {
+            $port = null;
+        }
+
         return
             $this->setting->getScheme() . '://' .
             (empty($userInfo) ? '' : $userInfo . '@') .
             $this->setting->getDomain() .
             (empty($port) ? '' : ':' . $port) .
-            $this->setting->getBasePath() .
+            $basePath .
             ($withVersion ? $this->setting->getApiVersion() . '/' : '') .
             $uri
         ;
