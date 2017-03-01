@@ -2,6 +2,8 @@
 
 namespace Anytime\ApiClient\Hydrator;
 
+use Anytime\ApiClient\Constant\Currency;
+use Anytime\ApiClient\Model\Response\Get\ModelResponseGetCardTransactionTransaction;
 use Xpmock\TestCase;
 
 class FromSnakeCaseHydratorTest extends TestCase
@@ -11,20 +13,10 @@ class FromSnakeCaseHydratorTest extends TestCase
      */
     public function testObjectGettersReturnsTheCorrectValueAfterHydration()
     {
-        $object = new class {
-            private $valueTest;
-            public function setValueTest($valueTest)
-            {
-                $this->valueTest = $valueTest;
-            }
-            public function getValueTest()
-            {
-                return $this->valueTest;
-            }
-        };
-
+        $object = new ModelResponseGetCardTransactionTransaction();
         $hydrator = new FromSnakeCaseHydrator();
-        $hydrator->hydrate($object, ['value_test' => 'the-value']);
-        $this->assertSame('the-value', $object->getValueTest());
+        $hydrator->hydrate($object, ['amount' => 9.50, 'currency' => Currency::USD]);
+        $this->assertSame(9.50, $object->getAmount());
+        $this->assertSame(Currency::USD, $object->getCurrency());
     }
 }
