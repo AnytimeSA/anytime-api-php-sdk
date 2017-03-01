@@ -11,7 +11,12 @@ use Xpmock\TestCase;
 
 class GetRequestBuilderTest extends TestCase
 {
-    public function testGetQueryStringFiltersReturnsCorrectQueryStringBasedOnDateAndLImitParams()
+    /**
+     * @group GetRequestBuilder
+     * @group RequestBuilder
+     */
+
+    public function testGetQueryStringFiltersReturnsCorrectQueryStringBasedOnDateAndLimitParams()
     {
         $timezoneNormalizer = $this->mock(TimezoneNormalizer::class)->new();
         $modelRequest = (new ModelRequestGetCardTransaction($timezoneNormalizer))
