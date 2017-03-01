@@ -13,9 +13,18 @@ class DiskFileReader implements FileReaderInterface
      */
     public function getContents($filePath)
     {
-        if(file_exists($filePath) && is_readable($filePath)) {
+        if($this->fileExists($filePath)) {
             return file_get_contents($filePath);
         }
         throw new UnreachableFileContentsException($filePath);
+    }
+
+    /**
+     * @param string $filePath
+     * @return bool
+     */
+    public function fileExists($filePath)
+    {
+        return (file_exists($filePath) && is_readable($filePath));
     }
 }

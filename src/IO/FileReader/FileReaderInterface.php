@@ -12,4 +12,10 @@ interface FileReaderInterface
      * @throws UnreachableFileContentsException
      */
     public function getContents($identifier);
+
+    /**
+     * @param string $identifier
+     * @return boolean
+     */
+    public function fileExists($identifier);
 }
