@@ -14,7 +14,7 @@ class PostOAuth2TokenRequestBuilder extends RequestBuilder
      */
     public function getRequest(ModelRequest $modelRequest)
     {
-        return $this->createRequestObject(
+        return $this->createIORequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri'], false),
             $this->filterNullParams([

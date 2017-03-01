@@ -49,7 +49,7 @@ class PostAccountCreationRequestBuilder extends RequestBuilder
         }
 
 
-        return $this->createRequestObject(
+        return $this->createIORequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             $this->filterNullParams($data)

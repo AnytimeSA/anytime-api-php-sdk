@@ -41,7 +41,7 @@ class PutAccountUpdateRequestBuilder extends RequestBuilder
             'corp_addr_cc'          =>  $modelRequest->getcorpAddrCc()
         ];
 
-        return $this->createRequestObject(
+        return $this->createIORequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             $this->filterNullParams($data)

@@ -64,7 +64,7 @@ abstract class RequestBuilder
      * @param array $files
      * @return IORequest
      */
-    public function createRequestObject($method, $fullUrl, array $formData = [], array $headers = [], array $files = [])
+    public function createIORequestObject($method, $fullUrl, array $formData = [], array $headers = [], array $files = [])
     {
         $request = (new IORequest($this->fileReader))
             ->setMethod($method)

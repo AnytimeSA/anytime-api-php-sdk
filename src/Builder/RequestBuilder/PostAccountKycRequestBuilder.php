@@ -27,7 +27,7 @@ class PostAccountKycRequestBuilder extends RequestBuilder
             'corp_kbis'                 => $modelRequest->getCorpKbis()
         ];
 
-        return $this->createRequestObject(
+        return $this->createIORequestObject(
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             [],
