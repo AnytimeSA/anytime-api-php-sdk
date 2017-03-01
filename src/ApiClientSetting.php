@@ -34,7 +34,7 @@ class ApiClientSetting
     /**
      * @var string
      */
-    private $apiVersion = '1.0';
+    private $apiVersion = 'v1.0';
 
     /**
      * @var string
