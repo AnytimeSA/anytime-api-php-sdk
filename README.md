@@ -83,7 +83,18 @@ If you have already a token, you can just call the method "initToken" of the cli
 ```
 $client->initToken($yourToken);
 ```
+### Helpers
 
+We have created several helpers class to help you to fulfill request params with the correct values. These helpers are classes containing only constants:
+
+- AccountType : Contains the 2 possibles account type values (business and consumer)
+- CardStatus : The different card status (Blocked, Activated, and so on...)
+- CardType : Plastic, virtual...
+- Country : A list of available country codes
+- Currency : All the currencies
+- Environment : The available environments (PRODUCTION & SANDBOX)
+- Gender : M / F
+- Language : The language available
 
 ### Making requests
 
@@ -129,7 +140,7 @@ try {
 }
 ```
 
-### Retrieve accounts list
+#### Retrieve accounts list
 ```
 $accountListApi = $client->api()->accountList();
 $request = $accountListApi->createRequest();
