@@ -94,7 +94,7 @@ We have created several helpers classes to help you to fulfill request params wi
 - Currency : All the currencies
 - Environment : The available environments (PRODUCTION & SANDBOX)
 - Gender : M / F
-- Language : The languages available
+- Language : The available languages
 
 ### Making requests
 
