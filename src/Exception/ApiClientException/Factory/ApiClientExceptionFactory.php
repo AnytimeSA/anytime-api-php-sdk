@@ -69,14 +69,14 @@ class ApiClientExceptionFactory
 
         if(!isset($exception)) {
             $exception = new UnhandledException('The exception returned by the API is not handled by this client', 0, $badResponseException);
+        } else {
+            $exception->setResponseContent(
+                $this->modelResponsePopulator->populate(
+                    $this->modelResponseFactory->createError(),
+                    $this->jsonResponseParser->parse($contents)
+                )
+            );
         }
-
-        $exception->setResponseContent(
-            $this->modelResponsePopulator->populate(
-                $this->modelResponseFactory->createError(),
-                $this->jsonResponseParser->parse($contents)
-            )
-        );
 
         return $exception;
     }
