@@ -23,6 +23,7 @@ class API
     const CARD_CREDIT = 'CardCredit';
     const CARD_DEBIT = 'CardDebit';
     const CARD_SEND_PIN = 'CardSendPin';
+    const CARD_GET_PAN = 'CardGetPan';
     const CARD_SEND_PAN = 'CardSendPan';
     const CARD_DETAILS_DISPLAY = 'CardDetailsDisplay';
 }
