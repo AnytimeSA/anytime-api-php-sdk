@@ -147,6 +147,14 @@ class IOList
     }
 
     /**
+     * @return CardGetPanIO
+     */
+    public function cardGetPan()
+    {
+        return $this->getIOFromCache(API::CARD_GET_PAN);
+    }
+
+    /**
      * @return CardSendPanIO
      */
     public function cardSendPan()
