@@ -7,6 +7,11 @@ class ModelResponseGetAccountStatementTransaction
     /**
      * @var string
      */
+    private $txid;
+
+    /**
+     * @var string
+     */
     private $description;
 
     /**
@@ -33,6 +38,24 @@ class ModelResponseGetAccountStatementTransaction
      * @var float
      */
     private $currency;
+
+    /**
+     * @return string
+     */
+    public function getTxid()
+    {
+        return $this->txid;
+    }
+
+    /**
+     * @param string $txid
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setTxid($txid)
+    {
+        $this->txid = $txid;
+        return $this;
+    }
 
     /**
      * @return string
