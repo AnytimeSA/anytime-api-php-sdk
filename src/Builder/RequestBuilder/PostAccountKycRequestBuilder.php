@@ -20,6 +20,7 @@ class PostAccountKycRequestBuilder extends RequestBuilder
             'user_identity_back'        => $modelRequest->getUserIdentityBack(),
             'user_identity_host'        => $modelRequest->getUserIdentityHost(),
             'user_identity_back_host'   => $modelRequest->getUserIdentityBackHost(),
+            'user_passport'             => $modelRequest->getUserPassport(),
             'user_dom_1'                => $modelRequest->getUserDom1(),
             'user_dom_host'             => $modelRequest->getUserDomHost(),
             'user_affidavit'            => $modelRequest->getUserAffidavit(),

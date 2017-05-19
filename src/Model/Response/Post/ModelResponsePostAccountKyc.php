@@ -16,6 +16,7 @@ class ModelResponsePostAccountKyc extends ModelResponsePost
                 ->setUserIdentityHost(new ModelResponsePostAccountKycFileStatusUserIdentityHost())
                 ->setUserIdentityBackHost(new ModelResponsePostAccountKycFileStatusUserIdentityBackHost())
                 ->setUserIdentityBack(new ModelResponsePostAccountKycFileStatusUserIdentityBack())
+                ->setUserPassport(new ModelResponsePostAccountKycFileStatusUserPassport())
                 ->setUserDom1(new ModelResponsePostAccountKycFileStatusUserDom1())
                 ->setUserDomHost(new ModelResponsePostAccountKycFileStatusUserDomHost())
                 ->setUserAffidavit(new ModelResponsePostAccountKycFileStatusUserAffidavit())
@@ -43,6 +44,7 @@ class ModelResponsePostAccountKyc extends ModelResponsePost
             'user_identity_host'        =>  'getUserIdentityHost',
             'user_identity_back_host'   =>  'getUserIdentityBackHost',
             'user_identity_back'        =>  'getUserIdentityBack',
+            'user_passport'             =>  'getUserPassport',
             'user_dom1'                 =>  'getUserDom1',
             'user_dom_host'             =>  'getUserDomHost',
             'user_affidavit'            =>  'getUserAffidavit',

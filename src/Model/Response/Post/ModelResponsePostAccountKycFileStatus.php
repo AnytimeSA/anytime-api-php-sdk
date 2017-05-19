@@ -20,6 +20,11 @@ class ModelResponsePostAccountKycFileStatus
     private $userIdentityBack;
 
     /**
+     * @var ModelResponsePostAccountKycFileStatusUserPassport
+     */
+    private $userPassport;
+
+    /**
      * @var ModelResponsePostAccountKycFileStatusUserDom1
      */
     private $userDom1;
@@ -105,6 +110,24 @@ class ModelResponsePostAccountKycFileStatus
     public function setUserIdentityBack($userIdentityBack)
     {
         $this->userIdentityBack = $userIdentityBack;
+        return $this;
+    }
+
+    /**
+     * @return ModelResponsePostAccountKycFileStatusUserPassport
+     */
+    public function getUserPassport()
+    {
+        return $this->userPassport;
+    }
+
+    /**
+     * @param ModelResponsePostAccountKycFileStatusUserPassport $userPassport
+     * @return ModelResponsePostAccountKycFileStatus
+     */
+    public function setUserPassport($userPassport)
+    {
+        $this->userPassport = $userPassport;
         return $this;
     }
 

@@ -29,6 +29,11 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     /**
      * @var string
      */
+    private $userPassport;
+
+    /**
+     * @var string
+     */
     private $userDom1;
 
     /**
@@ -139,6 +144,24 @@ class ModelRequestPostAccountKyc extends ModelRequestPost
     public function setUserIdentityBack($userIdentityBack)
     {
         $this->userIdentityBack = (string)$userIdentityBack;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserPassport()
+    {
+        return $this->userPassport;
+    }
+
+    /**
+     * @param string $userPassport
+     * @return ModelRequestPostAccountKyc
+     */
+    public function setUserPassport($userPassport)
+    {
+        $this->userPassport = $userPassport;
         return $this;
     }
 
