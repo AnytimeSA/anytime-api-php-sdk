@@ -547,7 +547,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      * @param string $corpAddrZip
      * @return ModelRequestPostAccountCreation
      */
-    public function setcorpAddrZip($corpAddrZip)
+    public function setCorpAddrZip($corpAddrZip)
     {
         $this->corpAddrZip = (string)$corpAddrZip;
         return $this;
@@ -556,7 +556,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @return string
      */
-    public function getcorpAddrCity()
+    public function getCorpAddrCity()
     {
         return $this->corpAddrCity;
     }
@@ -565,7 +565,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      * @param string $corpAddrCity
      * @return ModelRequestPostAccountCreation
      */
-    public function setcorpAddrCity($corpAddrCity)
+    public function setCorpAddrCity($corpAddrCity)
     {
         $this->corpAddrCity =(string)$corpAddrCity;
         return $this;
@@ -574,7 +574,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
     /**
      * @return string
      */
-    public function getcorpAddrCc()
+    public function getCorpAddrCc()
     {
         return $this->corpAddrCc;
     }
@@ -583,7 +583,7 @@ class ModelRequestPostAccountCreation extends ModelRequestPost
      * @param string $corpAddrCc
      * @return ModelRequestPostAccountCreation
      */
-    public function setcorpAddrCc($corpAddrCc)
+    public function setCorpAddrCc($corpAddrCc)
     {
         $this->corpAddrCc = (string)$corpAddrCc;
         return $this;
