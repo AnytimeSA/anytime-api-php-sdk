@@ -48,7 +48,7 @@ class ApiClientExceptionFactory
      */
     public function createResponseException(BadResponseException $badResponseException)
     {
-        $contents = $badResponseException->getResponse()->getBody()->getContents();
+        $contents = (string) $badResponseException->getResponse()->getBody();
         $contentsArray = json_decode($contents, true);
 
         if(is_array($contentsArray) && array_key_exists('body', $contentsArray)) {
