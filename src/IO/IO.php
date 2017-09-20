@@ -144,7 +144,7 @@ abstract class IO
 
             return $this->modelResponsePopulator->populate(
                 $modelResponse,
-                $this->responseParser->parse($response->getBody()->getContents())
+                $this->responseParser->parse((string) $response->getBody())
             );
 
         } catch(BadResponseException $e) {
