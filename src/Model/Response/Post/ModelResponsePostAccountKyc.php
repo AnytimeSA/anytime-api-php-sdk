@@ -37,7 +37,7 @@ class ModelResponsePostAccountKyc extends ModelResponsePost
      */
     private function hydrateFileStatus(ModelResponsePostAccountKycFileStatus $modelResponsePostAccountKycFileStatus)
     {
-        $data = $this->getDataValue('file_status');
+        $data = $this->getDataValue('files_status');
         $fileStatusRef = [
             'user_selfie'               =>  'getUserSelfie',
             'user_identity'             =>  'getUserIdentity',
