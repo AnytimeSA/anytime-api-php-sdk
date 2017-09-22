@@ -18,7 +18,6 @@ class PutCardUpdateRequestBuilder extends RequestBuilder
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             $this->filterNullParams([
-                'card_ref'      => $modelRequest->getCardRef(),
                 'card_status'   => $modelRequest->getCardStatus(),
                 'card_pos'      => $modelRequest->getCardPos(),
                 'card_atm'      => $modelRequest->getCardAtm(),
