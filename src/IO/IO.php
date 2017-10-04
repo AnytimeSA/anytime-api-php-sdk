@@ -172,7 +172,7 @@ abstract class IO
     /**
      * @param string $method
      * @param string $apiName
-     * @return ModelRequestGetApiCheck
+     * @return ModelRequestInterface
      */
     protected function createRequestByMethodAndApi($method, $apiName)
     {
