@@ -40,6 +40,21 @@ class ModelResponseGetAccountStatementTransaction
     private $currency;
 
     /**
+     * @var string
+     */
+    private $iban;
+
+    /**
+     * @var string
+     */
+    private $status;
+
+    /**
+     * @var \DateTime
+     */
+    private $executionDate;
+
+    /**
      * @return string
      */
     public function getTxid()
@@ -165,5 +180,58 @@ class ModelResponseGetAccountStatementTransaction
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * @param string $iban
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExecutionDate()
+    {
+        return $this->executionDate;
+    }
+
+    /**
+     * @param \DateTime $executionDate
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setExecutionDate($executionDate)
+    {
+        $this->executionDate = $executionDate;
+        return $this;
+    }
 
 }
