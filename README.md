@@ -41,6 +41,7 @@ Before making requests let's take a look to the available APIs:
 - AccountBalance
 - AccountCardList
 - AccountCreation
+- AccountIbanCreation
 - AccountCreditTransfer
 - AccountInfo
 - AccountKyc

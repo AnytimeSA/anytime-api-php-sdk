@@ -60,13 +60,6 @@ class ApiClientFactory
         }
 
         $setting = $this->createSettingObject($environment, $params);
-
-        foreach($this->allowedParams as $allowedParam => $setter) {
-            if(array_key_exists($allowedParam, $params)) {
-                $setting->$setter($params[$allowedParam]);
-            }
-        }
-
         $modelResponsePopulator = new ModelResponsePopulator();
         $modelResponseFactory = new ModelResponseFactory();
         $jsonResponseParser = new JsonResponseParser();
