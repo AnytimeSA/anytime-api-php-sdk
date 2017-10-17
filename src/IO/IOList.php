@@ -123,6 +123,14 @@ class IOList
     }
 
     /**
+     * @return AccountStatementDetailsIO
+     */
+    public function accountStatementDetails()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_STATEMENT_DETAILS);
+    }
+
+    /**
      * @return CardInfoIO
      */
     public function cardInfo()
