@@ -139,6 +139,14 @@ class IOList
     }
 
     /**
+     * @return CardTransactionDetailsIO
+     */
+    public function cardTransactionDetails()
+    {
+        return $this->getIOFromCache(API::CARD_TRANSACTION_DETAILS);
+    }
+
+    /**
      * @return CardSendPinIO
      */
     public function cardSendPin()
