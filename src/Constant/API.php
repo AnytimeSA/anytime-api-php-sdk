@@ -20,6 +20,7 @@ class API
     const CARD_ORDER = 'CardOrder';
     const CARD_UPDATE = 'CardUpdate';
     const CARD_TRANSACTION = 'CardTransaction';
+    const CARD_TRANSACTION_DETAILS = 'CardTransactionDetails';
     const CARD_CREDIT = 'CardCredit';
     const CARD_DEBIT = 'CardDebit';
     const CARD_SEND_PIN = 'CardSendPin';
