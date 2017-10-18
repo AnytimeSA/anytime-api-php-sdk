@@ -29,6 +29,7 @@ class ModelResponseGetAccountStatement extends ModelResponseGet
             $transactions = [];
             foreach ($this->data['transactions'] as $elem) {
                 $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
+                $elem['execution_date'] = $this->timezoneNormalizer->normalize($elem['execution_date']);
 
 
                 $transactions[] = $this->hydrator->hydrate(

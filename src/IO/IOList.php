@@ -115,11 +115,27 @@ class IOList
     }
 
     /**
+     * @return AccountIbanCreationIO
+     */
+    public function accountIbanCreation()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_IBAN_CREATION);
+    }
+
+    /**
      * @return AccountStatementIO
      */
     public function accountStatement()
     {
         return $this->getIOFromCache(API::ACCOUNT_STATEMENT);
+    }
+
+    /**
+     * @return AccountStatementDetailsIO
+     */
+    public function accountStatementDetails()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_STATEMENT_DETAILS);
     }
 
     /**
@@ -139,6 +155,14 @@ class IOList
     }
 
     /**
+     * @return CardTransactionDetailsIO
+     */
+    public function cardTransactionDetails()
+    {
+        return $this->getIOFromCache(API::CARD_TRANSACTION_DETAILS);
+    }
+
+    /**
      * @return CardSendPinIO
      */
     public function cardSendPin()
@@ -152,6 +176,14 @@ class IOList
     public function cardGetPan()
     {
         return $this->getIOFromCache(API::CARD_GET_PAN);
+    }
+
+    /**
+     * @return CardGetPinIO
+     */
+    public function cardGetPin()
+    {
+        return $this->getIOFromCache(API::CARD_GET_PIN);
     }
 
     /**
