@@ -163,6 +163,14 @@ class IOList
     }
 
     /**
+     * @return CardGetPinIO
+     */
+    public function cardGetPin()
+    {
+        return $this->getIOFromCache(API::CARD_GET_PIN);
+    }
+
+    /**
      * @return CardSendPanIO
      */
     public function cardSendPan()
