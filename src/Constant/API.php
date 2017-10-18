@@ -15,12 +15,14 @@ class API
     const ACCOUNT_CREDIT_TRANSFER = 'AccountCreditTransfer';
     const ACCOUNT_BALANCE = 'AccountBalance';
     const ACCOUNT_STATEMENT = 'AccountStatement';
+    const ACCOUNT_STATEMENT_DETAILS = 'AccountStatementDetails';
     const ACCOUNT_KYC = 'AccountKyc';
     const ACCOUNT_CARD_LIST = 'AccountCardList';
     const CARD_INFO = 'CardInfo';
     const CARD_ORDER = 'CardOrder';
     const CARD_UPDATE = 'CardUpdate';
     const CARD_TRANSACTION = 'CardTransaction';
+    const CARD_TRANSACTION_DETAILS = 'CardTransactionDetails';
     const CARD_CREDIT = 'CardCredit';
     const CARD_DEBIT = 'CardDebit';
     const CARD_SEND_PIN = 'CardSendPin';

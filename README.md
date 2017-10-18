@@ -47,6 +47,7 @@ Before making requests let's take a look to the available APIs:
 - AccountKyc
 - AccountList
 - AccountStatement
+- AccountStatementDetails
 - AccountUpdate
 - ApiCheck
 - ApiCheckPost
@@ -59,6 +60,7 @@ Before making requests let's take a look to the available APIs:
 - CardSendPin
 - CardGetPin
 - CardTransaction
+- CardTransactionDetails
 - CardUpdate
 
 All these APIs are callable with the api() method like this:
