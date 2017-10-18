@@ -7,8 +7,8 @@ class ModelResponseGetCardGetPin extends ModelResponseGet
     /**
      * @return string
      */
-    public function getPinUrl()
+    public function getPin()
     {
-        return (string)$this->getDataValue('pin_url');
+        return (string)$this->getDataValue('pin');
     }
 }
