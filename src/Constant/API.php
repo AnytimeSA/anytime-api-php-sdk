@@ -10,6 +10,7 @@ class API
     const ACCOUNT_LIST = 'AccountList';
     const ACCOUNT_INFO = 'AccountInfo';
     const ACCOUNT_CREATION = 'AccountCreation';
+    const ACCOUNT_IBAN_CREATION = 'AccountIbanCreation';
     const ACCOUNT_UPDATE = 'AccountUpdate';
     const ACCOUNT_CREDIT_TRANSFER = 'AccountCreditTransfer';
     const ACCOUNT_BALANCE = 'AccountBalance';

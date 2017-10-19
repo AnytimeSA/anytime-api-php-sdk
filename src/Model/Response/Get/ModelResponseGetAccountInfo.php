@@ -212,4 +212,27 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
         return (string)$this->getDataValue('user_nationality');
     }
 
+    /**
+     * @return ModelResponseGetAccountInfoIban[]|null
+     */
+    public function getIbans()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            $ibans = [];
+
+            if(array_key_exists('ibans', $this->data)) {
+                foreach ($this->data['ibans'] as $elem) {
+                    $ibans[] = $this->hydrator->hydrate(
+                        new ModelResponseGetAccountInfoIban(),
+                        $elem
+                    );
+                }
+            }
+
+            $this->setGetterCache(__METHOD__, $ibans);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
+
 }

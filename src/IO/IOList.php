@@ -115,6 +115,14 @@ class IOList
     }
 
     /**
+     * @return AccountIbanCreationIO
+     */
+    public function accountIbanCreation()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_IBAN_CREATION);
+    }
+
+    /**
      * @return AccountStatementIO
      */
     public function accountStatement()
