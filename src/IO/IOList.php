@@ -123,6 +123,14 @@ class IOList
     }
 
     /**
+     * @return AccountStatementDetailsIO
+     */
+    public function accountStatementDetails()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_STATEMENT_DETAILS);
+    }
+
+    /**
      * @return CardInfoIO
      */
     public function cardInfo()
@@ -136,6 +144,14 @@ class IOList
     public function cardTransaction()
     {
         return $this->getIOFromCache(API::CARD_TRANSACTION);
+    }
+
+    /**
+     * @return CardTransactionDetailsIO
+     */
+    public function cardTransactionDetails()
+    {
+        return $this->getIOFromCache(API::CARD_TRANSACTION_DETAILS);
     }
 
     /**
