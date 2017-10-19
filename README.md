@@ -56,6 +56,7 @@ Before making requests let's take a look to the available APIs:
 - CardOrder
 - CardSendPan
 - CardSendPin
+- CardGetPin
 - CardTransaction
 - CardUpdate
 
