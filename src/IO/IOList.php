@@ -119,7 +119,7 @@ class IOList
      */
     public function accountIbanCreation()
     {
-        return $this->getIOFromCache(API::ACCOUNT_IBAN_CREATION);
+        throw new \RuntimeException('Not yet implemented');
     }
 
     /**
