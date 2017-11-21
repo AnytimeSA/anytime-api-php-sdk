@@ -41,6 +41,11 @@ class ModelResponseGetAccountCardListCard
     private $pos;
 
     /**
+     * @var string
+     */
+    private $cardType;
+
+    /**
      * @var ModelResponseGetAccountCardListCardCardHolder
      */
     private $cardHolder;
@@ -168,6 +173,24 @@ class ModelResponseGetAccountCardListCard
     public function setPos($pos)
     {
         $this->pos = (int)$pos;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCardType()
+    {
+        return $this->cardType;
+    }
+
+    /**
+     * @param string $cardType
+     * @return ModelResponseGetAccountCardListCard
+     */
+    public function setCardType($cardType)
+    {
+        $this->cardType = $cardType;
         return $this;
     }
 
