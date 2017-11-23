@@ -227,6 +227,14 @@ class IOList
     }
 
     /**
+     * @return OrderTrackingIO
+     */
+    public function orderTracking()
+    {
+        return $this->getIOFromCache(API::ORDER_TRACKING);
+    }
+
+    /**
      * @param string $apiName
      * @return IO
      */
