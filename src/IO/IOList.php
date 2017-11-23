@@ -235,6 +235,22 @@ class IOList
     }
 
     /**
+     * @return AccountIbanCreationIO
+     */
+    public function accountIbanCreation()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_IBAN_CREATION);
+    }
+
+    /**
+     * @return AccountIbanCreationIO
+     */
+    public function accountVirtualIbanCreation()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_VIRTUAL_IBAN_CREATION);
+    }
+
+    /**
      * @param string $apiName
      * @return IO
      */
