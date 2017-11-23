@@ -243,7 +243,7 @@ class IOList
     }
 
     /**
-     * @return AccountIbanCreationIO
+     * @return AccountVirtualIbanCreationIO
      */
     public function accountVirtualIbanCreation()
     {
