@@ -58,6 +58,15 @@ class TimezoneNormalizerTest extends TestCase
     /**
      * @group TimezoneNormalizer
      */
+    public function testNormalizeNullValueReturnsNull()
+    {
+        $normalizer = new TimezoneNormalizer();
+        $this->assertNull($normalizer->normalize(null));
+    }
+
+    /**
+     * @group TimezoneNormalizer
+     */
     public function testNormalizeThrowsAnExceptionIfDateStringIsInvalid()
     {
         $this->expectException(\RuntimeException::class);

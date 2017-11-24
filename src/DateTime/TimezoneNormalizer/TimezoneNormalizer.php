@@ -17,6 +17,10 @@ class TimezoneNormalizer implements TimezoneNormalizerInterface
      */
     public function normalize($dateTime)
     {
+        if(is_null($dateTime)) {
+            return;
+        }
+
         if(is_object($dateTime) && get_class($dateTime) === \DateTime::class) {
             $dateTime->setTimezone(new \DateTimeZone(
                 $this->forceTimezone
