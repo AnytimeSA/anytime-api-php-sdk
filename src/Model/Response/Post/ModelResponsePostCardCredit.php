@@ -13,27 +13,11 @@ class ModelResponsePostCardCredit extends ModelResponsePost
     }
 
     /**
-     * @return float
-     */
-    public function getCardBalanceAfter()
-    {
-        return (float)$this->getDataValue('card_balance_after');
-    }
-
-    /**
      * @return integer
      */
     public function getCardAccId()
     {
         return (int)$this->getDataValue('card_acc_id');
-    }
-
-    /**
-     * @return float
-     */
-    public function getAccBalanceAfter()
-    {
-        return (float)$this->getDataValue('acc_balance_after');
     }
 
     /**
