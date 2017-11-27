@@ -29,4 +29,5 @@ class API
     const CARD_GET_PIN = 'CardGetPin';
     const CARD_SEND_PAN = 'CardSendPan';
     const CARD_DETAILS_DISPLAY = 'CardDetailsDisplay';
+    const ORDER_TRACKING = 'OrderTracking';
 }
