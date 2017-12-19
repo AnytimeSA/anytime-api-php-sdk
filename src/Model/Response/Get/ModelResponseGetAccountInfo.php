@@ -248,4 +248,40 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
         return (string)$this->getDataValue('user_nationality');
     }
 
+    /**
+     * @return ModelResponseGetAccountInfoIban
+     */
+    public function getIban()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            $iban = $this->hydrator->hydrate(
+                new ModelResponseGetAccountInfoIban(),
+                $this->data['iban']
+            );
+
+            $this->setGetterCache(__METHOD__, $iban);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
+
+    /**
+     * @return ModelResponseGetAccountInfoVirtualIban[]
+     */
+    public function getVirtualIbans()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            $virtualIbans = [];
+
+            foreach ($this->data['virtual_ibans'] as $elem) {
+                $virtualIbans[] = $this->hydrator->hydrate(
+                    new ModelResponseGetAccountInfoVirtualIban(),
+                    $elem
+                );
+            }
+            $this->setGetterCache(__METHOD__, $virtualIbans);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
 }
