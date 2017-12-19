@@ -70,18 +70,36 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
 
     /**
      * @return string
+     * @deprecated
      */
     public function getCorpAddrLine1()
     {
-        return (string)$this->getDataValue('corp_addr_line1');
+        return (string)$this->getDataValue('corp_addr_1');
     }
 
     /**
      * @return string
      */
+    public function getCorpAddr1()
+    {
+        return (string)$this->getDataValue('corp_addr_1');
+    }
+
+    /**
+     * @return string
+     * @deprecated
+     */
     public function getCorpAddrLine2()
     {
-        return (string)$this->getDataValue('corp_addr_line2');
+        return (string)$this->getDataValue('corp_addr_2');
+    }
+
+    /**
+     * @return string
+     */
+    public function getCorpAddr2()
+    {
+        return (string)$this->getDataValue('corp_addr_2');
     }
 
     /**
@@ -89,7 +107,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrZip()
     {
-        return (string)$this->getDataValue('corp_addr_zip');
+        return (string)$this->getDataValue('corp_zip');
     }
 
     /**
@@ -97,7 +115,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrCity()
     {
-        return (string)$this->getDataValue('corp_addr_city');
+        return (string)$this->getDataValue('corp_city');
     }
 
     /**
@@ -105,7 +123,7 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
      */
     public function getCorpAddrCc()
     {
-        return (string)$this->getDataValue('corp_addr_cc');
+        return (string)$this->getDataValue('corp_cc');
     }
 
     /**
@@ -166,18 +184,36 @@ class ModelResponseGetAccountInfo extends ModelResponseGet
 
     /**
      * @return string
+     * @deprecated
      */
     public function getUserAddrLine1()
     {
-        return (string)$this->getDataValue('user_addr_line1');
+        return (string)$this->getDataValue('user_addr_1');
     }
 
     /**
      * @return string
      */
+    public function getUserAddr1()
+    {
+        return (string)$this->getDataValue('user_addr_1');
+    }
+
+    /**
+     * @return string
+     * @deprecated
+     */
     public function getUserAddrLine2()
     {
-        return (string)$this->getDataValue('user_addr_line2');
+        return (string)$this->getDataValue('user_addr_2');
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAddr2()
+    {
+        return (string)$this->getDataValue('user_addr_2');
     }
 
     /**
