@@ -40,6 +40,21 @@ class ModelResponseGetAccountStatementTransaction
     private $currency;
 
     /**
+     * @var string
+     */
+    private $virtualIban;
+
+    /**
+     * @var string
+     */
+    private $status;
+
+    /**
+     * @var \DateTime
+     */
+    private $executionDate;
+
+    /**
      * @return string
      */
     public function getTxid()
@@ -162,6 +177,60 @@ class ModelResponseGetAccountStatementTransaction
     public function setCurrency($currency)
     {
         $this->currency = (string)$currency;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVirtualIban()
+    {
+        return $this->virtualIban;
+    }
+
+    /**
+     * @param string $virtualIban
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setVirtualIban($virtualIban)
+    {
+        $this->virtualIban = $virtualIban;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExecutionDate()
+    {
+        return $this->executionDate;
+    }
+
+    /**
+     * @param \DateTime $executionDate
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setExecutionDate($executionDate)
+    {
+        $this->executionDate = $executionDate;
         return $this;
     }
 
