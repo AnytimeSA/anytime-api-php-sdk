@@ -44,7 +44,7 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
      */
     public function getApiName()
     {
-        return API::ACCOUNT_STATEMENT;
+        return API::ACCOUNT_IBAN_STATEMENT;
     }
 
     /**
