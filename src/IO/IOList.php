@@ -251,6 +251,14 @@ class IOList
     }
 
     /**
+     * @return AccountIbanStatementIO
+     */
+    public function accountIbanStatement()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_IBAN_STATEMENT);
+    }
+
+    /**
      * @param string $apiName
      * @return IO
      */

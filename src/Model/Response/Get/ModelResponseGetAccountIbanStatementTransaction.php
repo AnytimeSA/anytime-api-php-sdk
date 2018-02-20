@@ -2,7 +2,7 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
-class ModelResponseGetAccountStatementTransaction
+class ModelResponseGetAccountIbanStatementTransaction
 {
     /**
      * @var string
@@ -64,7 +64,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $txid
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setTxid($txid)
     {
@@ -82,7 +82,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $description
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setDescription($description)
     {
@@ -100,7 +100,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param \DateTime $date
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setDate($date)
     {
@@ -118,7 +118,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param float $amount
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setAmount($amount)
     {
@@ -136,7 +136,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $type
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setType($type)
     {
@@ -154,7 +154,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param float $balance
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setBalance($balance)
     {
@@ -172,7 +172,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $currency
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setCurrency($currency)
     {
@@ -190,7 +190,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $virtualIban
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setVirtualIban($virtualIban)
     {
@@ -208,7 +208,7 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param string $status
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setStatus($status)
     {
@@ -226,13 +226,11 @@ class ModelResponseGetAccountStatementTransaction
 
     /**
      * @param \DateTime $executionDate
-     * @return ModelResponseGetAccountStatementTransaction
+     * @return ModelResponseGetAccountIbanStatementTransaction
      */
     public function setExecutionDate($executionDate)
     {
         $this->executionDate = $executionDate;
         return $this;
     }
-
-
 }

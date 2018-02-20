@@ -2,7 +2,7 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
-class ModelResponseGetAccountStatement extends ModelResponseGet
+class ModelResponseGetAccountIbanStatement extends ModelResponseGet
 {
     /**
      * @return integer
@@ -21,7 +21,7 @@ class ModelResponseGetAccountStatement extends ModelResponseGet
     }
 
     /**
-     * @return ModelResponseGetAccountStatementTransaction[]
+     * @return ModelResponseGetAccountIbanStatementTransaction[]
      */
     public function getTransactions()
     {
@@ -32,7 +32,7 @@ class ModelResponseGetAccountStatement extends ModelResponseGet
                 $elem['execution_date'] = $this->timezoneNormalizer->normalize($elem['execution_date']);
 
                 $transactions[] = $this->hydrator->hydrate(
-                    new ModelResponseGetAccountStatementTransaction(),
+                    new ModelResponseGetAccountIbanStatementTransaction(),
                     $elem
                 );
             }

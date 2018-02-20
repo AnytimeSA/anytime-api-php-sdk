@@ -14,6 +14,7 @@ class API
     const ACCOUNT_CREDIT_TRANSFER = 'AccountCreditTransfer';
     const ACCOUNT_BALANCE = 'AccountBalance';
     const ACCOUNT_STATEMENT = 'AccountStatement';
+    const ACCOUNT_IBAN_STATEMENT = 'AccountIbanStatement';
     const ACCOUNT_STATEMENT_DETAILS = 'AccountStatementDetails';
     const ACCOUNT_KYC = 'AccountKyc';
     const ACCOUNT_CARD_LIST = 'AccountCardList';
