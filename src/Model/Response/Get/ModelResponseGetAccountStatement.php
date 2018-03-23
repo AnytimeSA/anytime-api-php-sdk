@@ -21,6 +21,14 @@ class ModelResponseGetAccountStatement extends ModelResponseGet
     }
 
     /**
+     * @return integer
+     */
+    public function getTotalResults()
+    {
+        return (int)$this->getDataValue('total_results');
+    }
+
+    /**
      * @return ModelResponseGetAccountStatementTransaction[]
      */
     public function getTransactions()

@@ -21,6 +21,14 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
     }
 
     /**
+     * @return integer
+     */
+    public function getTotalResults()
+    {
+        return (int)$this->getDataValue('total_results');
+    }
+
+    /**
      * @return ModelResponseGetCardTransactionTransaction[]
      */
     public function getTransactions()

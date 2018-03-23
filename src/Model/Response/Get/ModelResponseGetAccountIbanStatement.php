@@ -21,6 +21,14 @@ class ModelResponseGetAccountIbanStatement extends ModelResponseGet
     }
 
     /**
+     * @return integer
+     */
+    public function getTotalResults()
+    {
+        return (int)$this->getDataValue('total_results');
+    }
+
+    /**
      * @return ModelResponseGetAccountIbanStatementTransaction[]
      */
     public function getTransactions()
