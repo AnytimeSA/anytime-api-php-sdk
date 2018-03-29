@@ -32,9 +32,11 @@ class ModelResponseFactory extends ModelFactory
      */
     public function createError()
     {
+        $timezoneNormalizer = new TimezoneNormalizer();
+
         return new ModelResponseError(
-            new FromSnakeCaseHydrator(),
-            new TimezoneNormalizer(),
+            new FromSnakeCaseHydrator($timezoneNormalizer),
+            $timezoneNormalizer,
             $this->createHeader()
         );
     }

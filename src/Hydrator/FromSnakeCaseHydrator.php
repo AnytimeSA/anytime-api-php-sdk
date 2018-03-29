@@ -2,8 +2,24 @@
 
 namespace Anytime\ApiClient\Hydrator;
 
+use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizerInterface;
+
 class FromSnakeCaseHydrator implements HydratorInterface
 {
+    /**
+     * @var TimezoneNormalizerInterface
+     */
+    private $timezoneNormalizer;
+
+    /**
+     * FromSnakeCaseHydrator constructor.
+     * @param TimezoneNormalizerInterface $timezoneNormalizer
+     */
+    public function __construct(TimezoneNormalizerInterface $timezoneNormalizer)
+    {
+        $this->timezoneNormalizer = $timezoneNormalizer;
+    }
+
     /**
      * @param object $object
      * @param array $values
@@ -21,10 +37,30 @@ class FromSnakeCaseHydrator implements HydratorInterface
             ));
 
             if(method_exists($object, $setter)) {
-                $object->$setter($value);
+                switch($this->getSetterParamType(get_class($object), $setter)) {
+                    case 'DateTime':
+                        $transformedValue = $this->timezoneNormalizer->normalize($value);
+                        break;
+                    default:
+                        $transformedValue = $value;
+                }
+
+                $object->$setter($transformedValue);
             }
         }
 
         return $object;
     }
+
+    /**
+     * @param $class
+     * @param $method
+     * @return string
+     */
+    protected function getSetterParamType($class, $method)
+    {
+        $reflectionParams = (new \ReflectionMethod($class, $method))->getParameters();
+        return count($reflectionParams) > 0 ? (string)$reflectionParams[0]->getType() : 'mixed';
+    }
+
 }

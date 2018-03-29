@@ -24,10 +24,11 @@ abstract class ModelFactory
         ;
 
         if(class_exists($class)) {
+            $timezoneNormalizer = new TimezoneNormalizer();
             if($modelType === 'ModelResponse') {
-                return new $class(new FromSnakeCaseHydrator(), new TimezoneNormalizer(), $this->createHeader());
+                return new $class(new FromSnakeCaseHydrator($timezoneNormalizer), $timezoneNormalizer, $this->createHeader());
             } else {
-                return new $class(new TimezoneNormalizer());
+                return new $class($timezoneNormalizer);
             }
         }
 
