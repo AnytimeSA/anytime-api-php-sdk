@@ -25,14 +25,6 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
     }
 
     /**
-     * @return integer
-     */
-    public function getTotalResults()
-    {
-        return (int)$this->getDataValue('total_results');
-    }
-
-    /**
      * @return ModelResponseGetCardTransactionTransaction[]
      */
     public function getTransactions()
@@ -40,9 +32,6 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
         if(!$this->isGetterCached(__METHOD__)) {
             $transactions = [];
             foreach ($this->data['transactions'] as $elem) {
-                $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
-
-
                 $transactions[] = $this->hydrator->hydrate(
                     new ModelResponseGetCardTransactionTransaction(),
                     $elem

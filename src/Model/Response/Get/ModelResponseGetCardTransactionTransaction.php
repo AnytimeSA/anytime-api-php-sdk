@@ -256,7 +256,7 @@ class ModelResponseGetCardTransactionTransaction
      * @param \DateTime $date
      * @return ModelResponseGetCardTransactionTransaction
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
         return $this;
