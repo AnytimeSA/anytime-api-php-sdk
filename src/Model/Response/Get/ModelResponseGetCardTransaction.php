@@ -2,8 +2,12 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
+use Anytime\ApiClient\Model\Response\Get\Traits\PagingTrait;
+
 class ModelResponseGetCardTransaction extends ModelResponseGet
 {
+    use PagingTrait;
+
     /**
      * @return string
      */
