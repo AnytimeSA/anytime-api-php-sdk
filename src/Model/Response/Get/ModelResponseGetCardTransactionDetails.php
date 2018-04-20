@@ -61,19 +61,19 @@ class ModelResponseGetCardTransactionDetails extends ModelResponseGet
     }
 
     /**
-     * @return integer
+     * @return string
      */
     public function getStatus()
     {
-        return (int)$this->getDataValue('status');
+        return (string)$this->getDataValue('status');
     }
 
     /**
-     * @return integer
+     * @return string
      */
     public function getType()
     {
-        return (int)$this->getDataValue('type');
+        return (string)$this->getDataValue('type');
     }
 
     /**
