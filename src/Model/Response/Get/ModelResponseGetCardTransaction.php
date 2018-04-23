@@ -31,12 +31,29 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
     {
         if(!$this->isGetterCached(__METHOD__)) {
             $transactions = [];
+
             foreach ($this->data['transactions'] as $elem) {
-                $transactions[] = $this->hydrator->hydrate(
+                $vatDetails = [];
+                $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
+
+                /** @var ModelResponseGetCardTransactionTransaction $transactionTransaction */
+                $transactionTransaction = $this->hydrator->hydrate(
                     new ModelResponseGetCardTransactionTransaction(),
                     $elem
                 );
+
+                foreach($elem['vat_details'] as $vatDetail) {
+                    $vatDetails[] = $this->hydrator->hydrate(
+                        new ModelResponseGetTransactionVatDetail(),
+                        $vatDetail
+                    );
+                }
+
+                $transactionTransaction->setVatDetails($vatDetails);
+
+                $transactions[] = $transactionTransaction;
             }
+
             $this->setGetterCache(__METHOD__, $transactions);
         }
 

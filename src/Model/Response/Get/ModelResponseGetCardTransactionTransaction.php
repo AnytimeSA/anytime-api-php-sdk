@@ -65,6 +65,11 @@ class ModelResponseGetCardTransactionTransaction
     private $description;
 
     /**
+     * @var ModelResponseGetTransactionVatDetail[]
+     */
+    private $vatDetails = [];
+
+    /**
      * @return integer
      */
     public function getTxid()
@@ -279,5 +284,24 @@ class ModelResponseGetCardTransactionTransaction
         $this->description = (string)$description;
         return $this;
     }
+
+    /**
+     * @return ModelResponseGetTransactionVatDetail[]
+     */
+    public function getVatDetails()
+    {
+        return $this->vatDetails;
+    }
+
+    /**
+     * @param ModelResponseGetTransactionVatDetail[] $vatDetails
+     * @return ModelResponseGetCardTransactionTransaction
+     */
+    public function setVatDetails($vatDetails)
+    {
+        $this->vatDetails = $vatDetails;
+        return $this;
+    }
+
 
 }

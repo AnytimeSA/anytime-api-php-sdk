@@ -99,4 +99,23 @@ class ModelResponseGetCardTransactionDetails extends ModelResponseGet
     {
         return (string)$this->getDataValue('description');
     }
+
+    /**
+     * @return ModelResponseGetTransactionVatDetail[]
+     */
+    public function getVatDetails()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            $vatDetails = [];
+            foreach ($this->data['vat_details'] as $vatDetail) {
+                $vatDetails[] = $this->hydrator->hydrate(
+                    new ModelResponseGetTransactionVatDetail(),
+                    $vatDetail
+                );
+            }
+            $this->setGetterCache(__METHOD__, $vatDetail);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
 }
