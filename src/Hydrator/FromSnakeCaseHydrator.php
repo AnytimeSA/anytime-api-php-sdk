@@ -45,7 +45,9 @@ class FromSnakeCaseHydrator implements HydratorInterface
                         $transformedValue = $value;
                 }
 
-                $object->$setter($transformedValue);
+                if(!is_null($transformedValue)) {
+                    $object->$setter($transformedValue);
+                }
             }
         }
 
