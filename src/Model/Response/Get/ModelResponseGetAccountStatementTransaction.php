@@ -102,7 +102,7 @@ class ModelResponseGetAccountStatementTransaction
      * @param \DateTime $date
      * @return ModelResponseGetAccountStatementTransaction
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->date = $date;
         return $this;
@@ -228,7 +228,7 @@ class ModelResponseGetAccountStatementTransaction
      * @param \DateTime $executionDate
      * @return ModelResponseGetAccountStatementTransaction
      */
-    public function setExecutionDate($executionDate)
+    public function setExecutionDate(\DateTime $executionDate)
     {
         $this->executionDate = $executionDate;
         return $this;

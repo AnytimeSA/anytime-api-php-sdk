@@ -22,6 +22,16 @@ class ModelRequestGetAccountStatement extends ModelRequestGet
     private $dateEnd;
 
     /**
+     * @var integer
+     */
+    private $limitStart;
+
+    /**
+     * @var integer
+     */
+    private $limitNumber;
+
+    /**
      * @return integer
      */
     public function getId()
@@ -83,5 +93,39 @@ class ModelRequestGetAccountStatement extends ModelRequestGet
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getLimitStart()
+    {
+        return $this->limitStart;
+    }
 
+    /**
+     * @param int $limitStart
+     * @return ModelRequestGetAccountStatement
+     */
+    public function setLimitStart($limitStart)
+    {
+        $this->limitStart = $limitStart;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLimitNumber()
+    {
+        return $this->limitNumber;
+    }
+
+    /**
+     * @param int $limitNumber
+     * @return ModelRequestGetAccountStatement
+     */
+    public function setLimitNumber($limitNumber)
+    {
+        $this->limitNumber = $limitNumber;
+        return $this;
+    }
 }

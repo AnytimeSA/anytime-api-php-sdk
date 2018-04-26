@@ -1,16 +1,9 @@
 <?php
 
-namespace Anytime\ApiClient\Model\Request\Get;
+namespace Anytime\ApiClient\Model\Response\Get\Traits;
 
-use Anytime\ApiClient\Constant\API;
-
-class ModelRequestGetAccountIbanStatement extends ModelRequestGet
+class PagingFilters
 {
-    /**
-     * @var integer
-     */
-    private $id;
-
     /**
      * @var \DateTime
      */
@@ -32,32 +25,6 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
     private $limitNumber;
 
     /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param integer $id
-     * @return ModelRequestGetAccountIbanStatement
-     */
-    public function setId($id)
-    {
-        $this->id = (int)$id;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getApiName()
-    {
-        return API::ACCOUNT_IBAN_STATEMENT;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getDateStart()
@@ -66,12 +33,12 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
     }
 
     /**
-     * @param \DateTime|string $dateStart
-     * @return ModelRequestGetAccountIbanStatement
+     * @param \DateTime $dateStart
+     * @return PagingFilters
      */
-    public function setDateStart($dateStart)
+    public function setDateStart(\DateTime $dateStart)
     {
-        $this->dateStart = $this->timezoneNormalizer->normalize($dateStart);
+        $this->dateStart = $dateStart;
         return $this;
     }
 
@@ -84,12 +51,12 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
     }
 
     /**
-     * @param \DateTime|string $dateEnd
-     * @return ModelRequestGetAccountIbanStatement
+     * @param \DateTime $dateEnd
+     * @return PagingFilters
      */
-    public function setDateEnd($dateEnd)
+    public function setDateEnd(\DateTime $dateEnd)
     {
-        $this->dateEnd = $this->timezoneNormalizer->normalize($dateEnd);
+        $this->dateEnd = $dateEnd;
         return $this;
     }
 
@@ -103,7 +70,7 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
 
     /**
      * @param int $limitStart
-     * @return ModelRequestGetAccountIbanStatement
+     * @return PagingFilters
      */
     public function setLimitStart($limitStart)
     {
@@ -121,11 +88,14 @@ class ModelRequestGetAccountIbanStatement extends ModelRequestGet
 
     /**
      * @param int $limitNumber
-     * @return ModelRequestGetAccountIbanStatement
+     * @return PagingFilters
      */
     public function setLimitNumber($limitNumber)
     {
         $this->limitNumber = $limitNumber;
         return $this;
     }
+
+
+
 }

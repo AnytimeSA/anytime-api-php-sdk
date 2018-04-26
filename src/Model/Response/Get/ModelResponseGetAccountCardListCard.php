@@ -98,7 +98,7 @@ class ModelResponseGetAccountCardListCard
      * @param \DateTime $activationDate
      * @return ModelResponseGetAccountCardListCard
      */
-    public function setActivationDate($activationDate)
+    public function setActivationDate(\DateTime $activationDate)
     {
         $this->activationDate = $activationDate;
         return $this;
@@ -134,7 +134,7 @@ class ModelResponseGetAccountCardListCard
      * @param \DateTime $expiryDate
      * @return ModelResponseGetAccountCardListCard
      */
-    public function setExpiryDate($expiryDate)
+    public function setExpiryDate(\DateTime $expiryDate)
     {
         $this->expiryDate = $expiryDate;
         return $this;

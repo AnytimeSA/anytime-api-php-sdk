@@ -2,8 +2,12 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
+use Anytime\ApiClient\Model\Response\Get\Traits\PagingTrait;
+
 class ModelResponseGetCardTransaction extends ModelResponseGet
 {
+    use PagingTrait;
+
     /**
      * @return string
      */
@@ -28,9 +32,6 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
         if(!$this->isGetterCached(__METHOD__)) {
             $transactions = [];
             foreach ($this->data['transactions'] as $elem) {
-                $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
-
-
                 $transactions[] = $this->hydrator->hydrate(
                     new ModelResponseGetCardTransactionTransaction(),
                     $elem

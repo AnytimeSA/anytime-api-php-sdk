@@ -2,8 +2,12 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
+use Anytime\ApiClient\Model\Response\Get\Traits\PagingTrait;
+
 class ModelResponseGetAccountIbanStatement extends ModelResponseGet
 {
+    use PagingTrait;
+
     /**
      * @return integer
      */
@@ -28,9 +32,6 @@ class ModelResponseGetAccountIbanStatement extends ModelResponseGet
         if(!$this->isGetterCached(__METHOD__)) {
             $transactions = [];
             foreach ($this->data['transactions'] as $elem) {
-                $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
-                $elem['execution_date'] = $this->timezoneNormalizer->normalize($elem['execution_date']);
-
                 $transactions[] = $this->hydrator->hydrate(
                     new ModelResponseGetAccountIbanStatementTransaction(),
                     $elem
