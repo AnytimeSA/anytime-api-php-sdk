@@ -113,7 +113,7 @@ class ModelResponseGetCardTransactionDetails extends ModelResponseGet
                     $vatDetail
                 );
             }
-            $this->setGetterCache(__METHOD__, $vatDetail);
+            $this->setGetterCache(__METHOD__, $vatDetails);
         }
 
         return $this->getGetterCache(__METHOD__);
