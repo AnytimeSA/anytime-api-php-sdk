@@ -17,6 +17,7 @@ class API
     const ACCOUNT_IBAN_STATEMENT = 'AccountIbanStatement';
     const ACCOUNT_STATEMENT_DETAILS = 'AccountStatementDetails';
     const ACCOUNT_KYC = 'AccountKyc';
+    const ACCOUNT_KYC_STATUS = 'AccountKycStatus';
     const ACCOUNT_CARD_LIST = 'AccountCardList';
     const ACCOUNT_IBAN_CREATION = 'AccountIbanCreation';
     const ACCOUNT_VIRTUAL_IBAN_CREATION = 'AccountVirtualIbanCreation';

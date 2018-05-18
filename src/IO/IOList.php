@@ -83,6 +83,14 @@ class IOList
     }
 
     /**
+     * @return AccountKycStatusIO
+     */
+    public function accountKycStatus()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_KYC_STATUS);
+    }
+
+    /**
      * @return AccountCreditTransferIO
      */
     public function accountCreditTransfer()
