@@ -8,12 +8,12 @@ namespace Anytime\ApiClient\Model\Response\Get\Traits;
  * @method \Anytime\ApiClient\Model\Response\ModelResponse setGetterCache($key, $data)
  * @method mixed getGetterCache($key)
  */
-trait PagingTrait
+trait PagingLimitTrait
 {
     use PagingTotalResultsTrait;
 
     /**
-     * @return PagingFilters
+     * @return PagingFiltersLimit
      */
     public function getFilters()
     {
@@ -21,7 +21,7 @@ trait PagingTrait
             $data = $this->getDataValue('filters');
 
             if($data && is_array($data)) {
-                $filters = $this->hydrator->hydrate(new PagingFilters(), $data);
+                $filters = $this->hydrator->hydrate(new PagingFiltersLimit(), $data);
                 $this->setGetterCache(__METHOD__, $filters);
             }
         }
