@@ -2,8 +2,12 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
+use Anytime\ApiClient\Model\Response\Get\Traits\PagingLimitTrait;
+
 class ModelResponseGetAccountList extends ModelResponseGet
 {
+    use PagingLimitTrait;
+
     /**
      * @return ModelResponseGetAccountListAccount[]
      */
