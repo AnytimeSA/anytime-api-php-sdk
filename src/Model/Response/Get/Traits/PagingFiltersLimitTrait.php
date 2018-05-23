@@ -1,15 +1,9 @@
 <?php
 
-namespace Anytime\ApiClient\Model\Request\Get;
+namespace Anytime\ApiClient\Model\Response\Get\Traits;
 
-use Anytime\ApiClient\Constant\API;
-
-class ModelRequestGetAccountCardList extends ModelRequestGet
+trait PagingFiltersLimitTrait
 {
-    /**
-     * @var integer
-     */
-    private $id;
 
     /**
      * @var integer
@@ -22,32 +16,6 @@ class ModelRequestGetAccountCardList extends ModelRequestGet
     private $limitNumber;
 
     /**
-     * @return string
-     */
-    public function getApiName()
-    {
-        return API::ACCOUNT_CARD_LIST;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param integer $id
-     * @return ModelRequestGetAccountCardList
-     */
-    public function setId($id)
-    {
-        $this->id = (int)$id;
-        return $this;
-    }
-
-    /**
      * @return int
      */
     public function getLimitStart()
@@ -57,7 +25,7 @@ class ModelRequestGetAccountCardList extends ModelRequestGet
 
     /**
      * @param int $limitStart
-     * @return ModelRequestGetAccountCardList
+     * @return PagingFilters
      */
     public function setLimitStart($limitStart)
     {
@@ -75,7 +43,7 @@ class ModelRequestGetAccountCardList extends ModelRequestGet
 
     /**
      * @param int $limitNumber
-     * @return ModelRequestGetAccountCardList
+     * @return PagingFilters
      */
     public function setLimitNumber($limitNumber)
     {

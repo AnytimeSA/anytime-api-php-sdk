@@ -2,8 +2,7 @@
 
 namespace Anytime\ApiClient\Model\Response\Get\Traits;
 
-class PagingFilters
+class PagingFiltersDate
 {
-    use PagingFiltersLimitTrait;
     use PagingFiltersDateTrait;
 }
