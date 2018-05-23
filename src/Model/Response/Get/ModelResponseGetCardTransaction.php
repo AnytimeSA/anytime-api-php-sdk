@@ -42,11 +42,13 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
                     $elem
                 );
 
-                foreach($elem['vat_details'] as $vatDetail) {
-                    $vatDetails[] = $this->hydrator->hydrate(
-                        new ModelResponseGetTransactionVatDetail(),
-                        $vatDetail
-                    );
+                if(array_key_exists('vat_details', $elem)) {
+                    foreach($elem['vat_details'] as $vatDetail) {
+                        $vatDetails[] = $this->hydrator->hydrate(
+                            new ModelResponseGetTransactionVatDetail(),
+                            $vatDetail
+                        );
+                    }
                 }
 
                 $transactionTransaction->setVatDetails($vatDetails);
