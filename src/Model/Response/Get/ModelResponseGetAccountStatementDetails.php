@@ -59,4 +59,20 @@ class ModelResponseGetAccountStatementDetails extends ModelResponseGet
     {
         return (string)$this->getDataValue('currency');
     }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return (string)$this->getDataValue('status');
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExecutionDate()
+    {
+        return $this->timezoneNormalizer->normalize($this->getDataValue('execution_date'));
+    }
 }
