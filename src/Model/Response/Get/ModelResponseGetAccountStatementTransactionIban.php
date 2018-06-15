@@ -2,7 +2,7 @@
 
 namespace Anytime\ApiClient\Model\Response\Get;
 
-class ModelResponseGetAccountInfoIban
+class ModelResponseGetAccountStatementTransactionIban
 {
     /**
      * @var string
@@ -15,6 +15,11 @@ class ModelResponseGetAccountInfoIban
     private $swift;
 
     /**
+     * @var string
+     */
+    private $comment;
+
+    /**
      * @return string
      */
     public function getIban()
@@ -24,7 +29,7 @@ class ModelResponseGetAccountInfoIban
 
     /**
      * @param string $iban
-     * @return ModelResponseGetAccountInfoIban
+     * @return ModelResponseGetAccountStatementTransactionIban
      */
     public function setIban($iban)
     {
@@ -42,11 +47,29 @@ class ModelResponseGetAccountInfoIban
 
     /**
      * @param string $swift
-     * @return ModelResponseGetAccountInfoIban
+     * @return ModelResponseGetAccountStatementTransactionIban
      */
     public function setSwift($swift)
     {
         $this->swift = $swift;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     * @return ModelResponseGetAccountStatementTransactionIban
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
         return $this;
     }
 }
