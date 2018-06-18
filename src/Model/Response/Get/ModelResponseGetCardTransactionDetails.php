@@ -93,6 +93,15 @@ class ModelResponseGetCardTransactionDetails extends ModelResponseGet
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getDateTransaction()
+    {
+        return $this->timezoneNormalizer->normalize($this->getDataValue('date_transaction'));
+    }
+
+
+    /**
      * @return string
      */
     public function getDescription()
