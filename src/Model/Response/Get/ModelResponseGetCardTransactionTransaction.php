@@ -60,6 +60,11 @@ class ModelResponseGetCardTransactionTransaction
     private $date;
 
     /**
+     * @var \DateTime
+     */
+    private $dateTransaction;
+
+    /**
      * @var string
      */
     private $description;
@@ -264,6 +269,24 @@ class ModelResponseGetCardTransactionTransaction
     public function setDate(\DateTime $date)
     {
         $this->date = $date;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateTransaction()
+    {
+        return $this->dateTransaction;
+    }
+
+    /**
+     * @param \DateTime $dateTransaction
+     * @return ModelResponseGetCardTransactionTransaction
+     */
+    public function setDateTransaction($dateTransaction)
+    {
+        $this->dateTransaction = $dateTransaction;
         return $this;
     }
 
