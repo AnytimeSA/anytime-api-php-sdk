@@ -75,4 +75,21 @@ class ModelResponseGetAccountStatementDetails extends ModelResponseGet
     {
         return $this->timezoneNormalizer->normalize($this->getDataValue('execution_date'));
     }
+
+    /**
+     * @return ModelResponseGetAccountStatementTransactionIban
+     */
+    public function getIban()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            $ibanData = $this->getDataValue('iban');
+            $iban = $this->hydrator->hydrate(
+                new ModelResponseGetAccountStatementTransactionIban(),
+                is_null($ibanData) ? [] : $ibanData
+            );
+            $this->setGetterCache(__METHOD__, $iban);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
 }

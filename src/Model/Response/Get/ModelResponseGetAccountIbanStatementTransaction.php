@@ -55,6 +55,11 @@ class ModelResponseGetAccountIbanStatementTransaction
     private $executionDate;
 
     /**
+     * @var ModelResponseGetAccountStatementTransactionIban
+     */
+    private $iban;
+
+    /**
      * @return string
      */
     public function getTxid()
@@ -231,6 +236,24 @@ class ModelResponseGetAccountIbanStatementTransaction
     public function setExecutionDate(\DateTime $executionDate)
     {
         $this->executionDate = $executionDate;
+        return $this;
+    }
+
+    /**
+     * @return ModelResponseGetAccountStatementTransactionIban
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * @param ModelResponseGetAccountStatementTransactionIban $iban
+     * @return ModelResponseGetAccountIbanStatementTransaction
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
         return $this;
     }
 }

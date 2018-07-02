@@ -163,6 +163,15 @@ class IOList
     }
 
     /**
+     * @return CardUnlinkedIO
+     */
+    public function cardUnlinked()
+    {
+        return $this->getIOFromCache(API::CARD_UNLINKED);
+    }
+
+
+    /**
      * @return CardSendPinIO
      */
     public function cardSendPin()

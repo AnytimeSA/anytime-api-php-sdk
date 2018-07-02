@@ -32,10 +32,16 @@ class ModelResponseGetAccountIbanStatement extends ModelResponseGet
         if(!$this->isGetterCached(__METHOD__)) {
             $transactions = [];
             foreach ($this->data['transactions'] as $elem) {
+
+                if(array_key_exists('iban', $elem)) {
+                    $elem['iban'] = $this->hydrator->hydrate(new ModelResponseGetAccountStatementTransactionIban(), $elem['iban']);
+                }
+
                 $transactions[] = $this->hydrator->hydrate(
                     new ModelResponseGetAccountIbanStatementTransaction(),
                     $elem
                 );
+
             }
 
             $this->setGetterCache(__METHOD__, $transactions);

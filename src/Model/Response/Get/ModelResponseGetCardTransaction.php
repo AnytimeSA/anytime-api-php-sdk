@@ -35,6 +35,7 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
             foreach ($this->data['transactions'] as $elem) {
                 $vatDetails = [];
                 $elem['date'] = $this->timezoneNormalizer->normalize($elem['date']);
+                $elem['date_transaction'] = $this->timezoneNormalizer->normalize($elem['date_transaction']);
 
                 /** @var ModelResponseGetCardTransactionTransaction $transactionTransaction */
                 $transactionTransaction = $this->hydrator->hydrate(

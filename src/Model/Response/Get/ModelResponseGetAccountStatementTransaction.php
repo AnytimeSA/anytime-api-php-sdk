@@ -40,6 +40,11 @@ class ModelResponseGetAccountStatementTransaction
     private $currency;
 
     /**
+     * @var ModelResponseGetAccountStatementTransactionIban
+     */
+    private $iban;
+
+    /**
      * @var string
      */
     private $virtualIban;
@@ -231,6 +236,24 @@ class ModelResponseGetAccountStatementTransaction
     public function setExecutionDate(\DateTime $executionDate)
     {
         $this->executionDate = $executionDate;
+        return $this;
+    }
+
+    /**
+     * @return ModelResponseGetAccountStatementTransactionIban
+     */
+    public function getIban()
+    {
+        return $this->iban;
+    }
+
+    /**
+     * @param ModelResponseGetAccountStatementTransactionIban $iban
+     * @return ModelResponseGetAccountStatementTransaction
+     */
+    public function setIban($iban)
+    {
+        $this->iban = $iban;
         return $this;
     }
 
