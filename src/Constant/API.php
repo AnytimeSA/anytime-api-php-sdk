@@ -21,6 +21,7 @@ class API
     const ACCOUNT_CARD_LIST = 'AccountCardList';
     const ACCOUNT_IBAN_CREATION = 'AccountIbanCreation';
     const ACCOUNT_VIRTUAL_IBAN_CREATION = 'AccountVirtualIbanCreation';
+    const ACCOUNT_LINK_CARDS = 'AccountLinkCards';
     const CARD_INFO = 'CardInfo';
     const CARD_ORDER = 'CardOrder';
     const CARD_UPDATE = 'CardUpdate';

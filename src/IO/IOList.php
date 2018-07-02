@@ -139,6 +139,14 @@ class IOList
     }
 
     /**
+     * @return AccountLinkCardsIO
+     */
+    public function accountLinkCards()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_LINK_CARDS);
+    }
+
+    /**
      * @return CardInfoIO
      */
     public function cardInfo()
