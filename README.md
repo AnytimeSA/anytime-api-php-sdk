@@ -41,6 +41,8 @@ Before making requests let's take a look to the available APIs:
 - AccountBalance
 - AccountCardList
 - AccountCreation
+- AccountIbanCreation
+- AccountIbanStatement
 - AccountCreditTransfer
 - AccountInfo
 - AccountKyc
@@ -48,6 +50,7 @@ Before making requests let's take a look to the available APIs:
 - AccountStatement
 - AccountStatementDetails
 - AccountUpdate
+- AccountVirtualIbanCreation
 - ApiCheck
 - ApiCheckPost
 - CardCredit
@@ -57,10 +60,13 @@ Before making requests let's take a look to the available APIs:
 - CardOrder
 - CardSendPan
 - CardSendPin
+- CardGetPan
 - CardGetPin
 - CardTransaction
 - CardTransactionDetails
 - CardUpdate
+- OrderTracking
+- RequestMultiRequest
 
 All these APIs are callable with the api() method like this:
 
