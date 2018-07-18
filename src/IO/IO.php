@@ -145,7 +145,7 @@ abstract class IO
             );
 
         } catch(BadResponseException $e) {
-            throw $this->apiClientExceptionFactory->createResponseException($e);
+            throw $this->apiClientExceptionFactory->createResponseException($e, $modelRequest);
         } catch(ConnectException $e) {
             throw $this->apiClientExceptionFactory->createConnectException($e);
         }

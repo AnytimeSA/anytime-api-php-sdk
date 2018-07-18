@@ -5,6 +5,7 @@ namespace Anytime\ApiClient\Exception\ApiClientException\Factory;
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 use Anytime\ApiClient\Exception\ApiClientException\UnhandledException;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
+use Anytime\ApiClient\Model\Request\ModelRequest;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
 use Anytime\ApiClient\Parser\ParserInterface;
 use GuzzleHttp\Exception\BadResponseException;
@@ -43,10 +44,11 @@ class ApiClientExceptionFactory
 
     /**
      * @param BadResponseException $badResponseException
+     * @param ModelRequest $modelRequest
      * @return ApiClientException
      * @TODO refactor
      */
-    public function createResponseException(BadResponseException $badResponseException)
+    public function createResponseException(BadResponseException $badResponseException, ModelRequest $modelRequest)
     {
         $contents = (string) $badResponseException->getResponse()->getBody();
         $contentsArray = json_decode($contents, true);
@@ -72,7 +74,7 @@ class ApiClientExceptionFactory
         } else {
             $exception->setResponseContent(
                 $this->modelResponsePopulator->populate(
-                    $this->modelResponseFactory->createError(),
+                    $this->modelResponseFactory->createError($modelRequest),
                     $this->jsonResponseParser->parse($contents)
                 )
             );

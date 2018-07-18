@@ -12,14 +12,20 @@ class ModelResponsePostRequestMultiRequest extends ModelResponsePost
     public function getResponses()
     {
         if(!$this->isGetterCached(__METHOD__)) {
+
+
             /** @var ModelRequestPostRequestMultiRequest $modelRequest */
             $modelRequest = $this->modelRequest;
 
             $subRequests = $modelRequest->getRequests();
+            $subRequestKeys = array_keys($subRequests);
 
             $data = [];
             foreach($this->getDataValue('responses') as $index => $responseData) {
-                $subRequest = array_key_exists($index, $subRequests) ? $subRequests[$index] : null;
+
+                $key = $subRequestKeys[$index];
+
+                $subRequest = array_key_exists($key, $subRequests) ? $subRequests[$key] : null;
                 $responseElem = new ModelResponsePostRequestMultiRequestResponse();
                 $responseElem
                     ->setMethod(array_key_exists('method', $responseData) ? $responseData['method'] : null)

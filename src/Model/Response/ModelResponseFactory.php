@@ -48,16 +48,19 @@ class ModelResponseFactory extends ModelFactory
     }
 
     /**
+     * @param ModelRequest $modelRequest
      * @return ModelResponseError
      */
-    public function createError()
+    public function createError(ModelRequest $modelRequest)
     {
         $timezoneNormalizer = new TimezoneNormalizer();
 
         return new ModelResponseError(
             new FromSnakeCaseHydrator($timezoneNormalizer),
             $timezoneNormalizer,
-            $this->createHeader()
+            $this->createHeader(),
+            $this,
+            $modelRequest
         );
     }
 
