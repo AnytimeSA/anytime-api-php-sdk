@@ -5,6 +5,7 @@ namespace Anytime\ApiClient\Model\Response;
 use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizerInterface;
 use Anytime\ApiClient\Hydrator\HydratorInterface;
 use Anytime\ApiClient\Model\Model;
+use Anytime\ApiClient\Model\Request\ModelRequest;
 
 abstract class ModelResponse extends Model implements ModelResponseInterface
 {
@@ -17,6 +18,11 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
      * @var ModelResponseHeader
      */
     protected $header;
+
+    /**
+     * @var ModelResponseFactory
+     */
+    protected $modelResponseFactory;
 
     /**
      * @var array
@@ -34,16 +40,25 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     protected $responseCache = [];
 
     /**
+     * @var ModelRequest
+     */
+    protected $modelRequest;
+
+    /**
      * ModelResponse constructor.
      *
      * @param HydratorInterface $hydrator
      * @param TimezoneNormalizerInterface $timezoneNormalizer
      * @param ModelResponseHeader $header
+     * @param ModelResponseFactory $modelResponseFactory
+     * @param ModelRequest $modelRequest
      */
-    public function __construct(HydratorInterface $hydrator, TimezoneNormalizerInterface $timezoneNormalizer, ModelResponseHeader $header)
+    public function __construct(HydratorInterface $hydrator, TimezoneNormalizerInterface $timezoneNormalizer, ModelResponseHeader $header, ModelResponseFactory $modelResponseFactory, ModelRequest $modelRequest)
     {
         $this->hydrator = $hydrator;
         $this->header = $header;
+        $this->modelResponseFactory = $modelResponseFactory;
+        $this->modelRequest = $modelRequest;
         parent::__construct($timezoneNormalizer);
     }
 
@@ -134,6 +149,14 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     protected function isGetterCached($key)
     {
         return array_key_exists($key, $this->responseCache);
+    }
+
+    /**
+     * @return ModelResponseFactory
+     */
+    public function getModelResponseFactory()
+    {
+        return $this->modelResponseFactory;
     }
 
 }

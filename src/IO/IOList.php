@@ -276,6 +276,14 @@ class IOList
     }
 
     /**
+     * @return RequestMultiRequestIO
+     */
+    public function multiRequest()
+    {
+        return $this->getIOFromCache(API::REQUEST_MULTI_REQUEST);
+    }
+
+    /**
      * @param string $apiName
      * @return IO
      */

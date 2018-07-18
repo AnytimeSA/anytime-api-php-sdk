@@ -36,4 +36,12 @@ abstract class RequestDirector
     {
         return $this->requestBuilder->getSignedRequest($modelRequest);
     }
+
+    /**
+     * @return RequestBuilder
+     */
+    public function getRequestBuilder()
+    {
+        return $this->requestBuilder;
+    }
 }

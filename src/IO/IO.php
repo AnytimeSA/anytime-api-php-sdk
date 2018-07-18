@@ -137,10 +137,7 @@ abstract class IO
                 $IORequest->getRequestArrangedOptions()
             );
 
-            $modelResponse = $this->modelResponseFactory->create(
-                $modelRequest->getMethod(),
-                $modelRequest->getApiName()
-            );
+            $modelResponse = $this->modelResponseFactory->create($modelRequest);
 
             return $this->modelResponsePopulator->populate(
                 $modelResponse,

@@ -61,7 +61,7 @@ class ApiClientFactory
 
         $setting = $this->createSettingObject($environment, $params);
         $modelResponsePopulator = new ModelResponsePopulator();
-        $modelResponseFactory = new ModelResponseFactory();
+        $modelResponseFactory = new ModelResponseFactory($modelResponsePopulator);
         $jsonResponseParser = new JsonResponseParser();
 
         return new ApiClient(

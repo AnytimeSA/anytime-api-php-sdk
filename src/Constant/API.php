@@ -35,4 +35,5 @@ class API
     const CARD_DETAILS_DISPLAY = 'CardDetailsDisplay';
     const CARD_UNLINKED = 'CardUnlinked';
     const ORDER_TRACKING = 'OrderTracking';
+    const REQUEST_MULTI_REQUEST = 'RequestMultiRequest';
 }

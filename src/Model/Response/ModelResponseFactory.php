@@ -6,17 +6,37 @@ use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizer;
 use Anytime\ApiClient\Hydrator\FromSnakeCaseHydrator;
 use Anytime\ApiClient\Model\Factory\ModelFactory;
 use Anytime\ApiClient\Model\Model;
+use Anytime\ApiClient\Model\Populator\ModelResponsePopulator;
+use Anytime\ApiClient\Model\Request\ModelRequest;
 
 class ModelResponseFactory extends ModelFactory
 {
     /**
-     * @param string $method
-     * @param string $apiName
+     * @var ModelResponsePopulator
+     */
+    protected $modelResponsePopulator;
+
+    /**
+     * ModelResponseFactory constructor.
+     * @param ModelResponsePopulator $modelResponsePopulator
+     */
+    public function __construct(ModelResponsePopulator $modelResponsePopulator)
+    {
+        $this->modelResponsePopulator = $modelResponsePopulator;
+    }
+
+    /**
+     * @param ModelRequest $modelRequest
      * @return Model
      */
-    public function create($method, $apiName)
+    public function create(ModelRequest $modelRequest)
     {
-        return parent::createByModelType('ModelResponse', $method, $apiName);
+        $this->modelRequest = $modelRequest;
+        return parent::createByModelType(
+            'ModelResponse',
+            $modelRequest->getMethod(),
+            $modelRequest->getApiName()
+        );
     }
 
     /**
@@ -39,5 +59,13 @@ class ModelResponseFactory extends ModelFactory
             $timezoneNormalizer,
             $this->createHeader()
         );
+    }
+
+    /**
+     * @return ModelResponsePopulator
+     */
+    public function getModelResponsePopulator()
+    {
+        return $this->modelResponsePopulator;
     }
 }

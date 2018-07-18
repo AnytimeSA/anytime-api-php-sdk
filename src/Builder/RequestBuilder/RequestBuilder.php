@@ -28,6 +28,11 @@ abstract class RequestBuilder
     private $fileReader;
 
     /**
+     * @var RequestDirectorFactory
+     */
+    protected $requestDirectorFactory;
+
+    /**
      * @var Request
      */
     protected $request;
@@ -43,18 +48,28 @@ abstract class RequestBuilder
      * @param ApiClientSetting $setting
      * @param FileReaderInterface $fileReader
      * @param RequestSignerInterface $requestSigner
+     * @param RequestDirectorFactory $requestDirectorFactory
      */
-    public function __construct(ApiClientSetting $setting, FileReaderInterface $fileReader, RequestSignerInterface $requestSigner)
+    public function __construct(ApiClientSetting $setting, FileReaderInterface $fileReader, RequestSignerInterface $requestSigner, RequestDirectorFactory $requestDirectorFactory)
     {
         $this->setting = $setting;
         $this->requestSigner = $requestSigner;
         $this->fileReader = $fileReader;
+        $this->requestDirectorFactory = $requestDirectorFactory;
     }
 
     /**
      * @param ModelRequest $modelRequest
      */
     abstract public function getRequest(ModelRequest $modelRequest);
+
+    /**
+     * @return ApiClientSetting
+     */
+    public function getSetting()
+    {
+        return $this->setting;
+    }
 
     /**
      * @param string $method
@@ -86,6 +101,14 @@ abstract class RequestBuilder
             $this->getRequest($modelRequest),
             $this->setting->getPrivateRSAKey()
         );
+    }
+
+    /**
+     * @return array
+     */
+    public function getPreBuiltData()
+    {
+        return $this->preBuiltData;
     }
 
     /**

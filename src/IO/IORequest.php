@@ -179,5 +179,11 @@ class IORequest
         return $multipart;
     }
 
-
+    /**
+     * @return array
+     */
+    public function getFormData()
+    {
+        return $this->formData;
+    }
 }

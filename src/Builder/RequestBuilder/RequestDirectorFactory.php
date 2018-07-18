@@ -57,6 +57,11 @@ class RequestDirectorFactory
             throw new \RuntimeException('Class "' . $builderClass. '" does not exists');
         }
 
-        return new $directorClass(new $builderClass($this->setting, $this->fileReader, new OpenSslRequestSigner()));
+        return new $directorClass(new $builderClass(
+            $this->setting,
+            $this->fileReader,
+            new OpenSslRequestSigner(),
+            $this
+        ));
     }
 }
