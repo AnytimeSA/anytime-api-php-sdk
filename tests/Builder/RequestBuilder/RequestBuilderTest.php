@@ -89,12 +89,16 @@ class RequestBuilderTest extends TestCase
      */
     private function getGetRequestBuilder($scheme, $domain, $port, $basePath, $apiVersion, $userInfo)
     {
+        /** @var RequestDirectorFactory $requestDirectorFactory */
+        $requestDirectorFactory = $this->prophesize(RequestDirectorFactory::class)->reveal();
+
         $IORequest = $this->mock(IORequest::class)->getHeaders(['X-Signed-Request' => '1234567890abcdef', 'X-Validation-Data' => 'test'])->new();
 
         return new NullGetRequestBuilder(
             $this->getSettingMock($scheme, $domain, $port, $basePath, $apiVersion, $userInfo),
             $this->mock(DiskFileReader::class)->new(),
-            $this->mock(OpenSslRequestSigner::class)->sign($IORequest)->new()
+            $this->mock(OpenSslRequestSigner::class)->sign($IORequest)->new(),
+            $requestDirectorFactory
         );
     }
 

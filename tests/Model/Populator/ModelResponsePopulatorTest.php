@@ -4,7 +4,9 @@ namespace Anytime\ApiClient\Model\Populator;
 
 use Anytime\ApiClient\DateTime\TimezoneNormalizer\TimezoneNormalizer;
 use Anytime\ApiClient\Hydrator\FromSnakeCaseHydrator;
+use Anytime\ApiClient\Model\Request\Get\ModelRequestGetApiCheck;
 use Anytime\ApiClient\Model\Response\Get\ModelResponseGetApiCheck;
+use Anytime\ApiClient\Model\Response\ModelResponseFactory;
 use Anytime\ApiClient\Model\Response\ModelResponseHeader;
 use Xpmock\TestCase;
 
@@ -16,12 +18,18 @@ class ModelResponsePopulatorTest extends TestCase
      */
     public function testPopulateReturnsPopulatedObject()
     {
+        $populator = new ModelResponsePopulator();
+        $modelResponseFactory = $this->mock(ModelResponseFactory::class)->new();
+        $timezoneNormalizer = $this->mock(TimezoneNormalizer::class)->new();
+
         $modelResponse = new ModelResponseGetApiCheck(
             $this->mock(FromSnakeCaseHydrator::class)->new(),
             $this->mock(TimezoneNormalizer::class)->new(),
-            new ModelResponseHeader()
+            new ModelResponseHeader(),
+            $modelResponseFactory,
+            new ModelRequestGetApiCheck($timezoneNormalizer)
         );
-        $populator = new ModelResponsePopulator();
+
 
         $modelResponsePopulated = $populator->populate($modelResponse, [
             'hash'          =>  'abcdef0123456789',

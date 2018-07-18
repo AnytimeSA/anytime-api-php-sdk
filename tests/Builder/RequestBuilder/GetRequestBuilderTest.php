@@ -18,6 +18,9 @@ class GetRequestBuilderTest extends TestCase
 
     public function testGetQueryStringFiltersReturnsCorrectQueryStringBasedOnDateAndLimitParams()
     {
+        /** @var RequestDirectorFactory $requestDirectorFactory */
+        $requestDirectorFactory = $this->prophesize(RequestDirectorFactory::class)->reveal();
+
         $timezoneNormalizer = $this->mock(TimezoneNormalizer::class)->new();
         $modelRequest = (new ModelRequestGetCardTransaction($timezoneNormalizer))
             ->setDateStart(new \DateTime('2015-01-01'))
@@ -29,7 +32,8 @@ class GetRequestBuilderTest extends TestCase
         $getRequestBuilderInstance = new NullGetRequestBuilder(
             $this->mock(ApiClientSetting::class)->new(),
             $this->mock(DiskFileReader::class)->new(),
-            $this->mock(OpenSslRequestSigner::class)->new()
+            $this->mock(OpenSslRequestSigner::class)->new(),
+            $requestDirectorFactory
         );
 
         // Dates and limit fulfilled
