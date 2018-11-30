@@ -76,4 +76,40 @@ class ModelResponseGetCardInfo extends ModelResponseGet
         return (int)$this->getDataValue('atm');
     }
 
+    /**
+     * @return ModelResponseGetCardInfoCardHolder
+     */
+    public function getCardHolder()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+
+            $cardHolder = $this->hydrator->hydrate(
+                new ModelResponseGetCardInfoCardHolder(),
+                (array)$this->getDataValue('card_holder')
+            );
+
+            $this->setGetterCache(__METHOD__, $cardHolder);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
+
+    /**
+     * @return ModelResponseGetCardInfoCardHolder
+     */
+    public function getCardName()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+
+            $cardName = $this->hydrator->hydrate(
+                new ModelResponseGetCardInfoCardName(),
+                (array)$this->getDataValue('card_name')
+            );
+
+            $this->setGetterCache(__METHOD__, $cardName);
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
+
 }
