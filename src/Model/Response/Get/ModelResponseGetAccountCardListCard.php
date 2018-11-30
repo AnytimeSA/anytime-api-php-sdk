@@ -51,6 +51,11 @@ class ModelResponseGetAccountCardListCard
     private $cardHolder;
 
     /**
+     * @var ModelResponseGetAccountCardListCardCardName
+     */
+    private $cardName;
+
+    /**
      * @return string
      */
     public function getCardRef()
@@ -209,6 +214,24 @@ class ModelResponseGetAccountCardListCard
     public function setCardHolder($cardHolder)
     {
         $this->cardHolder = $cardHolder;
+        return $this;
+    }
+
+    /**
+     * @return ModelResponseGetAccountCardListCardCardName
+     */
+    public function getCardName()
+    {
+        return $this->cardName;
+    }
+
+    /**
+     * @param ModelResponseGetAccountCardListCardCardName $cardName
+     * @return ModelResponseGetAccountCardListCard
+     */
+    public function setCardName($cardName)
+    {
+        $this->cardName = $cardName;
         return $this;
     }
 }

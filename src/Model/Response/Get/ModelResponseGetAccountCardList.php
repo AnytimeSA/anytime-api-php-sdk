@@ -29,6 +29,11 @@ class ModelResponseGetAccountCardList extends ModelResponseGet
                     $elem['card_holder']
                 );
 
+                $elem['card_name'] = $this->hydrator->hydrate(
+                    new ModelResponseGetAccountCardListCardCardName(),
+                    $elem['card_name']
+                );
+
                 $cards[] = $this->hydrator->hydrate(
                     new ModelResponseGetAccountCardListCard(),
                     $elem
