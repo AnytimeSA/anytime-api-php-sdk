@@ -127,4 +127,19 @@ class ModelResponseGetCardTransactionDetails extends ModelResponseGet
 
         return $this->getGetterCache(__METHOD__);
     }
+
+    /**
+     * @return ModelResponseGetCardTransactionTransactionFailedReason
+     */
+    public function getFailedReason()
+    {
+        if(!$this->isGetterCached(__METHOD__)) {
+            if (array_key_exists('failed_reason', $this->data)) {
+                $failedReason = $this->hydrator->hydrate(new ModelResponseGetCardTransactionTransactionFailedReason(), $this->data['failed_reason']);
+                $this->setGetterCache(__METHOD__, $failedReason);
+            }
+        }
+
+        return $this->getGetterCache(__METHOD__);
+    }
 }

@@ -75,6 +75,11 @@ class ModelResponseGetCardTransactionTransaction
     private $vatDetails = [];
 
     /**
+     * @var ModelResponseGetCardTransactionTransactionFailedReason
+     */
+    private $failedReason;
+
+    /**
      * @return integer
      */
     public function getTxid()
@@ -326,5 +331,21 @@ class ModelResponseGetCardTransactionTransaction
         return $this;
     }
 
+    /**
+     * @return ModelResponseGetCardTransactionTransactionFailedReason
+     */
+    public function getFailedReason()
+    {
+        return $this->failedReason;
+    }
 
+    /**
+     * @param ModelResponseGetCardTransactionTransactionFailedReason $failedReason
+     * @return ModelResponseGetCardTransactionTransaction
+     */
+    public function setFailedReason($failedReason)
+    {
+        $this->failedReason = $failedReason;
+        return $this;
+    }
 }
