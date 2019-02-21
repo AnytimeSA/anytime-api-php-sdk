@@ -54,6 +54,11 @@ class ModelResponseGetCardTransaction extends ModelResponseGet
 
                 $transactionTransaction->setVatDetails($vatDetails);
 
+                if(array_key_exists('failed_reason', $elem)) {
+                    $failedReason = $this->hydrator->hydrate(new ModelResponseGetCardTransactionTransactionFailedReason(), $elem['failed_reason']);
+                    $transactionTransaction->setFailedReason($failedReason);
+                }
+
                 $transactions[] = $transactionTransaction;
             }
 
