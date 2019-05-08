@@ -51,13 +51,19 @@ class ModelRequestGetAccountStatementDetails extends ModelRequestGet
     }
 
     /**
-     * @param int $txid
+     * @param string $txid
      * @return ModelRequestGetAccountStatementDetails
      */
     public function setTxid($txid)
     {
-        $this->txid = $txid;
+        $matches = [];
+        if(preg_match('/^([0-9]+)\-([0-9]+)$/', $txid, $matches)) {
+            $this->setId((int)$matches[1]);
+            $this->txid = (int)$matches[2];
+        } else {
+            $this->txid = (int)$txid;
+        }
+
         return $this;
     }
-
 }
