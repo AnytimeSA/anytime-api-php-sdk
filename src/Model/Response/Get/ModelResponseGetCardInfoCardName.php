@@ -15,6 +15,11 @@ class ModelResponseGetCardInfoCardName
     private $lastName;
 
     /**
+     * @var string
+     */
+    private $embossed;
+
+    /**
      * @return string
      */
     public function getFirstName()
@@ -50,4 +55,21 @@ class ModelResponseGetCardInfoCardName
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getEmbossed()
+    {
+        return $this->embossed;
+    }
+
+    /**
+     * @param string $embossed
+     * @return ModelResponseGetCardInfoCardName
+     */
+    public function setEmbossed($embossed)
+    {
+        $this->embossed = $embossed;
+        return $this;
+    }
 }
