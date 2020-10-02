@@ -18,11 +18,9 @@ class PostAccountCreditTransferRequestBuilder extends RequestBuilder
             $modelRequest->getMethod(),
             $this->getFullUrl($this->preBuiltData['uri']),
             $this->filterNullParams([
-                'dst_acc_id'        =>  $modelRequest->getDstAccId(),
                 'src_comment'       =>  $modelRequest->getSrcComment(),
                 'dst_comment'       =>  $modelRequest->getDstComment(),
                 'dst_name'          =>  $modelRequest->getDstName(),
-                'dst_type'          =>  $modelRequest->getDstType(),
                 'dst_iban'          =>  $modelRequest->getDstIban(),
                 'dst_swift'         =>  $modelRequest->getDstSwift(),
                 'amount'            =>  $modelRequest->getAmount()
