@@ -7,8 +7,8 @@ use Xpmock\TestCase;
 class JsonResponseParserTest extends TestCase
 {
     /**
-     * @Parser
-     * @JsonResponseParser
+     * @group Parser
+     * @group JsonResponseParser
      */
     public function testParseReturnsArrayIfJsonIsValid()
     {
@@ -17,8 +17,8 @@ class JsonResponseParserTest extends TestCase
     }
 
     /**
-     * @Parser
-     * @JsonResponseParser
+     * @group Parser
+     * @group JsonResponseParser
      */
     public function testParseThrowsExceptionIfBadJsonGiven()
     {

@@ -16,9 +16,9 @@ use Xpmock\TestCase;
 class ModelFactoryTest extends TestCase
 {
     /**
-     * @Model
-     * @ModelFactory
-     * @ModelResponseFactory
+     * @group Model
+     * @group ModelFactory
+     * @group ModelResponseFactory
      */
     public function testCreateByModelTypeResponseReturnsCorrectObjectIfModelExists()
     {
@@ -28,9 +28,9 @@ class ModelFactoryTest extends TestCase
     }
 
     /**
-     * @Model
-     * @ModelFactory
-     * @ModelResponseFactory
+     * @group Model
+     * @group ModelFactory
+     * @group ModelResponseFactory
      */
     public function testCreateByModelTypeResponseThrowsExceptionIfModelDoesNotExists()
     {
@@ -42,9 +42,9 @@ class ModelFactoryTest extends TestCase
     }
 
     /**
-     * @Model
-     * @ModelFactory
-     * @ModelRequestFactory
+     * @group Model
+     * @group ModelFactory
+     * @group ModelRequestFactory
      */
     public function testCreateByModelTypeRequestReturnsCorrectObjectIfModelExists()
     {
@@ -53,9 +53,9 @@ class ModelFactoryTest extends TestCase
     }
 
     /**
-     * @Model
-     * @ModelFactory
-     * @ModelRequestFactory
+     * @group Model
+     * @group ModelFactory
+     * @group ModelRequestFactory
      */
     public function testCreateByModelTypeRequestThrowsExceptionIfModelDoesNotExists()
     {
