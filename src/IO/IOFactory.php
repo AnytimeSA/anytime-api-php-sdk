@@ -52,7 +52,12 @@ class IOFactory
     /**
      * @var ParserInterface
      */
-    private $responseParser;
+    private $jsonResponseParser;
+
+    /**
+     * @var ParserInterface
+     */
+    private $binaryResponseParser;
 
     /**
      * @var AuthenticatorInterface
@@ -69,7 +74,8 @@ class IOFactory
      * @param RequestDirectorFactory $requestDirectorFactory
      * @param ApiClientExceptionFactory $apiClientExceptionFactory
      * @param ModelResponsePopulatorInterface $modelResponsePopulator
-     * @param ParserInterface $responseParser
+     * @param ParserInterface $jsonResponseParser
+     * @param ParserInterface $binaryResponseParser
      * @param AuthenticatorInterface $responseAuthenticator
      */
     public function __construct(
@@ -80,7 +86,8 @@ class IOFactory
         RequestDirectorFactory $requestDirectorFactory,
         ApiClientExceptionFactory $apiClientExceptionFactory,
         ModelResponsePopulatorInterface $modelResponsePopulator,
-        ParserInterface $responseParser,
+        ParserInterface $jsonResponseParser,
+        ParserInterface $binaryResponseParser,
         AuthenticatorInterface $responseAuthenticator
     )
     {
@@ -91,7 +98,8 @@ class IOFactory
         $this->requestDirectorFactory = $requestDirectorFactory;
         $this->apiClientExceptionFactory = $apiClientExceptionFactory;
         $this->modelResponsePopulator = $modelResponsePopulator;
-        $this->responseParser = $responseParser;
+        $this->jsonResponseParser = $jsonResponseParser;
+        $this->binaryResponseParser = $binaryResponseParser;
         $this->responseAuthenticator = $responseAuthenticator;
     }
 
@@ -112,7 +120,8 @@ class IOFactory
                 $this->requestDirectorFactory,
                 $this->apiClientExceptionFactory,
                 $this->modelResponsePopulator,
-                $this->responseParser,
+                $this->jsonResponseParser,
+                $this->binaryResponseParser,
                 $this->responseAuthenticator
             );
         }

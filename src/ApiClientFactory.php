@@ -13,6 +13,7 @@ use Anytime\ApiClient\IO\IOList;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulator;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
+use Anytime\ApiClient\Parser\ResponseParser\BinaryResponseParser;
 use Anytime\ApiClient\Parser\ResponseParser\JsonResponseParser;
 use GuzzleHttp\Client;
 
@@ -63,6 +64,7 @@ class ApiClientFactory
         $modelResponsePopulator = new ModelResponsePopulator();
         $modelResponseFactory = new ModelResponseFactory($modelResponsePopulator);
         $jsonResponseParser = new JsonResponseParser();
+        $binaryResponseParser = new BinaryResponseParser();
 
         return new ApiClient(
             $setting,
@@ -82,6 +84,7 @@ class ApiClientFactory
                     ),
                     $modelResponsePopulator,
                     $jsonResponseParser,
+                    $binaryResponseParser,
                     new ResponseAuthenticator()
                 )
             )

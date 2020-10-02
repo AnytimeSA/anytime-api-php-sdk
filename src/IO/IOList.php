@@ -276,6 +276,14 @@ class IOList
     }
 
     /**
+     * @return AccountCreditTransferTestimonialDownloadIO
+     */
+    public function accountCreditTransferTestimonialDownload()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_CREDIT_TRANSFER_TESTIMONIAL_DOWNLOAD);
+    }
+
+    /**
      * @return RequestMultiRequestIO
      */
     public function multiRequest()

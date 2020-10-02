@@ -13,13 +13,17 @@ class ModelResponsePopulator extends Populator implements ModelResponsePopulator
      */
     public function populate(ModelResponse $modelObject, $data)
     {
-        if(array_key_exists('body', $data)) {
-            $modelObject->setData($data['body']);
+        if($modelObject->getResponseFormat() === 'binary') {
+            $modelObject->setData($data);
+        } else {
+            if(array_key_exists('body', $data)) {
+                $modelObject->setData($data['body']);
 
-            $modelObject->getHeader()->setHash(array_key_exists('hash', $data) ? $data['hash'] : []);
-            $modelObject->getHeader()->setRequestId(array_key_exists('request_id', $data) ? $data['request_id'] : []);
-            $modelObject->getHeader()->setTimestamp(array_key_exists('timestamp', $data) ? $data['timestamp'] : []);
-            $modelObject->getHeader()->setTypeResponse(array_key_exists('type_response', $data) ? $data['type_response'] : []);
+                $modelObject->getHeader()->setHash(array_key_exists('hash', $data) ? $data['hash'] : []);
+                $modelObject->getHeader()->setRequestId(array_key_exists('request_id', $data) ? $data['request_id'] : []);
+                $modelObject->getHeader()->setTimestamp(array_key_exists('timestamp', $data) ? $data['timestamp'] : []);
+                $modelObject->getHeader()->setTypeResponse(array_key_exists('type_response', $data) ? $data['type_response'] : []);
+            }
         }
 
         return $modelObject;
