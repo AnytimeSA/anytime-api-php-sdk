@@ -12,6 +12,7 @@ class API
     const ACCOUNT_CREATION = 'AccountCreation';
     const ACCOUNT_UPDATE = 'AccountUpdate';
     const ACCOUNT_CREDIT_TRANSFER = 'AccountCreditTransfer';
+    const ACCOUNT_CREDIT_TRANSFER_LIST = 'AccountCreditTransferList';
     const ACCOUNT_CREDIT_TRANSFER_TESTIMONIAL_DOWNLOAD = 'AccountCreditTransferTestimonialDownload';
     const ACCOUNT_BALANCE = 'AccountBalance';
     const ACCOUNT_STATEMENT = 'AccountStatement';

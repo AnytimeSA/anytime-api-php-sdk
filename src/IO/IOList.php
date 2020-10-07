@@ -284,6 +284,14 @@ class IOList
     }
 
     /**
+     * @return AccountCreditTransferListIO
+     */
+    public function accountCreditTransferList()
+    {
+        return $this->getIOFromCache(API::ACCOUNT_CREDIT_TRANSFER_LIST);
+    }
+
+    /**
      * @return RequestMultiRequestIO
      */
     public function multiRequest()

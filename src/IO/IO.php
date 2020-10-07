@@ -8,7 +8,7 @@ use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
-use Anytime\ApiClient\Model\Request\Get\ModelRequestGetApiCheck;
+use Anytime\ApiClient\Model\Request\Get\ModelRequestGet;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
 use Anytime\ApiClient\Model\Request\ModelRequestInterface;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
@@ -112,6 +112,8 @@ abstract class IO
     /**
      * @param ModelRequestInterface $modelRequest
      * @return ModelResponseInterface
+     * @throws ApiClientException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function sendRequest(ModelRequestInterface $modelRequest)
     {
@@ -131,6 +133,7 @@ abstract class IO
     /**
      * @param ModelRequestInterface $modelRequest
      * @throws ApiClientException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @return ModelResponseInterface
      */
     protected function send(ModelRequestInterface $modelRequest)
@@ -183,7 +186,7 @@ abstract class IO
     /**
      * @param string $method
      * @param string $apiName
-     * @return ModelRequestGetApiCheck
+     * @return ModelRequestGet
      */
     protected function createRequestByMethodAndApi($method, $apiName)
     {
