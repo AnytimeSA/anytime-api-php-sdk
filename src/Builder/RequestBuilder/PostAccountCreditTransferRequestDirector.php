@@ -13,7 +13,7 @@ class PostAccountCreditTransferRequestDirector extends RequestDirector
      */
     public function buildRequest(ModelRequestInterface $modelRequest)
     {
-        $this->requestBuilder->setUri('accounts/' . $modelRequest->getId() . '/credit-transfer');
+        $this->requestBuilder->setUri('accounts/' . $modelRequest->getId() . '/credit-transfers');
         return $this;
     }
 }
