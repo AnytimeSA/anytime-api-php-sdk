@@ -45,6 +45,11 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     protected $modelRequest;
 
     /**
+     * @var string
+     */
+    protected $responseFormat = 'json';
+
+    /**
      * ModelResponse constructor.
      *
      * @param HydratorInterface $hydrator
@@ -157,6 +162,14 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     public function getModelResponseFactory()
     {
         return $this->modelResponseFactory;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseFormat()
+    {
+        return $this->responseFormat;
     }
 
 }

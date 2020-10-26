@@ -3,7 +3,7 @@
     "description": "PHP SDK to use the Anytime API",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.6",

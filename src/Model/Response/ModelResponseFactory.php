@@ -27,7 +27,7 @@ class ModelResponseFactory extends ModelFactory
 
     /**
      * @param ModelRequest $modelRequest
-     * @return Model
+     * @return ModelResponse
      */
     public function create(ModelRequest $modelRequest)
     {

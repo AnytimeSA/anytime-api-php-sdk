@@ -8,7 +8,7 @@ use Anytime\ApiClient\Builder\RequestBuilder\RequestDirectorFactory;
 use Anytime\ApiClient\Exception\ApiClientException\ApiClientException;
 use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFactory;
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulatorInterface;
-use Anytime\ApiClient\Model\Request\Get\ModelRequestGetApiCheck;
+use Anytime\ApiClient\Model\Request\Get\ModelRequestGet;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
 use Anytime\ApiClient\Model\Request\ModelRequestInterface;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
@@ -58,7 +58,12 @@ abstract class IO
     /**
      * @var ParserInterface
      */
-    protected $responseParser;
+    protected $jsonResponseParser;
+
+    /**
+     * @var ParserInterface
+     */
+    protected $binaryResponseParser;
 
     /**
      * @var AuthenticatorInterface
@@ -75,7 +80,8 @@ abstract class IO
      * @param RequestDirectorFactory $requestDirectorFactory
      * @param ApiClientExceptionFactory $apiClientExceptionFactory
      * @param ModelResponsePopulatorInterface $modelResponsePopulator
-     * @param ParserInterface $responseParser
+     * @param ParserInterface $jsonResponseParser
+     * @param ParserInterface $binaryResponseParser
      * @param AuthenticatorInterface $responseAuthenticator
      */
     public function __construct(
@@ -86,7 +92,8 @@ abstract class IO
         RequestDirectorFactory $requestDirectorFactory,
         ApiClientExceptionFactory $apiClientExceptionFactory,
         ModelResponsePopulatorInterface $modelResponsePopulator,
-        ParserInterface $responseParser,
+        ParserInterface $jsonResponseParser,
+        ParserInterface $binaryResponseParser,
         AuthenticatorInterface $responseAuthenticator
     )
     {
@@ -97,13 +104,16 @@ abstract class IO
         $this->requestDirectorFactory = $requestDirectorFactory;
         $this->apiClientExceptionFactory = $apiClientExceptionFactory;
         $this->modelResponsePopulator = $modelResponsePopulator;
-        $this->responseParser = $responseParser;
+        $this->jsonResponseParser = $jsonResponseParser;
+        $this->binaryResponseParser = $binaryResponseParser;
         $this->responseAuthenticator = $responseAuthenticator;
     }
 
     /**
      * @param ModelRequestInterface $modelRequest
      * @return ModelResponseInterface
+     * @throws ApiClientException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function sendRequest(ModelRequestInterface $modelRequest)
     {
@@ -123,6 +133,7 @@ abstract class IO
     /**
      * @param ModelRequestInterface $modelRequest
      * @throws ApiClientException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @return ModelResponseInterface
      */
     protected function send(ModelRequestInterface $modelRequest)
@@ -130,7 +141,6 @@ abstract class IO
         $IORequest = $this->buildRequest($modelRequest);
 
         try {
-
             $response = $this->client->request(
                 $IORequest->getMethod(),
                 $IORequest->getUrl(),
@@ -139,9 +149,16 @@ abstract class IO
 
             $modelResponse = $this->modelResponseFactory->create($modelRequest);
 
+
+            if($modelResponse->getResponseFormat() == 'binary') {
+                $parser = $this->binaryResponseParser;
+            } else {
+                $parser = $this->jsonResponseParser;
+            }
+
             return $this->modelResponsePopulator->populate(
                 $modelResponse,
-                $this->responseParser->parse((string) $response->getBody())
+                $parser->parse((string) $response->getBody())
             );
 
         } catch(BadResponseException $e) {
@@ -169,7 +186,7 @@ abstract class IO
     /**
      * @param string $method
      * @param string $apiName
-     * @return ModelRequestGetApiCheck
+     * @return ModelRequestGet
      */
     protected function createRequestByMethodAndApi($method, $apiName)
     {

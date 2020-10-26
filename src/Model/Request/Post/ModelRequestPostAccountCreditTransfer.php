@@ -12,11 +12,6 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     private $id;
 
     /**
-     * @var integer
-     */
-    private $dstAccId;
-
-    /**
      * @var string
      */
     private $srcComment;
@@ -30,11 +25,6 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
      * @var string
      */
     private $dstName;
-
-    /**
-     * @var string
-     */
-    private $dstType;
 
     /**
      * @var string
@@ -75,24 +65,6 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     public function setId($id)
     {
         $this->id = (int)$id;
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getDstAccId()
-    {
-        return $this->dstAccId;
-    }
-
-    /**
-     * @param integer $dstAccId
-     * @return ModelRequestPostAccountCreditTransfer
-     */
-    public function setDstAccId($dstAccId)
-    {
-        $this->dstAccId = (int)$dstAccId;
         return $this;
     }
 
@@ -147,24 +119,6 @@ class ModelRequestPostAccountCreditTransfer extends ModelRequestPost
     public function setDstName($dstName)
     {
         $this->dstName = (string)$dstName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDstType()
-    {
-        return $this->dstType;
-    }
-
-    /**
-     * @param string $dstType
-     * @return ModelRequestPostAccountCreditTransfer
-     */
-    public function setDstType($dstType)
-    {
-        $this->dstType = (string)$dstType;
         return $this;
     }
 

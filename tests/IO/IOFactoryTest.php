@@ -10,6 +10,7 @@ use Anytime\ApiClient\Exception\ApiClientException\Factory\ApiClientExceptionFac
 use Anytime\ApiClient\Model\Populator\ModelResponsePopulator;
 use Anytime\ApiClient\Model\Request\ModelRequestFactory;
 use Anytime\ApiClient\Model\Response\ModelResponseFactory;
+use Anytime\ApiClient\Parser\ResponseParser\BinaryResponseParser;
 use Anytime\ApiClient\Parser\ResponseParser\JsonResponseParser;
 use GuzzleHttp\Client;
 use Xpmock\TestCase;
@@ -51,6 +52,7 @@ class IOFactoryTest extends TestCase
             $this->mock(ApiClientExceptionFactory::class)->new(),
             $this->mock(ModelResponsePopulator::class)->new(),
             $this->mock(JsonResponseParser::class)->new(),
+            $this->mock(BinaryResponseParser::class)->new(),
             $this->mock(ResponseAuthenticator::class)->new()
         );
     }
