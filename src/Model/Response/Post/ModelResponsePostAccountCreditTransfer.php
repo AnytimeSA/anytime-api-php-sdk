@@ -103,6 +103,14 @@ class ModelResponsePostAccountCreditTransfer extends ModelResponsePost
     /**
      * @return string
      */
+    public function getSourceReason()
+    {
+        return (string)$this->getDataValue('source_reason');
+    }
+
+    /**
+     * @return string
+     */
     public function getStatus()
     {
         return (string)$this->getDataValue('status');
