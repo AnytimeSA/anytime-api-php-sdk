@@ -58,6 +58,7 @@ class FromSnakeCaseHydrator implements HydratorInterface
      * @param $class
      * @param $method
      * @return string
+     * @throws \ReflectionException
      */
     protected function getSetterParamType($class, $method)
     {

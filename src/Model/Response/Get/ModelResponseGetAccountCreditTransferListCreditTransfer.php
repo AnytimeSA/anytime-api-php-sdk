@@ -42,6 +42,9 @@ class ModelResponseGetAccountCreditTransferListCreditTransfer
     private $reason;
 
     /** @var string */
+    private $sourceReason;
+
+    /** @var string */
     private $status;
 
     /** @var float */
@@ -263,6 +266,24 @@ class ModelResponseGetAccountCreditTransferListCreditTransfer
     public function setReason($reason)
     {
         $this->reason = $reason;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSourceReason()
+    {
+        return $this->sourceReason;
+    }
+
+    /**
+     * @param string $sourceReason
+     * @return ModelResponseGetAccountCreditTransferListCreditTransfer
+     */
+    public function setSourceReason($sourceReason)
+    {
+        $this->sourceReason = $sourceReason;
         return $this;
     }
 
