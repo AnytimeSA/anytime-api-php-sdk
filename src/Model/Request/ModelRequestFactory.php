@@ -8,8 +8,8 @@ use Anytime\ApiClient\Model\Model;
 class ModelRequestFactory extends ModelFactory
 {
     /**
-     * @param $method
-     * @param $apiName
+     * @param string $method
+     * @param string $apiName
      * @return Model
      */
     public function create($method, $apiName)

@@ -9,7 +9,7 @@ class GetCardGetPinRequestBuilder extends GetRequestBuilder
 {
     /**
      * @param ModelRequest|ModelRequestGetCardGetPin $modelRequest
-     * @return IORequest
+     * @return \Anytime\ApiClient\IO\IORequest
      */
     public function getRequest(ModelRequest $modelRequest)
     {

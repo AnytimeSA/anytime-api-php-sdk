@@ -33,7 +33,6 @@ class ModelResponsePostAccountKyc extends ModelResponsePost
 
     /**
      * @param ModelResponsePostAccountKycFileStatus $modelResponsePostAccountKycFileStatus
-     * @return string
      */
     private function hydrateFileStatus(ModelResponsePostAccountKycFileStatus $modelResponsePostAccountKycFileStatus)
     {

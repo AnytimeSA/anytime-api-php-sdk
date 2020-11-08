@@ -125,8 +125,8 @@ abstract class ModelResponse extends Model implements ModelResponseInterface
     }
 
     /**
-     * @param $key
-     * @return mixed|null
+     * @param string $key
+     * @return mixed
      */
     protected function getGetterCache($key)
     {
