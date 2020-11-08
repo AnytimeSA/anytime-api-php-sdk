@@ -73,7 +73,7 @@ abstract class RequestBuilder
 
     /**
      * @param string $method
-     * @param $fullUrl
+     * @param string $fullUrl
      * @param array $formData
      * @param array $headers
      * @param array $files
@@ -112,7 +112,7 @@ abstract class RequestBuilder
     }
 
     /**
-     * @param $uri
+     * @param string $uri
      */
     public function setUri($uri)
     {

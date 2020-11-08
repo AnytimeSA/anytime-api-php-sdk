@@ -105,7 +105,7 @@ class IOFactory
 
     /**
      * @param string $apiName
-     * @return IOInterface
+     * @return IO
      */
     public function create($apiName)
     {

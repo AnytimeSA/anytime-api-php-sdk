@@ -8,7 +8,7 @@ class OpenSslRequestSigner implements RequestSignerInterface
 {
     /**
      * @param IORequest $request
-     * @param $rsaKey
+     * @param string $rsaKey
      * @return IORequest
      */
     public function sign(IORequest $request, $rsaKey)

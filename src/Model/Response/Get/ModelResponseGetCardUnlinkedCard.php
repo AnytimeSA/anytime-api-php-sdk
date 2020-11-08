@@ -20,7 +20,7 @@ class ModelResponseGetCardUnlinkedCard
 
     /**
      * @param string $cardRef
-     * @return ModelResponsegetCardUnlinkedCard
+     * @return ModelResponseGetCardUnlinkedCard
      */
     public function setCardRef($cardRef)
     {
