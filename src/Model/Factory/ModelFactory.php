@@ -22,22 +22,31 @@ abstract class ModelFactory
      */
     public function createByModelType($modelType, $method, $apiName)
     {
-        $class =
-            'Anytime\\ApiClient\\Model\\'.($modelType === 'ModelResponse' ? 'Response' : 'Request').'\\' .
-            ucfirst(strtolower($method)) . '\\' .
-            $modelType . ucfirst(strtolower($method)) .
+        $class = sprintf(
+            'Anytime\\ApiClient\\Model\\%s\\%s\\%s%s%s',
+            $modelType === 'ModelResponse' ? 'Response' : 'Request',
+            ucfirst(strtolower($method)),
+            $modelType,
+            ucfirst(strtolower($method)),
             $apiName
-        ;
+        );
 
-        if(class_exists($class)) {
-            $timezoneNormalizer = new TimezoneNormalizer();
-            if($modelType === 'ModelResponse') {
-                return new $class(new FromSnakeCaseHydrator($timezoneNormalizer), $timezoneNormalizer, $this->createHeader(), $this, $this->modelRequest);
-            } else {
-                return new $class($timezoneNormalizer);
-            }
+        if (!class_exists($class)) {
+            throw new \RuntimeException('Class '.$class.' not found');
         }
 
-        throw new \RuntimeException('Class '.$class.' not found');
+        $timezoneNormalizer = new TimezoneNormalizer();
+        
+        if ($modelType === 'ModelResponse') {
+            return new $class(
+                new FromSnakeCaseHydrator($timezoneNormalizer),
+                $timezoneNormalizer,
+                $this->createHeader(),
+                $this,
+                $this->modelRequest
+            );
+        }
+
+        return new $class($timezoneNormalizer);
     }
 }
